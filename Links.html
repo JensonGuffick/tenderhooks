@@ -2,161 +2,150 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tenderhooks Band</title>
-    <style>body {
-    background-color: #333;
-    color: #fff;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
+    <style>
+        body {
+            background-color: #333;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
 
-.container {
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
-    padding-top: 80px;
-}
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            padding-top: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-.header {
-    position: relative;
-    text-align: center;
-    overflow: hidden;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+        .top-bar {
+            width: calc(100% - 40px);
+            height: 80px;
+            background-color: #555;
+            position: fixed;
+            top: 30px;
+            left: 20px;
+            z-index: 1;
+            border-radius: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-.header img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 15px;
-    margin-top: 20px;
-}
+        .links {
+            background-color: #888;
+            height: 70px;
+            width: 150px;
+            border-radius: 35px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            margin: 0 5px;
+            border: 2px solid black;
+        }
 
-.header .overlay-text {
-    font-size: 3em;
-    font-weight: bold;
-    color: #fff;
-    width: 100%;
-    padding: 10px;
-    box-sizing: border-box;
-}
+        .links button {
+            background: none;
+            border: none;
+            color: inherit;
+            font: inherit;
+            cursor: pointer;
+            padding: 0;
+            outline: none;
+        }
 
-.top-bar {
-    width: calc(100% - 40px);
-    height: 80px;
-    background-color: #555;
-    position: fixed;
-    top: 30px;
-    left: 20px;
-    z-index: 1;
-    border-radius: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+        .content {
+            margin-top: 100px;
+            text-align: center;
+            position: relative;
+        }
 
-.content {
-    border-radius: 15px;
-    display: block;
-    align-items: center;
-    text-align: center;
-}
+        .content h2 {
+            margin-bottom: 20px;
+        }
 
-.footer {
-    text-align: center;
-}
+        .side-by-side {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
 
-@media (max-width: 768px) {
-    .header .overlay-text {
-        font-size: 2.5em;
-        padding: 8px;
-    }
-}
+        .iframe-container,
+        .image-container {
+            flex: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative; /* Added to position text relative to the image */
+            display: flex;
+            align-items: center;
+        }
 
-@media (max-width: 480px) {
-    .header .overlay-text {
-        font-size: 2em;
-        padding: 6px;
-    }
-}
+        .iframe-container iframe,
+        .image-container img {
+            width: 100%;
+            border: none;
+        }
 
-@media (max-width: 768px) {
-    .links {
-        margin: 0 10px;
-        border: 2px solid black;
-    }
-}
-
-@media (max-width: 480px) {
-    .links {
-        margin: 0 0px;
-        border: 0px solid black;
-    }
-}
-
-.links {
-    background-color: #888;
-    height: 70px;
-    width: 150px;
-    border-radius: 35px;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    color: white;
-    margin: 0 5px;
-    border: 2px solid black;
-}
-
-
-.links button {
-    background: none;
-    border: none;
-    color: inherit;
-    font: inherit;
-    cursor: pointer;
-    padding: 0;
-    outline: none;
-}
-</style>
+        .join-text {
+            position: absolute;
+            left: 50%;
+            top: 80%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            font-size: 100%;
+            white-space: nowrap;
+            z-index: 2;
+        }
+    .bandcamp {
+            position: absolute;
+            left: 39%;
+            top: 80%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            font-size: 100%;
+            white-space: nowrap;
+            z-index: 2;
+        }</style>
 </head>
 <body>
     <div class="top-bar">
-    <a class="links" href="https://tenderhooks.github.io">
-            <button>Home</button>
-        </a>
-        <a class="links" href="Links">
-            <button>Links</button>
-        </a>
-        <a class="links" href="contact">
-            <button>Contact</button>
-        </a><a class="links" href="About">
-            <button>About Us</button>
-        </a></div>
-    <div class="container">
-        <div class="header">
-            <p class="overlay-text">TENDERHOOKS</p>
-            <img src="image.png" alt="Tenderhooks Band">
-        </div>
-        <div class="content">
-            <h2>Music</h2>
-            <p>Stay tuned for the latest songs with the Tenderhooks! Check out our upcoming events and new releases below.</p>
-            <iframe style="border-radius:35px" src="https://open.spotify.com/embed/artist/145sIL2lTb9SrV5oEi9Wv1?utm_source=generator" width="100%" height="352" frameborder="1" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            <br><br>
-            <a href="https://discord.gg/PnwH6jHCMy" style="display: inline-block; text-decoration: none; color: white; text-align: center;">
-                <p style="font-size: 3em;">Join the discord!</p>
-                <img src="https://images.squarespace-cdn.com/content/v1/645bcf3bfe1164722e56317f/1686767877830-5GPGPZC6R5V78TVG6F9U/discord-icon-100x100-nnt62s2u.png" style="max-width: 25%;">
-            </a>
-            <div class="footer">
-            <p>© 2024 Tenderhooks. All rights reserved.</p>
-        </div>
+        <a class="links" href="https://tenderhooks.github.io"><button>Home</button></a>
+        <a class="links" href="Links"><button>Links</button></a>
+        <a class="links" href="contact"><button>Contact</button></a>
+        <a class="links" href="About"><button>About Us</button></a>
     </div>
 
-
-</div>
+    <div class="container">
+        <div class="content">
+            <h2>Any Links</h2>
+            <p>Here are all of the links to our socials! You can also stream music here!</p>
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/145sIL2lTb9SrV5oEi9Wv1?utm_source=generator&amp;theme=0" width="100%" height="352" frameborder="1" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <div class="side-by-side">
+                <div class="image-container">
+                    <a href="https://discord.gg/PnwH6jHCMy"><img src="https://images.squarespace-cdn.com/content/v1/645bcf3bfe1164722e56317f/1686767877830-5GPGPZC6R5V78TVG6F9U/discord-icon-100x100-nnt62s2u.png" style="max-width: 50%;"><span class="join-text">Discord</span></a>
+                </div>
+                <div class="iframe-container">
+                    <a href="https://tenderhooks.bandcamp.com/music"><img src="BC.png"><span class="bandcamp">Bandcamp</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 </body></html>
