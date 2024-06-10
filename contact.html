@@ -110,11 +110,19 @@
             z-index: 2;
         }
         .email {
-            font-size: 2em;
-            font-weight: bold;
-            color: #fff;
+            background-color: #11C155;
+            border-radius: 35px;
+            height: 100px;
             width: 100%;
-            box-sizing: border-box;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            margin: 0 5px;
+            border: 2px solid black;
+            align-items: center;
         }
         .facebook {
             background-color: #2276bf;
@@ -141,6 +149,20 @@
             
             @media (max-width: 480px) {
                 .header .overlay-text {
+                    font-size: 2.5em;
+                    padding: 6px;
+                }
+}
+
+@media (max-width: 768px) {
+            .content .facebook {
+                font-size: 343em;
+                padding: 8px;
+                }
+            }
+            
+            @media (max-width: 480px) {
+                .content .facebook {
                     font-size: 2.5em;
                     padding: 6px;
                 }
@@ -173,4 +195,5 @@
             <a href="https://www.facebook.com/search/top?q=tenderhooks" class="facebook">Facebook</a>
         </div>
 
-</div></body></html>
+</div>
+</body></html>
