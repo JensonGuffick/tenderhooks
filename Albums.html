@@ -132,7 +132,32 @@
             }
         }
     </style>
-</head>
+<style>/* Copyright (C) Microsoft Corporation. All rights reserved. */
+
+.msreadout-word-highlight:not(.msreadout-inactive-highlight) {
+    background: #ffff00 !important;
+    color: black !important;
+}
+
+.msreadout-line-highlight:not(.msreadout-inactive-highlight) {
+    background: #b2d6f3 !important;
+    color: black !important;
+}
+
+@media screen and (-ms-high-contrast: active) {
+    .msreadout-word-highlight:not(.msreadout-inactive-highlight) {
+        -ms-high-contrast-adjust: none;
+        background-color: Highlight !important;
+        color: HighlightText !important;
+    }
+
+    .msreadout-line-highlight:not(.msreadout-inactive-highlight) {
+        -ms-high-contrast-adjust: none;
+        background: yellow !important;
+        color: black !important;
+    }
+}
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uLy4uLy4uL2Nzcy9yZWFkX291dF9sb3VkX3dlYi5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsOERBQThEOztBQUU5RDtJQUNJLDhCQUE4QjtJQUM5Qix1QkFBdUI7QUFDM0I7O0FBRUE7SUFDSSw4QkFBOEI7SUFDOUIsdUJBQXVCO0FBQzNCOztBQUVBO0lBQ0k7UUFDSSw4QkFBOEI7UUFDOUIsc0NBQXNDO1FBQ3RDLCtCQUErQjtJQUNuQzs7SUFFQTtRQUNJLDhCQUE4QjtRQUM5Qiw2QkFBNkI7UUFDN0IsdUJBQXVCO0lBQzNCO0FBQ0oiLCJzb3VyY2VzQ29udGVudCI6WyIvKiBDb3B5cmlnaHQgKEMpIE1pY3Jvc29mdCBDb3Jwb3JhdGlvbi4gQWxsIHJpZ2h0cyByZXNlcnZlZC4gKi9cclxuXHJcbi5tc3JlYWRvdXQtd29yZC1oaWdobGlnaHQ6bm90KC5tc3JlYWRvdXQtaW5hY3RpdmUtaGlnaGxpZ2h0KSB7XHJcbiAgICBiYWNrZ3JvdW5kOiAjZmZmZjAwICFpbXBvcnRhbnQ7XHJcbiAgICBjb2xvcjogYmxhY2sgIWltcG9ydGFudDtcclxufVxyXG5cclxuLm1zcmVhZG91dC1saW5lLWhpZ2hsaWdodDpub3QoLm1zcmVhZG91dC1pbmFjdGl2ZS1oaWdobGlnaHQpIHtcclxuICAgIGJhY2tncm91bmQ6ICNiMmQ2ZjMgIWltcG9ydGFudDtcclxuICAgIGNvbG9yOiBibGFjayAhaW1wb3J0YW50O1xyXG59XHJcblxyXG5AbWVkaWEgc2NyZWVuIGFuZCAoLW1zLWhpZ2gtY29udHJhc3Q6IGFjdGl2ZSkge1xyXG4gICAgLm1zcmVhZG91dC13b3JkLWhpZ2hsaWdodDpub3QoLm1zcmVhZG91dC1pbmFjdGl2ZS1oaWdobGlnaHQpIHtcclxuICAgICAgICAtbXMtaGlnaC1jb250cmFzdC1hZGp1c3Q6IG5vbmU7XHJcbiAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogSGlnaGxpZ2h0ICFpbXBvcnRhbnQ7XHJcbiAgICAgICAgY29sb3I6IEhpZ2hsaWdodFRleHQgIWltcG9ydGFudDtcclxuICAgIH1cclxuXHJcbiAgICAubXNyZWFkb3V0LWxpbmUtaGlnaGxpZ2h0Om5vdCgubXNyZWFkb3V0LWluYWN0aXZlLWhpZ2hsaWdodCkge1xyXG4gICAgICAgIC1tcy1oaWdoLWNvbnRyYXN0LWFkanVzdDogbm9uZTtcclxuICAgICAgICBiYWNrZ3JvdW5kOiB5ZWxsb3cgIWltcG9ydGFudDtcclxuICAgICAgICBjb2xvcjogYmxhY2sgIWltcG9ydGFudDtcclxuICAgIH1cclxufSJdLCJzb3VyY2VSb290IjoiIn0= */</style></head>
 <body>
     <div class="top-bar">
         <a class="links" href="https://tenderhooks.github.io"><button>Home</button></a>
@@ -162,8 +187,36 @@
                 <div class="album"><a href="https://open.spotify.com/album/3DlhFsp7DkAVY66FRgM4dl?si=v53NIDBpRVGCtalWKEOlEA"><img src="https://i.scdn.co/image/ab67616d00001e021f4d91e3603ae9c0f97c78e1"></a><p>5.4 light years</p></div>
                 <div class="album"><a href="https://open.spotify.com/album/0CdVF7mFvb3jlGAXfY9veI?si=0-lXo_uOSU-DnBBOl2JsFg"><img src="https://i.scdn.co/image/ab67616d00001e027ff15ac1721937597bb87a7f"></a><p>Big Brother</p></div>
                 <div class="album"><a href="https://open.spotify.com/album/1mhwK6z1aNrtHDH5ABz1lQ?si=klB3mMOJR4qsUSqwnYikkg"><img src="https://i.scdn.co/image/ab67616d00001e020960b4d8a61bf9959ecb45d6"></a><p>Palace Pier</p></div>
-                <div class="album"><a href="https://open.spotify.com/album/0447AcWsfxLao1H1Z6v8eJ?si=eXbGa1-sR_ONn4Vhvpk2Tw"><img src="https://i.scdn.co/image/ab67616d00001e02635935b3336249577b79dbe1"></a><p>Mother Said (Latest)</p></div>
-            </div>
+                <div class="album"><a href="https://open.spotify.com/album/0447AcWsfxLao1H1Z6v8eJ?si=eXbGa1-sR_ONn4Vhvpk2Tw"><img src="https://i.scdn.co/image/ab67616d00001e02635935b3336249577b79dbe1"></a><p>Mother Said</p></div>
+                <div class="album"><a href="#"><img src="https://srv2.imgonline.com.ua/result_img/imgonline-com-ua-resize-cQtx2C3ehQYdoh7.jpg"></a><p>Brand New Day</p><p id="countdown"></p></div></div>
         </div>
     </div>
-</body>
+    <script>var countDownDate = new Date("Jun 28, 2024 10:00:00").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+    
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+    
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+  // Output the result in an element with id="demo"
+  document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+    
+  // If the count down is over, write some text 
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("countdown").innerHTML = "EXPIRED";
+  }
+}, 1000);
+</script>
+</body></html>
