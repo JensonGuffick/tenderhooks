@@ -1,4 +1,6 @@
-<html lang="en"><head><link rel="shortcut icon" type="image/x-icon" href="https://i.scdn.co/image/ab6761610000101f52458ff07ef384bac8f09eab">
+<html lang="en">
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="https://i.scdn.co/image/ab6761610000101f52458ff07ef384bac8f09eab">
     <style> body .container { font-family: sans-serif } </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,9 +19,6 @@
             margin: 0 auto;
             padding: 20px;
             padding-top: 80px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
 
         .top-bar {
@@ -107,33 +106,24 @@
 
         .join-text {
             position: absolute;
-            left: 50%;
-            top: 80%;
-            transform: translate(-50%, -50%);
+            left: 20%;
+            top: 70%;
             background-color: rgba(0, 0, 0, 0.7);
             padding: 10px 20px;
-            border-radius: 5px;
+            border-radius: 15px;
             color: white;
             font-weight: bold;
             font-size: 100%;
-            white-space: nowrap;
             z-index: 2;
         }
-    .bandcamp {
-            position: absolute;
-            left: 39%;
-            top: 80%;
-            transform: translate(-50%, -50%);
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 10px 20px;
-            border-radius: 5px;
-            color: white;
+    
+        .overlay-text {
+            font-size: 3em;
             font-weight: bold;
-            font-size: 100%;
-            white-space: nowrap;
-            z-index: 2;
+            color: #fff;
+            width: 100%;
         }
-    </style>
+</style>
 </head>
 <body>
     <div class="top-bar">
@@ -145,26 +135,31 @@
     </div>
     <div class="container">
         <div class="content">
-            <h2>Any Links</h2>
+            <p class="overlay-text">Any Links</p>
             <p>Here are all of the links to our socials! You can also stream music here!</p>
             <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/145sIL2lTb9SrV5oEi9Wv1?utm_source=generator&amp;theme=0" width="100%" height="352" frameborder="1" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             <div class="side-by-side">
-                <div class="image-container">
-                    <a href="https://discord.gg/PnwH6jHCMy"><img src="https://images.squarespace-cdn.com/content/v1/645bcf3bfe1164722e56317f/1686767877830-5GPGPZC6R5V78TVG6F9U/discord-icon-100x100-nnt62s2u.png" style="max-width: 50%;"><span class="join-text">Discord</span></a>
-                </div>
-                <div class="iframe-container">
-                    <a href="https://tenderhooks.bandcamp.com/music"><img src="BC.png" style="max-width: 100%;"><span class="bandcamp">Bandcamp</span></a>
-                </div>
-            </div>
-        <div class="side-by-side">
                 <div class="amazon-music">
-                    <a href="https://music.amazon.co.uk/artists/B001R58MWA/tenderhooks"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS05VMMVadvweVyF6zLSEL2Dw5KJ7QsDY4IpA&amp;s" style="max-width: 100%;"></a>
+                    <a href="https://discord.gg/PnwH6jHCMy"><img src="https://media.discordapp.net/attachments/1254818768471855237/1254841011000311909/imgonline-com-ua-resize-RkWXmf0YNivR3Di.png?ex=667af542&amp;is=6679a3c2&amp;hm=1c3d69e08e93d334821d1fca409aaa125eeb7bea332a5fd762c51a886dc5d207&amp;=&amp;format=webp&amp;quality=lossless&amp;width=300&amp;height=300" style="border-radius: 100%; max-width: 100%;">
+                        <p style="color: white; font-size: 1em;">Discord</p></a>
                 </div>
-                <div class="Spotify">
-                    <a href="https://open.spotify.com/artist/145sIL2lTb9SrV5oEi9Wv1?si=fc96479f20da4db6"><img src="https://cdn.icon-icons.com/icons2/3041/PNG/512/spotify_logo_icon_189218.png" style="max-width: 55%;"></a>
+                <div class="amazon-music">
+                    <a href="https://tenderhooks.bandcamp.com/music">
+                        <img src="https://media.discordapp.net/attachments/1254818768471855237/1254844378191630448/bandcamp-independent-music-performer-magazine-beatport-others-thumbnail.png?ex=667af865&amp;is=6679a6e5&amp;hm=c46f8ee741d4ba183ff3016301f55b920d422806cb572664ee2467c66ff91438&amp;format=webp&amp;quality=lossless&amp;width=300&amp;height=300" style="border-radius: 100%; max-width: 100%;">
+                            <p style="color: white; font-size: 1em;">Bandcamp</p></a>
                 </div>
             </div>
+            <div class="side-by-side">
+                <div class="amazon-music">
+                    <a href="https://music.amazon.co.uk/artists/B001R58MWA/tenderhooks">
+                        <img src="https://media.discordapp.net/attachments/1254818768471855237/1254851370004123752/imgonline-com-ua-Resize-4zSrBTSRYXet.png?ex=667afee8&amp;is=6679ad68&amp;hm=2707a1772bcb28ba02322979944f08920e7d4f0f715840cb6b2e4f99f499ca7b&amp;=&amp;format=webp&amp;quality=lossless&amp;width=300&amp;height=300" style="border-radius: 100%; max-width: 100%;"></a>
+                <p style="color: white; font-size: 1em;">Amazon Music</p></div>
+                <div class="Spotify">
+                    <a href="https://open.spotify.com/artist/145sIL2lTb9SrV5oEi9Wv1?si=fc96479f20da4db6">
+                        <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2023/05/Spotify_Primary_Logo_RGB_Green.png" style="border-radius: 100%; max-width: 100%;" width="300px"><p style="color: white; font-size: 1em;">Spotify</p></a>
+                </div>
+            </div>
+            <br>
         </div>
     </div>
-</body>
-</html>
+</body></html>
