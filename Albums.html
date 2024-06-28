@@ -160,7 +160,7 @@ body .container {
                 <div class="album"><a href="https://open.spotify.com/album/4UqnXXHlM1eIglJzj3nBCG?si=jOIlWUv1TQyqp2bIqNkx0w"><img src="https://i.scdn.co/image/ab67616d00001e0228d8852cae6232a899e3b9fe"></a><p>North Star</p></div>
                 <div class="album"><a href="https://open.spotify.com/album/2WAlVxmxXAzNS04pL1tYpV?si=V3pENq4mTyCehFHBxRNOJA"><img src="https://i.scdn.co/image/ab67616d00001e029f71b5f18059efecadc58290"></a><p>Skeleton Dance</p></div>
                 <div class="album"><a href="https://open.spotify.com/album/6OXj6up6cezIfAxuybSKUB?si=PYDt1u_aTyWbZ9hVo7xxWw"><img src="https://i.scdn.co/image/ab67616d00001e02566e235f987a0e0710022256"></a><p>20-20 Vision</p></div>
-                <div class="album"><a href="https://open.spotify.com/album/0FDMor63U3L07IMV91Cupv?si=HmeAmT-wR5mKdxClRw21wA"><img src="https://i.scdn.co/image/ab67616d00001e028bfd5ce97f4f28f954fa212a" naptha_cursor="text"></a><p>'Hooks!</p></div>
+                <div class="album"><a href="https://open.spotify.com/album/0FDMor63U3L07IMV91Cupv?si=HmeAmT-wR5mKdxClRw21wA"><img src="https://i.scdn.co/image/ab67616d00001e028bfd5ce97f4f28f954fa212a"></a><p>'Hooks!</p></div>
                 <div class="album"><a href="https://open.spotify.com/album/4I79BYWBdM3FUIQqQGlRP7?si=oGjPIOpDRd2T7ywmwx9krQ"><img src="https://i.scdn.co/image/ab67616d00001e02607da1ec5a1d182758575d39"></a><p>Yolena (Remix)</p></div>
                 <div class="album"><a href="https://open.spotify.com/album/09WRLUOfrJsge9ho7rvDst?si=HAD-4R7IReetFPgzRFqVKA"><img src="https://i.scdn.co/image/ab67616d00001e020d1f39c0440534b06e47ca67"></a><p>The Hour Glass</p></div>
                 <div class="album"><a href="https://open.spotify.com/album/4q3aumowQZmCrUFrzvEjAN?si=UyN7nJqFRBybZRFA8Jc_3w"><img src="https://i.scdn.co/image/ab67616d00001e02d91a74fa87ddc32bc8953d3c"></a><p>Station Guard Hero</p></div>
@@ -169,8 +169,11 @@ body .container {
                 <div class="album"><a href="https://open.spotify.com/album/0CdVF7mFvb3jlGAXfY9veI?si=0-lXo_uOSU-DnBBOl2JsFg"><img src="https://i.scdn.co/image/ab67616d00001e027ff15ac1721937597bb87a7f"></a><p>Big Brother</p></div>
                 <div class="album"><a href="https://open.spotify.com/album/1mhwK6z1aNrtHDH5ABz1lQ?si=klB3mMOJR4qsUSqwnYikkg"><img src="https://i.scdn.co/image/ab67616d00001e020960b4d8a61bf9959ecb45d6"></a><p>Palace Pier</p></div>
                 <div class="album"><a href="https://open.spotify.com/album/0447AcWsfxLao1H1Z6v8eJ?si=eXbGa1-sR_ONn4Vhvpk2Tw"><img src="https://i.scdn.co/image/ab67616d00001e02635935b3336249577b79dbe1"></a><p>Mother Said</p></div>
-                 <div class="album"><a href="#"><img src="https://cdn.discordapp.com/attachments/1254818768471855237/1254820667241529406/imgonline-com-ua-resize-lO1ViZ7xw673u0.png?ex=667ae250&amp;is=667990d0&amp;hm=35fa263c53d3491db3dbc4e2baed3aa857a5e2510e538d58951dda388b68d75d&amp;" alt="This album hasn't released yet! Check the timer for date."></a><p>Brand New Day</p><a id="countdown">3d 17h 17m 30s </a></div></div>
-        </div>
+                 <div class="album"><a href="https://open.spotify.com/album/3bHga1Os2MW2EnFx8FCBBK?si=EEAdb8GRRQK9c0ou7S-L3Q"><img src="https://i.scdn.co/image/ab67616d00001e02b253a77823919e3add291fe0" alt="This album hasn't released yet! Check the timer for date."></a><p>Brand New Day (Newest Single!)</p><!-- <a id="countdown">EXPIRED</a> --></div></div>
+        <div class="footer"><p id="site-version" class="version-info">Version: loading...</p>
+            
+            <p>© 2024 Tenderhooks. All rights reserved. Site Version 1.5.8</p>
+        </div></div>
     </div>
     <script>var countDownDate = new Date("Jun 28, 2024 10:00:00").getTime();
 
@@ -200,6 +203,28 @@ var x = setInterval(function() {
   }
 }, 1000);
 </script>
+<script>
+        function fetchVersion() {
+            fetch('https://raw.githubusercontent.com/Tenderhooks/tenderhooks.github.io/main/ver.txt')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.text();
+                })
+                .then(version => {
+                    document.getElementById('site-version').textContent = '© 2024 Tenderhooks. All rights reserved. Site Version: ' + version.trim();
+                })
+                .catch(error => {
+                    console.error('There was a problem with the fetch operation:', error);
+                    document.getElementById('site-version').textContent = 'Version info unavailable! (404)';
+                });
+        }
+
+        fetchVersion();
+    </script>
+
+
 
 
 </body></html>
