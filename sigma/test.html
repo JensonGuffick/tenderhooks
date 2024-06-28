@@ -1,0 +1,212 @@
+<html lang="en"><head><link rel="shortcut icon" type="image/x-icon" href="https://i.scdn.co/image/ab6761610000101f52458ff07ef384bac8f09eab">
+    <style> body .container { font-family: sans-serif } </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Tenderhooks</title>
+    <style>
+        body {
+            background-color: #333;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            padding-top: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .top-bar {
+            width: calc(100% - 40px);
+            height: 80px;
+            background-color: #555;
+            position: fixed;
+            top: 30px;
+            left: 20px;
+            z-index: 1;
+            border-radius: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .header .overlay-text {
+            font-size: 5em;
+            font-weight: bold;
+            color: #fff;
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .links {
+            background-color: #888;
+            height: 70px;
+            width: 150px;
+            border-radius: 35px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            margin: 0 5px;
+            border: 2px solid black;
+        }
+
+        .links button {
+            background: none;
+            border: none;
+            color: inherit;
+            font: inherit;
+            cursor: pointer;
+            padding: 0;
+            outline: none;
+        }
+
+        .content {
+            margin-top: 10px;
+            text-align: center;
+            align-items: center;
+            width: 80%;
+        }
+
+        .content h2 {
+            font-size: 5em;
+        }
+
+        .side-by-side {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .iframe-container,
+        .image-container {
+            flex: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        .join-text {
+            position: absolute;
+            left: 50%;
+            top: 80%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            font-size: 100%;
+            white-space: nowrap;
+            z-index: 2;
+        }
+        .email {
+            background-color: #11C155;
+            border-radius: 35px;
+            height: 100px;
+            width: 100%;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            margin: 0 5px;
+            border: 2px solid black;
+            align-items: center;
+        }
+        .facebook {
+            background-color: #2276bf;
+            border-radius: 35px;
+            height: 100px;
+            width: 100%;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            margin: 0 5px;
+            border: 2px solid black;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .header .overlay-text {
+                font-size: 7em;
+                padding: 8px;
+                }
+            }
+            
+        @media (max-width: 480px) {
+            .header .overlay-text {
+                font-size: 2.5em;
+                padding: 6px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .content .facebook {
+                font-size: 3em;
+                padding: 8px;
+            }
+        }
+            
+        @media (max-width: 480px) {
+            .content .facebook {
+                font-size: 2.5em;
+                padding: 6px;
+            }
+}
+</style>
+</head>
+<body>
+    <div class="top-bar">
+        <a class="links" href="https://tenderhooks.github.io"><button>Home</button></a>
+        <a class="links" href="Links"><button>Links</button></a>
+        <a class="links" href="contact"><button>Contact</button></a>
+        <a class="links" href="Albums"><button>Albums</button></a>
+        <a class="links" href="About"><button>About Us</button></a>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <p class="overlay-text">Test Page</p>
+        </div>
+        <div class="content">
+            <h1>This is a test to see if multi pages work</h1>
+            
+        </div>
+        <p id="site-version" class="version-info">© 2024 Tenderhooks. All rights reserved. Site Version: Loading...</p></div>
+        <script>
+                function fetchVersion() {
+                    fetch('https://raw.githubusercontent.com/Tenderhooks/tenderhooks.github.io/main/ver.txt')
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Network response was not ok');
+                            }
+                            return response.text();
+                        })
+                        .then(version => {
+                            document.getElementById('site-version').textContent = '© 2024 Tenderhooks. All rights reserved. Site Version: ' + version.trim();
+                        })
+                        .catch(error => {
+                            console.error('There was a problem with the fetch operation:', error);
+                            document.getElementById('site-version').textContent = 'Version info unavailable! (404)';
+                        });
+                }
+        
+                fetchVersion();
+        </script>
+</body>
+</html>
