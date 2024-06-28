@@ -139,35 +139,58 @@
             <iframe style="border-radius:12px" src="https://open.spotify.com/embed/artist/145sIL2lTb9SrV5oEi9Wv1?utm_source=generator&amp;theme=0" width="100%" height="352" frameborder="1" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             <div class="side-by-side">
                 <div class="amazon-music">
-                    <a href="https://discord.gg/PnwH6jHCMy"><img src="https://media.discordapp.net/attachments/1254818768471855237/1254841011000311909/imgonline-com-ua-resize-RkWXmf0YNivR3Di.png?ex=667af542&amp;is=6679a3c2&amp;hm=1c3d69e08e93d334821d1fca409aaa125eeb7bea332a5fd762c51a886dc5d207&amp;=&amp;format=webp&amp;quality=lossless&amp;width=300&amp;height=300" style="border-radius: 100%; max-width: 100%;">
-                        <p style="color: white; font-size: 1em;">Discord</p></a>
+                    <a href="https://discord.gg/PnwH6jHCMy"><img src="https://i.imgur.com/zWrvDgw.png" style="border-radius: 100%; max-width: 100%;">
+                    <p style="color: white; font-size: 1em;">Discord</p></a>
                 </div>
                 <div class="amazon-music">
                     <a href="https://tenderhooks.bandcamp.com/music">
-                        <img src="https://media.discordapp.net/attachments/1254818768471855237/1254844378191630448/bandcamp-independent-music-performer-magazine-beatport-others-thumbnail.png?ex=667af865&amp;is=6679a6e5&amp;hm=c46f8ee741d4ba183ff3016301f55b920d422806cb572664ee2467c66ff91438&amp;format=webp&amp;quality=lossless&amp;width=300&amp;height=300" style="border-radius: 100%; max-width: 100%;">
-                            <p style="color: white; font-size: 1em;">Bandcamp</p></a>
+                        <img src="https://i.imgur.com/SKMmUid.png" style="border-radius: 100%; max-width: 100%;">
+                        <p style="color: white; font-size: 1em;">Bandcamp</p></a>
                 </div>
             </div>
             <div class="side-by-side">
                 <div class="amazon-music">
                     <a href="https://music.amazon.co.uk/artists/B001R58MWA/tenderhooks">
-                        <img src="https://media.discordapp.net/attachments/1254818768471855237/1254851370004123752/imgonline-com-ua-Resize-4zSrBTSRYXet.png?ex=667afee8&amp;is=6679ad68&amp;hm=2707a1772bcb28ba02322979944f08920e7d4f0f715840cb6b2e4f99f499ca7b&amp;=&amp;format=webp&amp;quality=lossless&amp;width=300&amp;height=300" style="border-radius: 100%; max-width: 100%;"></a>
+                    <img src="https://i.imgur.com/HG3nalz.png" style="border-radius: 100%; max-width: 100%;"></a>
                 <p style="color: white; font-size: 1em;">Amazon Music</p></div>
                 <div class="Spotify">
                     <a href="https://open.spotify.com/artist/145sIL2lTb9SrV5oEi9Wv1?si=fc96479f20da4db6">
-                        <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2023/05/Spotify_Primary_Logo_RGB_Green.png" style="border-radius: 100%; max-width: 100%;" width="300px"><p style="color: white; font-size: 1em;">Spotify</p></a>
+                    <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2023/05/Spotify_Primary_Logo_RGB_Green.png" style="border-radius: 100%; max-width: 100%;" width="300px"><p style="color: white; font-size: 1em;">Spotify</p></a>
                 </div>
             </div>
             
         <div class="side-by-side">
                 <div class="amazon-music">
                     <a href="https://tiktok.com/@hooks109">
-<img src="https://cdn.discordapp.com/attachments/1254818768471855237/1254857683799117926/image.png?ex=667b04c9&amp;is=6679b349&amp;hm=cb8c7c661a0dacbacf79e99e5b00a963ed9e7b1d74291e4a6a8a473e92189679&amp;" style="border-radius: 100%; max-width: 100%;"></a>
+                    <img src="https://i.imgur.com/dUpzC6t.png" style="border-radius: 100%; max-width: 100%;"></a>
                 <p style="color: white; font-size: 1em;">TikTok</p></div>
                 <div class="Spotify">
                     <a href="https://www.youtube.com/@Tenderhooksband/videos">
-<img src="https://cdn.discordapp.com/attachments/1254818768471855237/1254860313526800395/imgonline-com-ua-Resize-zW2mzUMdeNh5Le6.png?ex=667b073c&amp;is=6679b5bc&amp;hm=73c7c6a7e3c43f41c9c0eafcaaed41be41bbd11f351fcf2f394cc0a1dd25444a&amp;" style="border-radius: 100%; max-width: 100%;" width="300px"><p style="color: white; font-size: 1em;">YouTube</p></a>
+                    <img src="https://i.imgur.com/FkBUfU7.png" style="border-radius: 100%; max-width: 100%;" width="300px"><p style="color: white; font-size: 1em;">YouTube</p></a>
                 </div>
-            </div></div>
+            </div>
+        <p id="site-version" class="version-info">© 2024 Tenderhooks. All rights reserved. Site Version: Loading...</p></div>
+        
+            <script>
+                function fetchVersion() {
+                    fetch('https://raw.githubusercontent.com/Tenderhooks/tenderhooks.github.io/main/ver.txt')
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Network response was not ok');
+                            }
+                            return response.text();
+                        })
+                        .then(version => {
+                            document.getElementById('site-version').textContent = '© 2024 Tenderhooks. All rights reserved. Site Version: ' + version.trim();
+                        })
+                        .catch(error => {
+                            console.error('There was a problem with the fetch operation:', error);
+                            document.getElementById('site-version').textContent = 'Version info unavailable! (404)';
+                        });
+                }
+        
+                fetchVersion();
+            </script>
     </div>
-</body></html>
+</body>
+</html>

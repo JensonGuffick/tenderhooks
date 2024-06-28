@@ -209,8 +209,29 @@ body {
             <br>
             <iframe width="100%" height="60%" src="https://www.youtube.com/embed/aM1jjhh-0Lo?si=RKCWEm_lGmKfzlQD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="" style="border-radius: 35px;"></iframe>
             <div class="footer">
-            <p>© 2024 Tenderhooks. All rights reserved. Site Version 1.5.8</p>
+            <p id="site-version" class="version-info">© 2024 Tenderhooks. All rights reserved. Site Version: Loading...</p>
+            <script>
+                function fetchVersion() {
+                    fetch('https://raw.githubusercontent.com/Tenderhooks/tenderhooks.github.io/main/ver.txt')
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Network response was not ok');
+                            }
+                            return response.text();
+                        })
+                        .then(version => {
+                            document.getElementById('site-version').textContent = '© 2024 Tenderhooks. All rights reserved. Site Version: ' + version.trim();
+                        })
+                        .catch(error => {
+                            console.error('There was a problem with the fetch operation:', error);
+                            document.getElementById('site-version').textContent = 'Version info unavailable! (404)';
+                        });
+                }
+        
+                fetchVersion();
+            </script>
         </div>
     </div>
 </div>
-</body></html>
+</body>
+</html>
