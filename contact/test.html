@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Version Display</title>
+</head>
+<body>
+    <div id="version-number"></div>
+    <script>
+        async function getDeploymentNumber() {
+            const token = 'YOUR_GITHUB_TOKEN';  // Replace with your GitHub token
+            const owner = 'YOUR_GITHUB_OWNER';  // Replace with the owner of the repo
+            const repo = 'YOUR_GITHUB_REPO';    // Replace with the repo name
+
+            const headers = {
+                'Authorization': `token ${token}`,
+                'Accept': 'application/vnd.github.v3+json'
+            };
+
+            const response = await fetch(`https://api.github.com/repos/${owner}/${repo}/deployments`, { headers });
+
+            if (response.ok) {
+                const deployments = await response.json();
+                if (deployments.length > 0) {
+                    // Assuming the deployment number is the ID of the latest deployment
+                    return deployments[0].id;
+                } else {
+                    console.error('No deployments found.');
+                    return null;
+                }
+            } else {
+                console.error('Failed to fetch deployments:', response.statusText);
+                return null;
+            }
+        }
+
+        function formatVersion(version) {
+            const versionStr = version.toString().padStart(3, '0');
+            const major = versionStr.charAt(0);
+            const minor = versionStr.charAt(1);
+            const patch = versionStr.charAt(2);
+            return `${major}.${minor}.${patch}`;
+        }
+
+        async function updateVersion() {
+            const deploymentNumber = await getDeploymentNumber();
+            if (deploymentNumber !== null) {
+                const formattedVersion = formatVersion(deploymentNumber);
+                document.getElementById('version-number').textContent = formattedVersion;
+            }
+        }
+
+        updateVersion();
+    </script>
+</body>
+</html>
