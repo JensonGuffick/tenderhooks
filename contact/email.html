@@ -1,0 +1,38 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloudflare Turnstile Example</title>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async="" defer=""></script>
+    <style>body {
+    background-color: #333;
+    color: #fff;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.submit {
+    background-color: #555;
+    border-radius: 35px;
+    height: 100px;
+    width: 10%;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    margin: 0 5px;
+    border: 2px solid black;
+    align-items: center;
+}</style>
+</head>
+<body>
+    <h1>Email Captcha</h1>
+    <form id="turnstile-form" action="/emails" method="POST">
+        <div class="cf-turnstile" data-sitekey="0x4AAAAAAAfJdETo8UCy-EHv
+"></div>
+        <br>
+        <button type="submit" class="submit">Submit</button>
+    </form>
+</body>
+</html>
