@@ -212,7 +212,7 @@ body {
             <p id="site-version" class="version-info">© 2024 Tenderhooks. All rights reserved. Site Version: 2.6.9</p>
             <script>
                 function fetchVersion() {
-                    fetch('https://github.com/JensonGuffick/tenderhooks/raw/main/ver.txt')
+                    fetch('https://raw.githubusercontent.com/JensonGuffick/tenderhooks/main/ver.txt')
                         .then(response => {
                             if (!response.ok) {
                                 throw new Error('Network response was not ok');
