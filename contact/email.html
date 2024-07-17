@@ -2,7 +2,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cloudflare Turnstile Example</title>
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async="" defer=""></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <style>body {
     background-color: #333;
     color: #fff;
@@ -28,11 +28,10 @@
 </head>
 <body>
     <h1>Email Captcha</h1>
-    <form id="turnstile-form" action="/emails" method="POST">
-        <div class="cf-turnstile" data-sitekey="0x4AAAAAAAfJdETo8UCy-EHv
-"></div>
+    <form action="?" method="POST">
+        <div class="g-recaptcha" data-sitekey="6LdUPxIqAAAAAONfdCye1A5QUH3DIazfcU2SYctK"></div>
         <br>
-        <button type="submit" class="submit">Submit</button>
-    </form>
+        <input type="submit" class="submit" value="Submit">
+      </form>
 </body>
 </html>
