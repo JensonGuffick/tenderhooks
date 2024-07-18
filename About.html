@@ -1,4 +1,5 @@
-<html lang="en"><head>
+<html lang="en">
+<head>
     <link rel="shortcut icon" type="image/x-icon" href="https://i.imgur.com/LJQtQiU.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -211,7 +212,8 @@
         }
 
         .menu a:hover {
-            color: #f1f1f1;
+            color: #999;
+            font-size: 2em;
         }
 
         .menu .close-btn {
@@ -233,15 +235,23 @@
         .menu-open .bar3 {
             transform: rotate(45deg) translate(-5px, -6px);
         }
-</style>
+        .content a {
+            transition: 0.3s;
+            font-size: 2em;
+        }
+        .content a:hover {
+            font-size: 3em;
+            transition: 0.3s;
+        }
+    </style>
 </head>
 <body>
-    <button class="menu-btn" onclick="toggleMenu()">
+    <button class="menu-btn menu-open" onclick="toggleMenu()">
         <div class="bar1"></div>
         <div class="bar2"></div>
         <div class="bar3"></div>
     </button>
-    <div id="menu" class="menu" style="width: 0px;">
+    <div id="menu" class="menu" style="width: 250px;">
         <br>
         <br>
         <a href="/">Home</a>
@@ -256,10 +266,10 @@
             <h1>About the tenderhooks</h1>
             <br>
             <h3>Tenderhooks are a 4-piece band from Brighton on the south coast of England. Markus Leinweber is the song writer, pianist and singer in the band. Mike Phillips on bass, Murdo on drums and Charl Cronje on rhythm/lead guitar and vocals. The band will release their 10th album later this year. Our latest single release called Brand New Day has been out since Friday 28th June. If you would like to be on our mailing list please,</h3>
-            <a style="color: darkgrey; font-size: 2em;" href="mailto:tenderhooks@hotmail.co.uk">email us here.</a>
+            <a style="color: darkgrey;" href="mailto:tenderhooks@hotmail.co.uk">email us here.</a>
          <br>
         </div>
-        <p id="site-version" class="version-info">© 2024 Tenderhooks. All rights reserved. Site Version: Loading...</p></div>
+        <p id="site-version" class="version-info">© 2024 Tenderhooks. All rights reserved. Site Version: 3.4.7</p></div>
         <script>
                 function fetchVersion() {
                     fetch('https://raw.githubusercontent.com/JensonGuffick/tenderhooks/main/ver.txt')
@@ -293,6 +303,5 @@
                 }
             }
         </script>
-    </div>
 </body>
 </html>
