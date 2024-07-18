@@ -1,5 +1,4 @@
 <html lang="en"><head><link rel="shortcut icon" type="image/x-icon" href="https://i.imgur.com/LJQtQiU.png">
-    <style> body .container { font-family: sans-serif } </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - Tenderhooks</title>
@@ -7,7 +6,7 @@
         body {
             background-color: #333;
             color: #fff;
-            font-family: Arial, sans-serif;
+            font-family: sans-serif;
             margin: 0;
             padding: 0;
         }
@@ -167,18 +166,89 @@
                 font-size: 2.5em;
                 padding: 6px;
             }
-}
+        }
+        .menu-btn {
+            position: fixed;
+            top: 30px;
+            left: 20px;
+            z-index: 2;
+            background-color: #555;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .menu-btn div {
+            width: 30px;
+            height: 3px;
+            background-color: white;
+            margin: 5px 0;
+            transition: 0.4s;
+        }
+
+        .menu {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            z-index: 1;
+        }
+
+        .menu a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .menu a:hover {
+            color: #f1f1f1;
+        }
+
+        .menu .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        .menu-open .bar1 {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .menu-open .bar2 {
+            opacity: 0;
+        }
+
+        .menu-open .bar3 {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
 </style>
 </head>
 <body>
-    <div class="top-bar">
-        <a class="links" href="https://tenderhooks.uk"><button>Home</button></a>
-        <a class="links" href="Links"><button>Links</button></a>
-        <a class="links" href="contact"><button>Contact</button></a>
-        <a class="links" href="Albums"><button>Albums</button></a>
-        <a class="links" href="About"><button>About Us</button></a>
+    <button class="menu-btn" onclick="toggleMenu()">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+    </button>
+    <div id="menu" class="menu" style="width: 0px;">
+        <br>
+        <br>
+        <a href="tenderhooks.uk">Home</a>
+        <a href="Links">Links</a>
+        <a href="contact">Contact</a>
+        <a href="Albums">Albums</a>
+        <a href="About">About Us</a>
     </div>
-
     <div class="container">
         <div class="header">
             <p class="overlay-text">Contact us</p>    
@@ -209,4 +279,18 @@
         
                 fetchVersion();
         </script>
-</body></html>
+        <script>
+            function toggleMenu() {
+                var menu = document.getElementById("menu");
+                var btn = document.querySelector(".menu-btn");
+                if (menu.style.width === "250px") {
+                    menu.style.width = "0";
+                    btn.classList.remove("menu-open");
+                } else {
+                    menu.style.width = "250px";
+                    btn.classList.add("menu-open");
+                }
+            }
+        </script>
+</body>
+</html>
