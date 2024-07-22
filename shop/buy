@@ -1,0 +1,226 @@
+<html lang="en">
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="https://i.imgur.com/LJQtQiU.png"> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Purchase</title>
+    <style>
+        body {
+            background-color: #333;
+            color: #fff;
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            padding-top: 80px;
+        }
+
+        .top-bar {
+            width: calc(100% - 40px);
+            height: 80px;
+            background-color: #555;
+            position: fixed;
+            top: 30px;
+            left: 20px;
+            z-index: 1;
+            border-radius: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .content {
+            margin-top: 100px;
+            text-align: center;
+            position: relative;
+        }
+
+        .content h2 {
+            margin-bottom: 20px;
+        }
+
+        .side-by-side {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+    
+        .overlay-text {
+            font-size: 3em;
+            font-weight: bold;
+            color: #fff;
+        }
+        .menu-btn {
+            position: fixed;
+            top: 30px;
+            left: 20px;
+            z-index: 2;
+            background-color: #555;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .menu-btn div {
+            width: 30px;
+            height: 3px;
+            background-color: white;
+            margin: 5px 0;
+            transition: 0.4s;
+        }
+
+        .menu {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            z-index: 1;
+        }
+
+        .menu a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: white;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .menu a:hover {
+            color: #999;
+            font-size: 2em;
+        }
+
+        .menu .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        .menu-open .bar1 {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .menu-open .bar2 {
+            opacity: 0;
+        }
+
+        .menu-open .bar3 {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+        .pay {
+            display: inline-block;
+            width: 500px;
+            font-size: 2em;
+            text-align: center;
+            padding: 10px;
+            background-color: #777;
+            color: white;
+            text-decoration: none;
+            border-radius: 90px;
+        }
+    </style>
+</head>
+<body>
+    <button class="menu-btn" onclick="toggleMenu()">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+    </button>
+    <div id="menu" class="menu" style="width: 0px;">
+        <br>
+        <br>
+        <a href="/">Home</a>
+        <a href="Links">Links</a>
+        <a href="contact">Contact</a>
+        <a href="Albums">Albums</a>
+        <a href="About">About Us</a>
+    </div>
+    <div class="container">
+        <div class="content">
+            <p class="overlay-text">Confirm Purchase</p>
+            <p id="message" style="font-size: 2em">Would you like to purchase X album?</p>
+            <a class="pay" href="https://www.paypal.com/paypalme/tenderhooks">Pay with PayPal</a>
+            <p id="site-version" style="color: #666;">© 2024 Tenderhooks. All rights reserved. Site Version: 3.5.8</p>
+        </div>
+        <script>
+            // Get URL parameters from the current page's URL
+            const urlParams = new URLSearchParams(window.location.search);
+
+            // Get the value of the 'album' parameter
+            const album = urlParams.get('album');
+
+            // Define a message based on the 'album' parameter
+            let message;
+            if (album) {
+                switch (album) {
+                    case '5.4_Light_Years':
+                        message = 'Would you like to purchase the <b>5.4 light Years</b> album?';
+                        break;
+                    case 'pop':
+                        message = 'Pop sensation! Would you like to purchase the Pop album?';
+                        break;
+                    case 'jazz':
+                        message = 'Jazz it up! Would you like to purchase the Jazz album?';
+                        break;
+                    default:
+                        message = `Would you like to purchase the ${album} album?`;
+                        break;
+                }
+            } else {
+                message = 'No album selected.';
+            }
+
+            document.getElementById('message').textContent = message;
+        </script>
+        <script>
+                function fetchVersion() {
+                    fetch('https://raw.githubusercontent.com/JensonGuffick/tenderhooks/main/ver.txt')
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error('Network response was not ok');
+                            }
+                            return response.text();
+                        })
+                        .then(version => {
+                            document.getElementById('site-version').textContent = '© 2024 Tenderhooks. All rights reserved. Site Version: ' + version.trim();
+                        })
+                        .catch(error => {
+                            console.error('There was a problem with the fetch operation:', error);
+                            document.getElementById('site-version').textContent = 'Version info unavailable! (404)';
+                        });
+                }
+        
+                fetchVersion();
+        </script>
+        <script>
+            function toggleMenu() {
+                var menu = document.getElementById("menu");
+                var btn = document.querySelector(".menu-btn");
+                if (menu.style.width === "400px") {
+                    menu.style.width = "0";
+                    btn.classList.remove("menu-open");
+                } else {
+                    menu.style.width = "400px";
+                    btn.classList.add("menu-open");
+                }
+            }
+        </script> 
+    </div>
+
+</body></html>
