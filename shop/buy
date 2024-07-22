@@ -186,7 +186,7 @@
                 message = 'No album selected.';
             }
 
-            document.getElementById('message').textContent = message;
+            document.getElementById('message').innerHTML = message;
         </script>
         <script>
                 function fetchVersion() {
@@ -222,5 +222,5 @@
             }
         </script> 
     </div>
-
-</body></html>
+</body>
+</html>
