@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -124,10 +123,11 @@
     </div>
     <div class="container">
         <div class="content">
-            <p id="message" style="font-size: 2em;">Default message</p>
+            <p id="message" style="font-size: 2em;">Would you like to purchase the <u>5.4 Light Years</u> album?</p>
+            <p id="price" style="color: #888; font-size: 1.5em;">This costs £*.**</p>
+            <img id="image" src="/banner.png">
             <a class="pay" href="https://www.paypal.com/paypalme/tenderhooks">Pay with PayPal</a>
-            <p id="site-version" style="color: #666;">© 2024 Tenderhooks. All rights reserved. Site Version: 3.5.8</p>
-        </div>
+            <p id="site-version" style="color: #666;">© 2024 Tenderhooks. All rights reserved. Site Version: 3.6.6</p></div>
     </div>
     <script>
         // Get URL parameters from the current page's URL
@@ -142,15 +142,37 @@
             switch (album) {
                 case '5.4_Light_Years':
                     message = 'Would you like to purchase the <b>5.4 Light Years</b> album?';
+                    price = 'This album costs £12';
                     break;
-                case 'pop':
-                    message = 'Pop sensation! Would you like to purchase the Pop album?';
+                case 'Hooks!':
+                    message = "Would you like to purchase the <b>'Hooks!</b> album?";
+                    price = 'This album costs £12';
+                    image = 'https://i.scdn.co/image/ab67616d00001e028bfd5ce97f4f28f954fa212a'
                     break;
-                case 'jazz':
-                    message = 'Jazz it up! Would you like to purchase the Jazz album?';
+                case '20-20_vision':
+                    message = 'Would you like to purchase the <b>20-20 vision</b> album?';
+                    price = 'This album costs £12';
                     break;
+                case 'SkeletonDance':
+                    message = 'Would you like to purchase the <b>Skeleton Dance</b> album?';
+                    price = 'This album costs £12';
+                    break;
+                case 'NorthStar':
+                    message = 'Would you like to purchase the <b>North Star</b> album?';
+                    price = 'This album costs £12';
+                    break;
+                case 'LovingSword':
+                    message = 'Would you like to purchase the <b>Loving Sword</b> album?';
+                    price = 'This album costs £12';
+                    break;
+                case 'Tenderhooks':
+                    message = 'Would you like to purchase the <b>Tenderhooks</b> album?';
+                    price = 'This album costs £12';
+                    break;
+                /* ---------------------------------- ADD MORE ALBUMS AFTER UPDATE ---------------------------------------*/
                 default:
                     message = `Would you like to purchase the ${album} album?`;
+                    price = 'This album costs £12';
                     break;
             }
         } else {
@@ -159,7 +181,8 @@
 
         // Set the message as HTML
         document.getElementById('message').innerHTML = message;
-
+        </script>
+        <script>
         // Function to fetch site version
         function fetchVersion() {
             fetch('https://raw.githubusercontent.com/JensonGuffick/tenderhooks/main/ver.txt')
@@ -179,7 +202,8 @@
         }
 
         fetchVersion();
-
+        </script>
+        <script>
         // Function to toggle the menu
         function toggleMenu() {
             var menu = document.getElementById("menu");
@@ -192,6 +216,6 @@
                 btn.classList.add("menu-open");
             }
         }
-    </script>
-</body>
-</html>
+        </script>
+
+</body></html>
