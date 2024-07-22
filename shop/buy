@@ -1,6 +1,7 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="shortcut icon" type="image/x-icon" href="https://i.imgur.com/LJQtQiU.png"> 
+    <link rel="shortcut icon" type="image/x-icon" href="https://i.imgur.com/LJQtQiU.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Complete Purchase</title>
@@ -51,12 +52,13 @@
             gap: 20px;
             margin-top: 20px;
         }
-    
+
         .overlay-text {
             font-size: 3em;
             font-weight: bold;
             color: #fff;
         }
+
         .menu-btn {
             position: fixed;
             top: 30px;
@@ -91,12 +93,12 @@
         }
 
         .menu a {
-            padding: 8px 8px 8px 32px;
+            padding: 16px 32px;
             text-decoration: none;
             font-size: 25px;
             color: white;
             display: block;
-            transition: 0.3s;
+            transition: color 0.3s, font-size 0.3s;
         }
 
         .menu a:hover {
@@ -123,6 +125,7 @@
         .menu-open .bar3 {
             transform: rotate(45deg) translate(-5px, -6px);
         }
+
         .pay {
             display: inline-block;
             width: 500px;
@@ -137,14 +140,12 @@
     </style>
 </head>
 <body>
-    <button class="menu-btn" onclick="toggleMenu()">
+    <button class="menu-btn" onclick="toggleMenu()" aria-label="Toggle menu">
         <div class="bar1"></div>
         <div class="bar2"></div>
         <div class="bar3"></div>
     </button>
-    <div id="menu" class="menu" style="width: 0px;">
-        <br>
-        <br>
+    <div id="menu" class="menu">
         <a href="/">Home</a>
         <a href="Links">Links</a>
         <a href="contact">Contact</a>
@@ -170,7 +171,7 @@
             if (album) {
                 switch (album) {
                     case '5.4_Light_Years':
-                        message = 'Would you like to purchase the <b>5.4 light Years</b> album?';
+                        message = 'Would you like to purchase the <b>5.4 Light Years</b> album?';
                         break;
                     case 'pop':
                         message = 'Pop sensation! Would you like to purchase the Pop album?';
@@ -189,24 +190,24 @@
             document.getElementById('message').innerHTML = message;
         </script>
         <script>
-                function fetchVersion() {
-                    fetch('https://raw.githubusercontent.com/JensonGuffick/tenderhooks/main/ver.txt')
-                        .then(response => {
-                            if (!response.ok) {
-                                throw new Error('Network response was not ok');
-                            }
-                            return response.text();
-                        })
-                        .then(version => {
-                            document.getElementById('site-version').textContent = '© 2024 Tenderhooks. All rights reserved. Site Version: ' + version.trim();
-                        })
-                        .catch(error => {
-                            console.error('There was a problem with the fetch operation:', error);
-                            document.getElementById('site-version').textContent = 'Version info unavailable! (404)';
-                        });
-                }
-        
-                fetchVersion();
+            function fetchVersion() {
+                fetch('https://raw.githubusercontent.com/JensonGuffick/tenderhooks/main/ver.txt')
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok');
+                        }
+                        return response.text();
+                    })
+                    .then(version => {
+                        document.getElementById('site-version').textContent = '© 2024 Tenderhooks. All rights reserved. Site Version: ' + version.trim();
+                    })
+                    .catch(error => {
+                        console.error('There was a problem with the fetch operation:', error);
+                        document.getElementById('site-version').textContent = 'Version info unavailable! (404)';
+                    });
+            }
+
+            fetchVersion();
         </script>
         <script>
             function toggleMenu() {
@@ -220,7 +221,7 @@
                     btn.classList.add("menu-open");
                 }
             }
-        </script> 
+        </script>
     </div>
 </body>
 </html>
