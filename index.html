@@ -143,7 +143,7 @@
         <div class="bar2"></div>
         <div class="bar3"></div>
     </button>
-    <div id="menu" class="menu" style="left: -400px;">
+    <div id="menu" class="menu" style="width: 0px;">
         <br>
         <br>
         <a href="#">Home</a>
@@ -223,11 +223,11 @@
     function toggleMenu() {
         var menu = document.getElementById("menu");
         var btn = document.querySelector(".menu-btn");
-        if (menu.style.left === "-400px") { /* IF OPEN*/
-            menu.style.left = "-400px"; /* CLOSE */
+        if (menu.style.width === "400px") {
+            menu.style.width = "0";
             btn.classList.remove("menu-open");
         } else {
-            menu.style.left = "0px"; /* OPEN */
+            menu.style.width = "400px";
             btn.classList.add("menu-open");
         }
     }
