@@ -219,16 +219,16 @@
                     fetch('https://raw.githubusercontent.com/JensonGuffick/tenderhooks/main/offline.txt')
                         .then(response => response.text()) // Convert the response to text
                         .then(text => {
-                            if (text.includes('yes')) { // Check if the fetched text contains 'yes'
-                                window.location.href = 'https://offline.tenderhooks.uk'; // Redirect if 'yes' is found
+                            if (text.toLowerCase().includes('yes')) {
+                                window.location.href = 'https://offline.tenderhooks.uk';
                             }
                         })
                         .catch(error => {
-                            console.error('Error fetching the file:', error); // Handle errors
+                            console.error('Error fetching the file:', error);
                         });
                 }
                 offlinecheck();
-            </script>            
+            </script>                     
         </div>
     </div>
 </div>
