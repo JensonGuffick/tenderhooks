@@ -1,0 +1,54 @@
+<html lang="en">
+	<head>
+		<title>Version Keys</title>
+		<style>
+			body {
+			background-color: #333;
+			font-family: sans-serif;
+			color: #fff;
+			text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<p style="font-size: 2em;">Version Key</p>
+		<div style="border: solid; border-radius: 20px; padding-top: 20px; padding-bottom: 20px; padding-left: 20px; padding-right: 20px;">
+			MI - Minor update
+			<br>
+			MA - Major update
+			<br>
+			AFM - ABSOLUTELY F-CKING MAJOR (10+ updates in one)
+			<br>
+			FI - Fix
+			<br>
+			UP - Update the site to offline/online
+			<br>
+			TW - Tweak code
+			<br>
+		</div>
+        <br>
+        <p id="current-ver" style="font-size: 2em;">Loading current version...</p>
+        <br>
+        <br>
+        <a href="javascript:window.history.back();" style="font-size: 2em; color: white;">Go back</a>
+		<script> /** VERSION CHECK **/
+			function fetchVersion() {
+			    fetch('https://raw.githubusercontent.com/JensonGuffick/tenderhooks/main/ver.txt')
+			        .then(response => {
+			            if (!response.ok) {
+			                throw new Error('Network response was not ok');
+			            }
+			            return response.text();
+			        })
+			        .then(version => {
+			            document.getElementById('current-ver').textContent = 'The current version is ' + version.trim();
+			        })
+			        .catch(error => {
+			            console.error('There was a problem with the fetch operation:', error);
+			            document.getElementById('site-version').textContent = 'Version info unavailable! (404)';
+			        });
+			}
+			fetchVersion();
+		</script>
+	</body>
+</html>
