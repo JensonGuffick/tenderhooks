@@ -103,18 +103,6 @@
     </style>
 </head>
 <body>
-    <button class="menu-btn" onclick="toggleMenu()">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-    </button>
-    <div id="menu" class="menu" style="width: 0;">
-        <a href="/">Home</a>
-        <a href="Links">Links</a>
-        <a href="contact">Contact</a>
-        <a href="Albums">Albums</a>
-        <a href="About">About Us</a>
-    </div>
     <div class="container">
         <div class="content">
             <p id="message" style="font-size: 2em;">Would you like to purchase the <u>5.4 Light Years</u> album?</p>
@@ -125,24 +113,17 @@
         </div>
     </div>
     <script> /* PAY */
-        // Get URL parameters from the current page's URL
         const urlParams = new URLSearchParams(window.location.search);
-
-        // Get the value of the 'album' parameter
         const album = urlParams.get('album');
-
-        // Define variables for message, price, and image source
         let message;
         let price;
         let imageSrc;
-
-        // Define a message based on the 'album' parameter
         if (album) {
             switch (album) {
                 case '5.4_Light_Years':
                     message = 'Would you like to purchase the <b>5.4 Light Years</b> album?';
                     price = 'This album costs £12';
-                    imageSrc = '/path/to/5.4_Light_Years_image.png'; // Update this path as needed
+                    imageSrc = '/path/to/5.4_Light_Years_image.png';
                     break;
                 case 'Hooks!':
                     message = "Would you like to purchase the <b>'Hooks!</b> album?";
@@ -184,14 +165,15 @@
         } else {
             message = 'No album selected.';
             price = '';
-            imageSrc = '/path/to/default_image.png'; // Update this path as needed
+            imageSrc = '/banner.png'; // Update this path as needed
         }
 
         // Set the message, price, and image source dynamically
         document.getElementById('message').innerHTML = message;
         document.getElementById('price').textContent = price;
         document.getElementById('image').src = imageSrc;
-
+        </script>
+        <script>
         // Function to fetch site version
         function fetchVersion() {
             fetch('https://raw.githubusercontent.com/JensonGuffick/tenderhooks/main/ver.txt')
@@ -211,19 +193,6 @@
         }
 
         fetchVersion();
-
-        // Function to toggle the menu
-        function toggleMenu() {
-            var menu = document.getElementById("menu");
-            var btn = document.querySelector(".menu-btn");
-            if (menu.style.width === "400px") {
-                menu.style.width = "0";
-                btn.classList.remove("menu-open");
-            } else {
-                menu.style.width = "400px";
-                btn.classList.add("menu-open");
-            }
-        }
     </script>
 </body>
 </html>
