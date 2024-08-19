@@ -213,7 +213,22 @@
                     btn.classList.add("menu-open");
                 }
             }
-        </script> 
+        </script>
+        <script>
+            function offlinecheck() {
+                fetch('https://raw.githubusercontent.com/JensonGuffick/tenderhooks/main/offline.txt')
+                    .then(response => response.text()) // Convert the response to text
+                    .then(text => {
+                        if (text.toLowerCase().includes('yes')) {
+                            window.location.href = 'https://offline.tenderhooks.uk';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching the file:', error);
+                    });
+            }
+            offlinecheck();
+        </script>
     </div>
 </body>
 </html>
