@@ -1,0 +1,147 @@
+<html lang="en">
+	<head>
+		<link rel="shortcut icon" type="image/x-icon" href="https://i.imgur.com/LJQtQiU.png">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Home - Tenderhooks</title>
+		<style>
+			body {
+			background-color: #333;
+			color: #fff;
+			font-family: sans-serif;
+			margin: 0;
+			padding: 0;
+			text-align: center;
+			}
+			.container {
+			width: 80%;
+			margin: 0 auto;
+			padding: 20px;
+			padding-top: 0px;
+			}
+			.header {
+			position: relative;
+			text-align: center;
+			overflow: hidden;
+			border-radius: 15px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			}
+			.version-info {
+			color: #FFFFFF;
+			}
+			table.blueTable {
+			font-family: "Arial Black", Gadget, sans-serif;
+			width: 100%;
+			text-align: center;
+			border-bottom-left-radius: 10px;
+			}
+			table.blueTable td, table.blueTable th {
+			border: 1px solid #FFFFFF;
+			padding: 5px 0px;
+			}
+			table.blueTable tbody td {
+			font-size: 11px;
+			font-weight: bold;
+			color: #FFFFFF;
+			}
+			table.blueTable tr:nth-child(even) {
+			background: #717171;
+			}
+			table.blueTable thead {
+			background: #262626;
+			border-bottom: 1px solid #B0B0B0;
+			}
+			}
+			table.blueTable thead th:first-child {
+			border-left: none;
+			}
+			table tr:last-child td:first-child {
+			border-bottom-left-radius: 10px;
+			}
+			table tr:last-child td:last-child {
+			border-bottom-right-radius: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="header">
+				<p class="headertxt" style="font-size: 3em;">Patch Notes</p>
+			</div>
+			<div class="content">
+				<h2>Patch Notes for this release</h2>
+				<p>Here are the patch notes for this release</p>
+				<table class="blueTable">
+					<thead>
+						<tr>
+							<th style="border-top-left-radius: 10px;">NUM</th>
+							<th style="border-top-right-radius: 10px;">UPDATED ITEM</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>ADDED PATCH NOTE PAGE</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>ADDED PATCH NOTE LINK</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>FORMATTED CODE</td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td>REMOVED UNUSED STYLESHEETS</td>
+						</tr>
+					</tbody>
+				</table>
+				<a href="/verkey.md">See the version key</a>
+				<div class="footer">
+					<br>
+					<br>
+					<div class="footer">
+						<a href="/dev/patchnotes?again" id="site-version" style="color: #777;">© 2024 Tenderhooks. All rights reserved. Site Version: Loading...</a>
+					</div>         
+				</div>
+			</div>
+		</div>
+		<script> /** VERSION CHECK **/
+						function fetchVersion() {
+						    fetch('https://raw.githubusercontent.com/JensonGuffick/tenderhooks/main/ver.txt')
+						        .then(response => {
+						            if (!response.ok) {
+						                throw new Error('Network response was not ok');
+						            }
+						            return response.text();
+						        })
+						        .then(version => {
+						            document.getElementById('site-version').textContent = '© 2024 Tenderhooks. All rights reserved. Site Version: ' + version.trim();
+						        })
+						        .catch(error => {
+						            console.error('There was a problem with the fetch operation:', error);
+						            document.getElementById('site-version').textContent = 'Version info unavailable! (404)';
+						        });
+						}
+						fetchVersion();
+		</script>
+		<script> /* OFFLINE CHECK */
+						function offlinecheck() {
+						    fetch('https://raw.githubusercontent.com/JensonGuffick/tenderhooks/main/offline.txt')
+						        .then(response => response.text()) // Convert the response to text
+						        .then(text => {
+						            if (text.toLowerCase().includes('yes')) {
+						                window.location.href = 'https://offline.tenderhooks.uk';
+						            }
+						        })
+						        .catch(error => {
+						            console.error('Error fetching the file:', error);
+						        });
+						}
+						offlinecheck();
+		</script>  
+	</body>
+</html>

@@ -1,236 +1,227 @@
-<html lang="en"><head>
-    <link rel="shortcut icon" type="image/x-icon" href="https://i.imgur.com/LJQtQiU.png">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>About Us - Tenderhooks</title>
-    <style>
-        body {
-            background-color: #333;
-            color: #fff;
-            font-family: sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            margin: 0 auto;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .header .overlay-text {
-            font-size: 5em;
-            font-weight: bold;
-            color: #fff;
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-        .content {
-            margin-top: 10px;
-            text-align: center;
-            align-items: center;
-        }
-
-        .content h2 {
-            font-size: 5em;
-        }
-
-        @media (max-width: 768px) {
-            .header .overlay-text {
-                font-size: 7em;
-                padding: 8px;
-                }
-            }
-            
-        @media (max-width: 480px) {
-            .header .overlay-text {
-                font-size: 2.5em;
-                padding: 6px;
-             }
-        }
-
-        .menu-btn {
-            position: fixed;
-            top: 30px;
-            left: 20px;
-            z-index: 2;
-            background-color: #555;
-            border: none;
-            cursor: pointer;
-            padding: 10px;
-            border-radius: 5px;
-        }
-
-        .menu-btn div {
-            width: 30px;
-            height: 3px;
-            background-color: white;
-            margin: 5px 0;
-            transition: 0.4s;
-        }
-
-        .menu {
-            height: 100%;
-            width: 0;
-            position: fixed;
-            top: 0;
-            left: 0;
-            background-color: #111;
-            overflow-x: hidden;
-            transition: 0.5s;
-            padding-top: 60px;
-            z-index: 1;
-        }
-
-        .menu a {
-            padding: 8px 8px 8px 32px;
-            text-decoration: none;
-            font-size: 25px;
-            color: white;
-            display: block;
-            transition: 0.3s;
-        }
-
-        .menu a:hover {
-            color: #999;
-            font-size: 2em;
-        }
-
-        .menu .close-btn {
-            position: absolute;
-            top: 20px;
-            right: 25px;
-            font-size: 36px;
-            margin-left: 50px;
-        }
-
-        .menu-open .bar1 {
-            transform: rotate(-45deg) translate(-5px, 6px);
-        }
-
-        .menu-open .bar2 {
-            opacity: 0;
-        }
-
-        .menu-open .bar3 {
-            transform: rotate(45deg) translate(-5px, -6px);
-        }
-        .content a {
-            transition: 0.3s;
-            font-size: 1em;
-        }
-        .content a:hover {
-            font-size: 1.5em;
-            color: #333;
-            transition: 0.3s;
-        }
-    </style>
-</head>
-<body>
-    <button class="menu-btn" onclick="toggleMenu()">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-    </button>
-    <div id="menu" class="menu" style="width: 0px;">
-        <br>
-        <br>
-        <a href="/">Home</a>
-        <a href="Links">Links</a>
-        <a href="contact">Contact</a>
-        <a href="Albums">Albums</a>
-        <a href="About">About Us</a>
-    </div>
-    <div class="container">
-        <div class="header">
-            <p class="overlay-text">About us</p></div>
-         <div class="content">
-            <h1>About Us</h1>
-            <h3>Tenderhooks are a 4-piece band from Brighton on the south coast of England.</h3>
-            <div style="display: flex; padding: px;">
-                <div style="padding: 5px; border-style: solid; border-width: 2px; border-radius: 30px;">
-                    <p style="font-size: 2em;">Markus Leinweber</p>
-                    <img src="https://i.imgur.com/NNxeUVc.png" style="border-radius: 20px; max-width: 90%;">
-                    <p style="font-size: 2em;">Song writer</p>
-                    <p style="font-size: 2em;">Pianist</p>
-                    <p style="font-size: 2em; opacity: 0%;">Markus Leinweber</p>
-                </div>
-                <div style="padding: 5px; border-style: solid; border-width: 2px; border-radius: 30px;">
-                    <p style="font-size: 2em;">Mike Phillips</p>
-                    <img src="https://i.imgur.com/xNMaCwv.jpeg" style="border-radius: 20px; max-width: 90%;">
-                    <p style="font-size: 3em;">Bass</p>
-                    <p style="font-size: 2em; opacity: 0%;">Markus Leinweber</p>
-                </div>
+<html lang="en">
+	<head>
+		<link rel="shortcut icon" type="image/x-icon" href="https://i.imgur.com/LJQtQiU.png">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>About Us - Tenderhooks</title>
+		<style>
+			body {
+			background-color: #333;
+			color: #fff;
+			font-family: sans-serif;
+			margin: 0;
+			padding: 0;
+			}
+			.container {
+			margin: 0 auto;
+			padding: 20px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			}
+			.header .headertxt {
+			font-size: 5em;
+			font-weight: bold;
+			color: #fff;
+			width: 100%;
+			box-sizing: border-box;
+			}
+			.content {
+			margin-top: 10px;
+			text-align: center;
+			align-items: center;
+			}
+			.content h2 {
+			font-size: 5em;
+			}
+			@media (max-width: 768px) {
+			.header .headertxt {
+			font-size: 7em;
+			padding: 8px;
+			}
+			}
+			@media (max-width: 480px) {
+			.header .headertxt {
+			font-size: 2.5em;
+			padding: 6px;
+			}
+			}
+			.menu-btn {
+			position: fixed;
+			top: 30px;
+			left: 20px;
+			z-index: 2;
+			background-color: #555;
+			border: none;
+			cursor: pointer;
+			padding: 10px;
+			border-radius: 5px;
+			}
+			.menu-btn div {
+			width: 30px;
+			height: 3px;
+			background-color: white;
+			margin: 5px 0;
+			transition: 0.4s;
+			}
+			.menu {
+			height: 100%;
+			width: 0;
+			position: fixed;
+			top: 0;
+			left: 0;
+			background-color: #111;
+			overflow-x: hidden;
+			transition: 0.5s;
+			padding-top: 60px;
+			z-index: 1;
+			}
+			.menu a {
+			padding: 8px 8px 8px 32px;
+			text-decoration: none;
+			font-size: 25px;
+			color: white;
+			display: block;
+			transition: 0.3s;
+			}
+			.menu a:hover {
+			color: #999;
+			font-size: 2em;
+			}
+			.menu .close-btn {
+			position: absolute;
+			top: 20px;
+			right: 25px;
+			font-size: 36px;
+			margin-left: 50px;
+			}
+			.menu-open .bar1 {
+			transform: rotate(-45deg) translate(-5px, 6px);
+			}
+			.menu-open .bar2 {
+			opacity: 0;
+			}
+			.menu-open .bar3 {
+			transform: rotate(45deg) translate(-5px, -6px);
+			}
+			.content a {
+			transition: 0.3s;
+			font-size: 1em;
+			}
+			.content a:hover {
+			font-size: 1.5em;
+			color: #333;
+			transition: 0.3s;
+			}
+		</style>
+	</head>
+	<body>
+		<button class="menu-btn" onclick="toggleMenu()">
+			<div class="bar1"></div>
+			<div class="bar2"></div>
+			<div class="bar3"></div>
+		</button>
+		<div id="menu" class="menu" style="width: 0px;">
+			<br>
+			<br>
+			<a href="/">Home</a>
+			<a href="Links">Links</a>
+			<a href="contact">Contact</a>
+            <a href="shop">Shop</a>
+			<a href="Albums">Albums</a>
+			<a href="About">About Us</a>
+		</div>
+		<div class="container">
+			<div class="header">
+				<p class="headertxt">About us</p>
+			</div>
+			<div class="content">
+				<h1>About Us</h1>
+				<h3>Tenderhooks are a 4-piece band from Brighton on the south coast of England.</h3>
+				<div style="display: flex; padding: px;">
+					<div style="padding: 5px; border-style: solid; border-width: 2px; border-radius: 30px;">
+						<p style="font-size: 2em;">Markus Leinweber</p>
+						<img src="https://i.imgur.com/NNxeUVc.png" style="border-radius: 20px; max-width: 90%;">
+						<p style="font-size: 2em;">Song writer</p>
+						<p style="font-size: 2em;">Pianist</p>
+						<p style="font-size: 2em; opacity: 0%;">Markus Leinweber</p>
+					</div>
+					<div style="padding: 5px; border-style: solid; border-width: 2px; border-radius: 30px;">
+						<p style="font-size: 2em;">Mike Phillips</p>
+						<img src="https://i.imgur.com/xNMaCwv.jpeg" style="border-radius: 20px; max-width: 90%;">
+						<p style="font-size: 3em;">Bass</p>
+						<p style="font-size: 2em; opacity: 0%;">Markus Leinweber</p>
+					</div>
+				</div>
+				<div style="display: flex; padding: px;">
+					<div style="padding: 5px; border-style: solid; border-width: 2px; border-radius: 30px;">
+						<p style="font-size: 2em;">Murdo</p>
+						<img src="https://i.imgur.com/G5k75CX.png" style="border-radius: 20px; max-width: 90%;">
+						<p style="font-size: 2em;">Drums</p>
+						<p style="font-size: 2em; opacity: 0%;">Markus Leinweber</p>
+					</div>
+					<div style="padding: 5px; border-style: solid; border-width: 2px; border-radius: 30px;">
+						<p style="font-size: 2em;">Charl Cronje</p>
+						<img src="https://i.imgur.com/cAJEILy.png" style="border-radius: 20px; max-width: 90%;">
+						<p style="font-size: 3em;">Guitar</p>
+						<p style="font-size: 3em;">Vocals</p>
+						<p style="font-size: 2em; opacity: 0%;">Markus Leinweber</p>
+					</div>
+				</div>
+				<p style="font-size: 1.5em"><br>Mike Phillips is on the bass<br>Murdo is on the drums<br>Charl Cronje is on the guitar and also sings!<br>The band will release their 10<sup>th</sup> album later this year!<br>The latest single is called Brand New Day.<br></p>
+				<p style="font-size: 2em">If you would like to be on our mailing list, please <a style="color: darkgrey;" href="mailto:markus@tenderhooks.uk">email us here.</a></p>
+			</div>
+			<div class="footer">
+                <a href="/dev/patchnotes" id="site-version" style="color: #777;">© 2024 Tenderhooks. All rights reserved. Site Version: Loading...</a>
             </div>
-        <div style="display: flex; padding: px;">
-            <div style="padding: 5px; border-style: solid; border-width: 2px; border-radius: 30px;">
-                <p style="font-size: 2em;">Murdo</p>
-                <img src="https://i.imgur.com/G5k75CX.png" style="border-radius: 20px; max-width: 90%;">
-                <p style="font-size: 2em;">Drums</p>
-                <p style="font-size: 2em; opacity: 0%;">Markus Leinweber</p>
-            </div>
-            <div style="padding: 5px; border-style: solid; border-width: 2px; border-radius: 30px;">
-                <p style="font-size: 2em;">Charl Cronje</p>
-                <img src="https://i.imgur.com/cAJEILy.png" style="border-radius: 20px; max-width: 90%;">
-                <p style="font-size: 3em;">Guitar</p>
-                <p style="font-size: 3em;">Vocals</p>
-                <p style="font-size: 2em; opacity: 0%;">Markus Leinweber</p>
-            </div>
-        </div>
-        <p style="font-size: 1.5em"><br>Mike Phillips is on the bass<br>Murdo is on the drums<br>Charl Cronje is on the guitar and also sings!<br>The band will release their 10<sup>th</sup> album later this year!<br>The latest single is called Brand New Day.<br></p>
-        <p style="font-size: 2em">If you would like to be on our mailing list, please <a style="color: darkgrey;" href="mailto:markus@tenderhooks.uk">email us here.</a></p></div>
-        <p id="site-version" class="version-info">© 2024 Tenderhooks. All rights reserved. Site Version: 3.5.5</p>
-    </div>
-        <script>
-                function fetchVersion() {
-                    fetch('https://raw.githubusercontent.com/JensonGuffick/tenderhooks/main/ver.txt')
-                        .then(response => {
-                            if (!response.ok) {
-                                throw new Error('Network response was not ok');
-                            }
-                            return response.text();
-                        })
-                        .then(version => {
-                            document.getElementById('site-version').textContent = '© 2024 Tenderhooks. All rights reserved. Site Version: ' + version.trim();
-                        })
-                        .catch(error => {
-                            console.error('There was a problem with the fetch operation:', error);
-                            document.getElementById('site-version').textContent = 'Version info unavailable! (404)';
-                        });
-                }
-        
-                fetchVersion();
-        </script>
-        <script>
-            function toggleMenu() {
-                var menu = document.getElementById("menu");
-                var btn = document.querySelector(".menu-btn");
-                if (menu.style.width === "400px") {
-                    menu.style.width = "0";
-                    btn.classList.remove("menu-open");
-                } else {
-                    menu.style.width = "400px";
-                    btn.classList.add("menu-open");
-                }
-            }
-        </script>
-        <script>
-            function offlinecheck() {
-                fetch('https://raw.githubusercontent.com/JensonGuffick/tenderhooks/main/offline.txt')
-                    .then(response => response.text()) // Convert the response to text
-                    .then(text => {
-                        if (text.toLowerCase().includes('yes')) {
-                            window.location.href = 'https://offline.tenderhooks.uk';
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error fetching the file:', error);
-                    });
-            }
-            offlinecheck();
-        </script>
-</body>
+		</div>
+		<script> /* VERSION UPDATE */
+			function fetchVersion() {
+			    fetch('https://raw.githubusercontent.com/JensonGuffick/tenderhooks/main/ver.txt')
+			        .then(response => {
+			            if (!response.ok) {
+			                throw new Error('Network response was not ok');
+			            }
+			            return response.text();
+			        })
+			        .then(version => {
+			            document.getElementById('site-version').textContent = '© 2024 Tenderhooks. All rights reserved. Site Version: ' + version.trim();
+			        })
+			        .catch(error => {
+			            console.error('There was a problem with the fetch operation:', error);
+			            document.getElementById('site-version').textContent = 'Version info unavailable! (404)';
+			        });
+			}
+			
+			fetchVersion();
+		</script>
+		<script> /* MENU TOGGLE */
+			function toggleMenu() {
+			    var menu = document.getElementById("menu");
+			    var btn = document.querySelector(".menu-btn");
+			    if (menu.style.width === "400px") {
+			        menu.style.width = "0";
+			        btn.classList.remove("menu-open");
+			    } else {
+			        menu.style.width = "400px";
+			        btn.classList.add("menu-open");
+			    }
+			}
+		</script>
+		<script> /* OFFLINE CHECK */
+			function offlinecheck() {
+			    fetch('https://raw.githubusercontent.com/JensonGuffick/tenderhooks/main/offline.txt')
+			        .then(response => response.text()) // Convert the response to text
+			        .then(text => {
+			            if (text.toLowerCase().includes('yes')) {
+			                window.location.href = 'https://offline.tenderhooks.uk';
+			            }
+			        })
+			        .catch(error => {
+			            console.error('Error fetching the file:', error);
+			        });
+			}
+			offlinecheck();
+		</script>
+	</body>
 </html>
