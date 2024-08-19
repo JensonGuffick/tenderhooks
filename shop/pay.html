@@ -107,7 +107,6 @@
         <div class="content">
             <p id="message" style="font-size: 2em;">Would you like to purchase the <u>5.4 Light Years</u> album?</p>
             <p id="price" style="color: #888; font-size: 1.5em;">This costs £*.**</p>
-            <img id="image" src="/banner.png" alt="Album Banner">
             <a class="pay" href="https://www.paypal.com/paypalme/tenderhooks">Pay with PayPal</a>
             <p id="site-version" style="color: #666;">© 2024 Tenderhooks. All rights reserved. Site Version: 3.6.6</p>
         </div>
@@ -117,61 +116,50 @@
         const album = urlParams.get('album');
         let message;
         let price;
-        let imageSrc;
         if (album) {
             switch (album) {
                 case '5.4_Light_Years':
                     message = 'Would you like to purchase the <b>5.4 Light Years</b> album?';
                     price = 'This album costs £12';
-                    imageSrc = '/path/to/5.4_Light_Years_image.png';
                     break;
                 case 'Hooks!':
                     message = "Would you like to purchase the <b>'Hooks!</b> album?";
                     price = 'This album costs £12';
-                    imageSrc = 'https://i.scdn.co/image/ab67616d00001e028bfd5ce97f4f28f954fa212a';
                     break;
                 case '20-20_vision':
                     message = 'Would you like to purchase the <b>20-20 Vision</b> album?';
                     price = 'This album costs £12';
-                    imageSrc = '/path/to/20-20_vision_image.png'; // Update this path as needed
                     break;
                 case 'SkeletonDance':
                     message = 'Would you like to purchase the <b>Skeleton Dance</b> album?';
                     price = 'This album costs £12';
-                    imageSrc = '/path/to/SkeletonDance_image.png'; // Update this path as needed
                     break;
                 case 'NorthStar':
                     message = 'Would you like to purchase the <b>North Star</b> album?';
                     price = 'This album costs £12';
-                    imageSrc = '/path/to/NorthStar_image.png'; // Update this path as needed
                     break;
                 case 'LovingSword':
                     message = 'Would you like to purchase the <b>Loving Sword</b> album?';
                     price = 'This album costs £12';
-                    imageSrc = '/path/to/LovingSword_image.png'; // Update this path as needed
                     break;
                 case 'Tenderhooks':
                     message = 'Would you like to purchase the <b>Tenderhooks</b> album?';
                     price = 'This album costs £12';
-                    imageSrc = '/path/to/Tenderhooks_image.png'; // Update this path as needed
                     break;
                 /* ---------------------------------- ADD MORE ALBUMS AFTER UPDATE ---------------------------------------*/
                 default:
                     message = `Would you like to purchase the ${album} album?`;
                     price = 'This album costs £12';
-                    imageSrc = '/path/to/default_image.png'; // Update this path as needed
                     break;
             }
         } else {
             message = 'No album selected.';
             price = '';
-            imageSrc = '/banner.png'; // Update this path as needed
         }
 
         // Set the message, price, and image source dynamically
         document.getElementById('message').innerHTML = message;
         document.getElementById('price').textContent = price;
-        document.getElementById('image').src = imageSrc;
         </script>
         <script>
         // Function to fetch site version
