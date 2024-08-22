@@ -236,20 +236,31 @@
 			
 			fetchVersion();
 		</script>
-		<script> /* Offline Check */
+		<script>
+			// Offline Check Override
 			function offlinecheck() {
-			    fetch('https://raw.githubusercontent.com/JensonGuffick/tenderhooks/main/offline.txt')
-			        .then(response => response.text()) // Convert the response to text
-			        .then(text => {
-			            if (text.toLowerCase().includes('yes')) {
-			                window.location.href = 'https://offline.tenderhooks.uk';
-			            }
-			        })
-			        .catch(error => {
-			            console.error('Error fetching the file:', error);
-			        });
+				// Check if override is enabled (localStorage item is set)
+				if (localStorage.getItem('offlineCheckOverride') === 'true') {
+					console.log("Offline redirect is temporarily disabled.");
+					return; // Stop the redirect
+				}
+		
+				// Fetch the file and proceed with the normal check
+				fetch('https://raw.githubusercontent.com/JensonGuffick/tenderhooks/main/offline.txt')
+					.then(response => response.text()) // Convert the response to text
+					.then(text => {
+						if (text.toLowerCase().includes('yes')) {
+							window.location.href = 'https://offline.tenderhooks.uk';
+						}
+					})
+					.catch(error => {
+						console.error('Error fetching the file:', error);
+					});
 			}
+		
+			// Call the offline check function
 			offlinecheck();
-		</script> 
+		</script>
+		
 	</body>
 </html>
