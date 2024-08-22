@@ -237,11 +237,14 @@
 			fetchVersion();
 		</script>
 		<script>
-			// Offline Check Override
 			function offlinecheck() {
-				// Check if override is enabled (localStorage item is set)
-				if (localStorage.getItem('offlineCheckOverride') === 'true') {
-					console.log("Offline redirect is temporarily disabled.");
+				// Check if the URL contains a query parameter to disable the redirect (e.g., ?override=true)
+				const urlParams = new URLSearchParams(window.location.search);
+				const override = urlParams.get('override');
+		
+				// If override is true, skip the redirect
+				if (override === 'true') {
+					console.log("Offline redirect is temporarily disabled by query parameter.");
 					return; // Stop the redirect
 				}
 		
@@ -260,7 +263,6 @@
 		
 			// Call the offline check function
 			offlinecheck();
-		</script>
-		
+		</script>		
 	</body>
 </html>
