@@ -263,6 +263,23 @@
 		
 			// Call the offline check function
 			offlinecheck();
-		</script>		
+		</script>	
+		<script>
+			document.addEventListener('DOMContentLoaded', function() {
+				// Check if the current URL contains the override parameter
+				if (window.location.search.includes('override=yes')) {
+					// Select all navigation links
+					const navLinks = document.querySelectorAll('.menu .div');
+					
+					// Add ?override=yes to all internal links
+					navLinks.forEach(link => {
+						if (link.href.startsWith(window.location.origin)) {
+							link.href += link.href.includes('?') ? '&override=yes' : '?override=yes';
+						}
+					});
+				}
+			});
+		</script>
+			
 	</body>
 </html>
