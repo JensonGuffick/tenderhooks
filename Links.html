@@ -276,17 +276,30 @@
 			</script>
 			<script> /* OFFLINE CHECK */
 				function offlinecheck() {
-				    fetch('https://raw.githubusercontent.com/JensonGuffick/tenderhooks/main/offline.txt')
-				        .then(response => response.text()) // Convert the response to text
-				        .then(text => {
-				            if (text.toLowerCase().includes('yes')) {
-				                window.location.href = 'https://offline.tenderhooks.uk';
-				            }
-				        })
-				        .catch(error => {
-				            console.error('Error fetching the file:', error);
-				        });
+					// Check if the URL contains a query parameter to disable the redirect (e.g., ?override=true)
+					const urlParams = new URLSearchParams(window.location.search);
+					const override = urlParams.get('override');
+			
+					// If override is true, skip the redirect
+					if (override === 'yes') {
+						console.log("Offline redirect is temporarily disabled by query parameter.");
+						return; // Stop the redirect
+					}
+			
+					// Fetch the file and proceed with the normal check
+					fetch('https://raw.githubusercontent.com/JensonGuffick/tenderhooks/main/offline.txt')
+						.then(response => response.text()) // Convert the response to text
+						.then(text => {
+							if (text.toLowerCase().includes('yes')) {
+								window.location.href = 'https://offline.tenderhooks.uk';
+							}
+						})
+						.catch(error => {
+							console.error('Error fetching the file:', error);
+						});
 				}
+			
+				// Call the offline check function
 				offlinecheck();
 			</script>
 		</div>

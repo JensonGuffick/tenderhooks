@@ -236,14 +236,14 @@
 			
 			fetchVersion();
 		</script>
-		<script>
+		<script> /* OFFLINE CHECK */
 			function offlinecheck() {
 				// Check if the URL contains a query parameter to disable the redirect (e.g., ?override=true)
 				const urlParams = new URLSearchParams(window.location.search);
 				const override = urlParams.get('override');
 		
 				// If override is true, skip the redirect
-				if (override === 'true') {
+				if (override === 'yes') {
 					console.log("Offline redirect is temporarily disabled by query parameter.");
 					return; // Stop the redirect
 				}
