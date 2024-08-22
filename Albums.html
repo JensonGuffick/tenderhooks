@@ -172,7 +172,7 @@
 			<a href="/">Home</a>
 			<a href="Links">Links</a>
 			<a href="contact">Contact</a>
-            <a href="shop">Shop</a>
+			<a href="shop">Shop</a>
 			<a href="Albums">Albums</a>
 			<a href="About">About Us</a>
 		</div>
@@ -184,6 +184,11 @@
 			<div class="content">
 				<h1>All our albums:</h1>
 				<div class="albums">
+					<div class="album">
+						<a><img src="https://t4.ftcdn.net/jpg/02/23/80/31/360_F_223803185_15cZcRdKQ8yfdQC67176ABiNpiURYojP.jpg" style="border-radius: 25px; max-width: 300px;"></a>
+						<p>Mystery Album</p>
+						<a style="color: white;" href="/dev/new-album">Learn More</a>
+					</div>
 					<div class="album">
 						<a href="https://open.spotify.com/album/3DlhFsp7DkAVY66FRgM4dl?si=v53NIDBpRVGCtalWKEOlEA"><img src="https://i.scdn.co/image/ab67616d00001e021f4d91e3603ae9c0f97c78e1" style="border-radius: 25px;"></a>
 						<p>5.4 light years</p>
@@ -304,8 +309,8 @@
 					</div>
 				</div>
 			</div>
-            <div class="footer">
-                <a href="/dev/patchnotes" id="site-version" style="color: #777;">© 2024 Tenderhooks. All rights reserved. Site Version: Loading...</a>
+			<div class="footer">
+				<a href="/dev/patchnotes" id="site-version" style="color: #777;">© 2024 Tenderhooks. All rights reserved. Site Version: 4.1.5MI</a>
 			</div>
 		</div>
 		<script> /* TEMP COUNTDOWN SCRIPT */
@@ -375,13 +380,13 @@
 				// Check if the URL contains a query parameter to disable the redirect (e.g., ?override=true)
 				const urlParams = new URLSearchParams(window.location.search);
 				const override = urlParams.get('override');
-		
+			
 				// If override is true, skip the redirect
 				if (override === 'yes') {
 					console.log("Offline redirect is temporarily disabled by query parameter.");
 					return; // Stop the redirect
 				}
-		
+			
 				// Fetch the file and proceed with the normal check
 				fetch('https://raw.githubusercontent.com/JensonGuffick/tenderhooks/main/offline.txt')
 					.then(response => response.text()) // Convert the response to text
@@ -394,7 +399,7 @@
 						console.error('Error fetching the file:', error);
 					});
 			}
-		
+			
 			// Call the offline check function
 			offlinecheck();
 		</script>

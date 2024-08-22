@@ -1,0 +1,173 @@
+<html lang="en">
+	<head>
+		<link rel="shortcut icon" type="image/x-icon" href="https://i.imgur.com/LJQtQiU.png">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Albums - Tenderhooks</title>
+		<style>
+			body {
+			background-color: #333;
+			color: #fff;
+			font-family: sans-serif;
+			margin: 0;
+			padding: 0;
+			}
+			.container {
+			width: 80%;
+			margin: 0 auto;
+			padding: 20px;
+			padding-top: 80px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			}
+			.header .headertxt {
+			font-size: 5em;
+			font-weight: bold;
+			color: #fff;
+			width: 100%;
+			padding: 10px;
+			box-sizing: border-box;
+			}
+			.links {
+			background-color: #888;
+			height: 70px;
+			width: 150px;
+			border-radius: 35px;
+			font-weight: bold;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			text-decoration: none;
+			color: white;
+			margin: 0 5px;
+			border: 2px solid black;
+			}
+			.links button {
+			background: none;
+			border: none;
+			color: inherit;
+			font: inherit;
+			cursor: pointer;
+			padding: 0;
+			outline: none;
+			}
+			.content {
+			margin-top: 10px;
+			text-align: center;
+			align-items: center;
+			width: 80%;
+			}
+			.content h2 {
+			font-size: 5em;
+			}
+			@media (max-width: 768px) {
+			.header .headertxt {
+			font-size: 7em;
+			padding: 8px;
+			}
+			}
+			@media (max-width: 480px) {
+			.header .headertxt {
+			font-size: 2.5em;
+			padding: 6px;
+			}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="header">
+				<p class="headertxt">New Albums</p>
+			</div>
+			<div class="content">
+				<p style="font-size: 2em;">The new album still in production</p>
+				<p style="font-size: 2em;">This means that you are able to preorder it!</p>
+				<br>
+				<p style="font-size: 2em;">The album releases Fri 1st Nov</p>
+				<p style="font-size: 2em;">This album has not been named yet or given a cover</p>
+			</div>
+			<div class="footer">
+				<a href="/dev/patchnotes" id="site-version" style="color: #777;">© 2024 Tenderhooks. All rights reserved. Site Version: 4.1.5MI</a>
+			</div>
+		</div>
+		<script> /* TEMP COUNTDOWN SCRIPT */
+			var countDownDate = new Date("Jun 28, 2024 10:00:00").getTime();
+			
+			// Update the count down every 1 second
+			var x = setInterval(function() {
+			
+			// Get today's date and time
+			var now = new Date().getTime();
+			    
+			// Find the distance between now and the count down date
+			var distance = countDownDate - now;
+			    
+			// Time calculations for days, hours, minutes and seconds
+			var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+			var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+			var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+			    
+			// Output the result in an element with id="demo"
+			document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+			+ minutes + "m " + seconds + "s ";
+			    
+			// If the count down is over, write some text 
+			if (distance < 0) {
+			    clearInterval(x);
+			    document.getElementById("countdown").innerHTML = "EXPIRED";
+			}
+			}, 1000);
+		</script>
+		<script> /* VERSION UPDATE */
+			function fetchVersion() {
+			    fetch('https://raw.githubusercontent.com/JensonGuffick/tenderhooks/main/ver.txt')
+			        .then(response => {
+			            if (!response.ok) {
+			                throw new Error('Network response was not ok');
+			            }
+			            return response.text();
+			        })
+			        .then(version => {
+			            document.getElementById('site-version').textContent = '© 2024 Tenderhooks. All rights reserved. Site Version: ' + version.trim();
+			        })
+			        .catch(error => {
+			            console.error('There was a problem with the fetch operation:', error);
+			            document.getElementById('site-version').textContent = 'Version info unavailable! (404)';
+			        });
+			}
+			
+			fetchVersion();
+		</script>
+		<script> /* OFFLINE CHECK */
+			function offlinecheck() {
+				// Check if the URL contains a query parameter to disable the redirect (e.g., ?override=true)
+				const urlParams = new URLSearchParams(window.location.search);
+				const override = urlParams.get('override');
+			
+				// If override is true, skip the redirect
+				if (override === 'yes') {
+					console.log("Offline redirect is temporarily disabled by query parameter.");
+					return; // Stop the redirect
+				}
+			
+				// Fetch the file and proceed with the normal check
+				fetch('https://raw.githubusercontent.com/JensonGuffick/tenderhooks/main/offline.txt')
+					.then(response => response.text()) // Convert the response to text
+					.then(text => {
+						if (text.toLowerCase().includes('yes')) {
+							window.location.href = 'https://offline.tenderhooks.uk';
+						}
+					})
+					.catch(error => {
+						console.error('Error fetching the file:', error);
+					});
+			}
+			
+			// Call the offline check function
+			offlinecheck();
+		</script>
+		<script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon="{&quot;rayId&quot;:&quot;8b75959b9df9d180&quot;,&quot;version&quot;:&quot;2024.8.0&quot;,&quot;r&quot;:1,&quot;token&quot;:&quot;cfb9b79b11d9408eae63605b451fb891&quot;,&quot;serverTiming&quot;:{&quot;name&quot;:{&quot;cfL4&quot;:true}}}" crossorigin="anonymous"></script>
+	</body>
+</html>
