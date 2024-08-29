@@ -1,0 +1,27 @@
+name: Auto Commit with ver.txt
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-commit-message:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Read version message
+        id: get_ver
+        run: |
+          ver_msg=$(cat ver.txt)
+          echo "VER_MESSAGE=$ver_msg" >> $GITHUB_ENV
+
+      - name: Set Commit Message
+        run: |
+          git config --global user.email "jensonguffick@yahoo.com"
+          git config --global user.name "JensonGuffick"
+          git commit --amend -m "$VER_MESSAGE"
+          git push --force
