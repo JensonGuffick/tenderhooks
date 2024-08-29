@@ -24,14 +24,10 @@ jobs:
           git config --global user.email "jensonguffick@yahoo.com"
           git config --global user.name "JensonGuffick"
 
-      - name: Check for Changes
+      - name: Commit and Push Changes
+        env:
+          TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
-          if git diff --quiet; then
-            echo "No changes to commit."
-            exit 0
-          fi
-
-      - name: Set Commit Message and Push
-        run: |
+          git remote set-url origin https://x-access-token:${TOKEN}@github.com/JensonGuffick/tenderhooks.git
           git commit --amend -m "$VER_MESSAGE"
           git push --force
