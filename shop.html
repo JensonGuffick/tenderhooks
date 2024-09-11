@@ -5,6 +5,41 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Shop - Tenderhooks</title>
 		<style>
+			#pay-overlay {
+			display: none;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.8);
+			z-index: 1000;
+			}
+			#pay-overlay iframe {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 80%;
+			height: 80%;
+			border-style: solid;
+			border-radius: 30px;
+			}
+			#close-pay-overlay {
+			position: absolute;
+			top: 20px;
+			right: 20px;
+			background-color: transparent;
+			border: none;
+			color: white;
+			font-size: 2em;
+			cursor: pointer;
+			z-index: 1001;
+			transition: color 0.3s ease;
+			}
+			#close-pay-overlay:hover {
+			color: #ccc;
+			}
 			body {
 			background-color: #333;
 			color: #fff;
@@ -122,8 +157,8 @@
 				<p style="color: #555; font-size: 2em">Buy tenderhooks merch / CDs!</p>
 				<div class="side-by-side">
 					<div>
-						<a target="_top" href="/shop/pay?album=MrLaughing">
-							<img src="https://t4.ftcdn.net/jpg/02/23/80/31/360_F_223803185_15cZcRdKQ8yfdQC67176ABiNpiURYojP.jpg" style="border-radius: 20%;max-width: 100%;">
+						<a onclick="openPayPage('MrLaughing')">
+						<img src="https://t4.ftcdn.net/jpg/02/23/80/31/360_F_223803185_15cZcRdKQ8yfdQC67176ABiNpiURYojP.jpg" style="border-radius: 20%;max-width: 100%;">
 						</a>
 						<p style="color: white; font-size: 2em;">Mr. Laughing</p>
 						<p style="color: white; font-size: 2em;">New Album for preorder</p>
@@ -131,51 +166,51 @@
 				</div>
 				<div class="side-by-side">
 					<div>
-						<a href="/shop/pay?album=5.4_Light_Years">
+						<a onclick="openPayPage('5.4_Light_Years')">
 						<img src="https://i.scdn.co/image/ab67616d00001e021f4d91e3603ae9c0f97c78e1" style="border-radius: 20%;max-width: 100%;"></a>
 						<p style="color: white; font-size: 1em;">5.4 Light Years</p>
 					</div>
 					<div>
-						<a href="/shop/pay?album='Hooks!">
+						<a onclick="openPayPage('Hooks!')">
 						<img src="https://i.scdn.co/image/ab67616d00001e028bfd5ce97f4f28f954fa212a" style="border-radius: 20%;max-width: 100%;"></a>
 						<p style="color: white; font-size: 1em;">'Hooks!</p>
 					</div>
 					<div>
-						<a href="/shop/pay?album=20-20_vision">
+						<a onclick="openPayPage('20-20_vision')">
 						<img src="https://i.scdn.co/image/ab67616d00001e02566e235f987a0e0710022256" style="border-radius: 20%;max-width: 100%;"></a>
 						<p style="color: white; font-size: 1em;">20-20 vision</p>
 					</div>
 				</div>
 				<div class="side-by-side">
 					<div>
-						<a href="/shop/pay?album=SkeletonDance">
+						<a onclick="openPayPage('SkeletonDance')">
 						<img src="https://i.scdn.co/image/ab67616d00001e029f71b5f18059efecadc58290" style="border-radius: 20%;max-width: 100%;"></a>
 						<p style="color: white; font-size: 1em;">Skeleton Dance</p>
 					</div>
 					<div>
-						<a href="/shop/pay?album=NorthStar">
+						<a onclick="openPayPage('NorthStar')">
 						<img src="https://i.scdn.co/image/ab67616d00001e0228d8852cae6232a899e3b9fe" style="border-radius: 20%;max-width: 100%;" naptha_cursor="text"></a>
 						<p style="color: white; font-size: 1em;">North Star</p>
 					</div>
 					<div>
-						<a href="/shop/pay?album=LovingSword">
+						<a onclick="openPayPage('LovingSword')">
 						<img src="https://i.scdn.co/image/ab67616d00001e02f928af2c7406e33b97175c66" style="border-radius: 20%;max-width: 100%;"></a>
 						<p style="color: white; font-size: 1em;">Loving Sword</p>
 					</div>
 				</div>
 				<div class="side-by-side">
 					<div>
-						<a href="/shop/pay?album=Tenderhooks">
+						<a onclick="openPayPage('Tenderhooks')">
 						<img src="https://i.scdn.co/image/ab67616d00001e025413f12ee0312a2dcfb646c9" style="border-radius: 20%;max-width: 100%;"></a>
 						<p style="color: white; font-size: 1em;">Tenderhooks</p>
 					</div>
 					<div>
-						<a href="/shop/pay?album=EcoWarrior">
+						<a onclick="openPayPage('EcoWarrior')">
 						<img src="https://i.scdn.co/image/ab67616d00001e02ee5756f7a06a30f30c75aadd" style="border-radius: 20%;max-width: 100%;"></a>
 						<p style="color: white; font-size: 1em;">Eco Warrior</p>
 					</div>
 					<div>
-						<a href="/shop/pay?album=DRWH">
+						<a onclick="openPayPage('DRWH')">
 						<img src="https://i.scdn.co/image/ab67616d00001e02d086fb046af70ca337bd2aea" style="border-radius: 20%;max-width: 100%;"></a>
 						<p style="color: white; font-size: 1em;">Devil Rides White Horses</p>
 					</div>
@@ -187,66 +222,61 @@
 					</a>
 				</div>
 			</div>
-			<script> /* VERSION UPDATE */
-					function fetchVersion() {
-					    fetch('https://raw.githubusercontent.com/JensonGuffick/tenderhooks/main/ver.txt')
-					        .then(response => {
-					            if (!response.ok) {
-					                throw new Error('Network response was not ok');
-					            }
-					            return response.text();
-					        })
-					        .then(version => {
-					            document.getElementById('site-version').textContent = '© 2024 Tenderhooks. All rights reserved. Site Version: ' + version.trim();
-					        })
-					        .catch(error => {
-					            console.error('There was a problem with the fetch operation:', error);
-					            document.getElementById('site-version').textContent = 'Version info unavailable! (404)';
-					        });
-					}
-					
-					fetchVersion();
+			<div id="pay-overlay" style="display: none;">
+				<iframe id="pay-iframe" src="/shop/pay?album=5.4_Light_Years"></iframe>
+				<a id="close-pay-overlay" onclick="closePayPage()">X</a>
+			</div>
+			<script> // VERSION UPDATE
+				function fetchVersion() {
+				    fetch('https://raw.githubusercontent.com/JensonGuffick/tenderhooks/main/ver.txt')
+				        .then(response => {
+				            if (!response.ok) {
+				                throw new Error('Network response was not ok');
+				            }
+				            return response.text();
+				        })
+				        .then(version => {
+				            document.getElementById('site-version').textContent = '© 2024 Tenderhooks. All rights reserved. Site Version: ' + version.trim();
+				        })
+				        .catch(error => {
+				            console.error('There was a problem with the fetch operation:', error);
+				            document.getElementById('site-version').textContent = 'Version info unavailable! (404)';
+				        });
+				}
+				
+				fetchVersion();
 			</script>
-			<script> /* MENU TOGGLE */
-					function toggleMenu() {
-					    var menu = document.getElementById("menu");
-					    var btn = document.querySelector(".menu-btn");
-					    if (menu.style.width === "400px") {
-					        menu.style.width = "0";
-					        btn.classList.remove("menu-open");
-					    } else {
-					        menu.style.width = "400px";
-					        btn.classList.add("menu-open");
-					    }
-					}
+			<script> // MENU TOGGLE
+				function toggleMenu() {
+				    var menu = document.getElementById("menu");
+				    var btn = document.querySelector(".menu-btn");
+				    if (menu.style.width === "400px") {
+				        menu.style.width = "0";
+				        btn.classList.remove("menu-open");
+				    } else {
+				        menu.style.width = "400px";
+				        btn.classList.add("menu-open");
+				    }
+				}
 			</script>
-			<script> /* OFFLINE CHECK */
-					function offlinecheck() {
-						// Check if the URL contains a query parameter to disable the redirect (e.g., ?override=true)
-						const urlParams = new URLSearchParams(window.location.search);
-						const override = urlParams.get('override');
-					
-						// If override is true, skip the redirect
-						if (override === 'yes') {
-							console.log("Offline redirect is temporarily disabled by query parameter.");
-							return; // Stop the redirect
-						}
-					
-						// Fetch the file and proceed with the normal check
-						fetch('https://raw.githubusercontent.com/JensonGuffick/tenderhooks/main/offline.txt')
-							.then(response => response.text()) // Convert the response to text
-							.then(text => {
-								if (text.toLowerCase().includes('yes')) {
-									window.location.href = 'https://offline.tenderhooks.uk';
-								}
-							})
-							.catch(error => {
-								console.error('Error fetching the file:', error);
-							});
-					}
-					
-					// Call the offline check function
-					offlinecheck();
+			<script> // PAY PAGE
+				function openPayPage(album) {
+				    var iframe = document.getElementById('pay-iframe');
+				    iframe.src = '/shop/pay?album=' + encodeURIComponent(album);
+				    document.getElementById('pay-overlay').style.display = 'block';
+				}
+				
+				// Function to close the pay page overlay
+				function closePayPage() {
+				    document.getElementById('pay-overlay').style.display = 'none';
+				}
+				
+				// Add click event to close the overlay when clicked outside the iframe
+				document.getElementById('pay-overlay').addEventListener('click', function(event) {
+				    if (event.target === this) {
+				        closePayPage();
+				    }
+				});
 			</script>
 		</div>
 	</body>
