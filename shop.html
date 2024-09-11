@@ -18,19 +18,6 @@
 			padding: 20px;
 			padding-top: 80px;
 			}
-			.top-bar {
-			width: calc(100% - 40px);
-			height: 80px;
-			background-color: #555;
-			position: fixed;
-			top: 30px;
-			left: 20px;
-			z-index: 1;
-			border-radius: 50px;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			}
 			.content {
 			margin-top: 100px;
 			text-align: center;
@@ -56,18 +43,30 @@
 			top: 30px;
 			left: 20px;
 			z-index: 2;
-			background-color: #555;
+			background-color: transparent;
 			border: none;
 			cursor: pointer;
-			padding: 10px;
-			border-radius: 5px;
+			padding: 0;
+			width: 50px;
+			height: 50px;
 			}
-			.menu-btn div {
-			width: 30px;
-			height: 3px;
-			background-color: white;
-			margin: 5px 0;
-			transition: 0.4s;
+			.menu-img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			opacity: 0;
+			transition: opacity 0.5s ease;
+			}
+			#menu-icon {
+			opacity: 1;
+			}
+			.menu-open #menu-icon {
+			opacity: 0;
+			}
+			.menu-open #close-icon {
+			opacity: 1;
 			}
 			.menu {
 			height: 100%;
@@ -100,22 +99,12 @@
 			font-size: 36px;
 			margin-left: 50px;
 			}
-			.menu-open .bar1 {
-			transform: rotate(-45deg) translate(-5px, 6px);
-			}
-			.menu-open .bar2 {
-			opacity: 0;
-			}
-			.menu-open .bar3 {
-			transform: rotate(45deg) translate(-5px, -6px);
-			}
 		</style>
 	</head>
 	<body>
 		<button class="menu-btn" onclick="toggleMenu()">
-			<div class="bar1"></div>
-			<div class="bar2"></div>
-			<div class="bar3"></div>
+		<img src="https://i.imgur.com/OQXtsqz.png" class="menu-img" id="menu-icon">
+		<img src="https://i.imgur.com/lRpRNw4.png" class="menu-img" id="close-icon">
 		</button>
 		<div id="menu" class="menu" style="width: 0px;">
 			<br>
@@ -123,6 +112,7 @@
 			<a href="/">Home</a>
 			<a href="Links">Links</a>
 			<a href="contact">Contact</a>
+			<a href="shop">Shop</a>
 			<a href="Albums">Albums</a>
 			<a href="About">About Us</a>
 		</div>
@@ -130,6 +120,15 @@
 			<div class="content">
 				<p class="headertxt">Tenderhooks Shop</p>
 				<p style="color: #555; font-size: 2em">Buy tenderhooks merch / CDs!</p>
+				<div class="side-by-side">
+					<div>
+						<a target="_top" href="/shop/pay?album=MrLaughing">
+							<img src="https://t4.ftcdn.net/jpg/02/23/80/31/360_F_223803185_15cZcRdKQ8yfdQC67176ABiNpiURYojP.jpg" style="border-radius: 20%;max-width: 100%;">
+						</a>
+						<p style="color: white; font-size: 2em;">Mr. Laughing</p>
+						<p style="color: white; font-size: 2em;">New Album for preorder</p>
+					</div>
+				</div>
 				<div class="side-by-side">
 					<div>
 						<a href="/shop/pay?album=5.4_Light_Years">
@@ -181,70 +180,73 @@
 						<p style="color: white; font-size: 1em;">Devil Rides White Horses</p>
 					</div>
 				</div>
-                <div>
-				    <a id="site-version" style="color: #666;" href="/dev/patchnotes">© 2024 Tenderhooks. All rights reserved. Site Version: 3.5.9</p>
-                </div>
+				<div>
+					<a id="site-version" style="color: #666;" href="/dev/patchnotes">
+						© 2024 Tenderhooks. All rights reserved. Site Version: 3.5.9
+						<p></p>
+					</a>
+				</div>
 			</div>
 			<script> /* VERSION UPDATE */
-				function fetchVersion() {
-				    fetch('https://raw.githubusercontent.com/JensonGuffick/tenderhooks/main/ver.txt')
-				        .then(response => {
-				            if (!response.ok) {
-				                throw new Error('Network response was not ok');
-				            }
-				            return response.text();
-				        })
-				        .then(version => {
-				            document.getElementById('site-version').textContent = '© 2024 Tenderhooks. All rights reserved. Site Version: ' + version.trim();
-				        })
-				        .catch(error => {
-				            console.error('There was a problem with the fetch operation:', error);
-				            document.getElementById('site-version').textContent = 'Version info unavailable! (404)';
-				        });
-				}
-				
-				fetchVersion();
+					function fetchVersion() {
+					    fetch('https://raw.githubusercontent.com/JensonGuffick/tenderhooks/main/ver.txt')
+					        .then(response => {
+					            if (!response.ok) {
+					                throw new Error('Network response was not ok');
+					            }
+					            return response.text();
+					        })
+					        .then(version => {
+					            document.getElementById('site-version').textContent = '© 2024 Tenderhooks. All rights reserved. Site Version: ' + version.trim();
+					        })
+					        .catch(error => {
+					            console.error('There was a problem with the fetch operation:', error);
+					            document.getElementById('site-version').textContent = 'Version info unavailable! (404)';
+					        });
+					}
+					
+					fetchVersion();
 			</script>
 			<script> /* MENU TOGGLE */
-				function toggleMenu() {
-				    var menu = document.getElementById("menu");
-				    var btn = document.querySelector(".menu-btn");
-				    if (menu.style.width === "400px") {
-				        menu.style.width = "0";
-				        btn.classList.remove("menu-open");
-				    } else {
-				        menu.style.width = "400px";
-				        btn.classList.add("menu-open");
-				    }
-				}
+					function toggleMenu() {
+					    var menu = document.getElementById("menu");
+					    var btn = document.querySelector(".menu-btn");
+					    if (menu.style.width === "400px") {
+					        menu.style.width = "0";
+					        btn.classList.remove("menu-open");
+					    } else {
+					        menu.style.width = "400px";
+					        btn.classList.add("menu-open");
+					    }
+					}
 			</script>
 			<script> /* OFFLINE CHECK */
-				function offlinecheck() {
-					// Check if the URL contains a query parameter to disable the redirect (e.g., ?override=true)
-					const urlParams = new URLSearchParams(window.location.search);
-					const override = urlParams.get('override');
-			
-					// If override is true, skip the redirect
-					if (override === 'yes') {
-						console.log("Offline redirect is temporarily disabled by query parameter.");
-						return; // Stop the redirect
+					function offlinecheck() {
+						// Check if the URL contains a query parameter to disable the redirect (e.g., ?override=true)
+						const urlParams = new URLSearchParams(window.location.search);
+						const override = urlParams.get('override');
+					
+						// If override is true, skip the redirect
+						if (override === 'yes') {
+							console.log("Offline redirect is temporarily disabled by query parameter.");
+							return; // Stop the redirect
+						}
+					
+						// Fetch the file and proceed with the normal check
+						fetch('https://raw.githubusercontent.com/JensonGuffick/tenderhooks/main/offline.txt')
+							.then(response => response.text()) // Convert the response to text
+							.then(text => {
+								if (text.toLowerCase().includes('yes')) {
+									window.location.href = 'https://offline.tenderhooks.uk';
+								}
+							})
+							.catch(error => {
+								console.error('Error fetching the file:', error);
+							});
 					}
-			
-					// Fetch the file and proceed with the normal check
-					fetch('https://raw.githubusercontent.com/JensonGuffick/tenderhooks/main/offline.txt')
-						.then(response => response.text()) // Convert the response to text
-						.then(text => {
-							if (text.toLowerCase().includes('yes')) {
-								window.location.href = 'https://offline.tenderhooks.uk';
-							}
-						})
-						.catch(error => {
-							console.error('Error fetching the file:', error);
-						});
-				}
-			
-				// Call the offline check function
-				offlinecheck();
+					
+					// Call the offline check function
+					offlinecheck();
 			</script>
 		</div>
 	</body>

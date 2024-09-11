@@ -83,14 +83,6 @@
 			width: 100%;
 			border: none;
 			}
-			.amazon-music {
-			width: 100%;
-			border: none;
-			}
-			.spotify {
-			width: 100%;
-			border: none;
-			}
 			.join-text {
 			position: absolute;
 			left: 20%;
@@ -114,18 +106,30 @@
 			top: 30px;
 			left: 20px;
 			z-index: 2;
-			background-color: #555;
+			background-color: transparent;
 			border: none;
 			cursor: pointer;
-			padding: 10px;
-			border-radius: 5px;
+			padding: 0;
+			width: 50px;
+			height: 50px;
 			}
-			.menu-btn div {
-			width: 30px;
-			height: 3px;
-			background-color: white;
-			margin: 5px 0;
-			transition: 0.4s;
+			.menu-img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			opacity: 0;
+			transition: opacity 0.5s ease;
+			}
+			#menu-icon {
+			opacity: 1;
+			}
+			.menu-open #menu-icon {
+			opacity: 0;
+			}
+			.menu-open #close-icon {
+			opacity: 1;
 			}
 			.menu {
 			height: 100%;
@@ -171,9 +175,8 @@
 	</head>
 	<body>
 		<button class="menu-btn" onclick="toggleMenu()">
-			<div class="bar1"></div>
-			<div class="bar2"></div>
-			<div class="bar3"></div>
+			<img src="https://i.imgur.com/OQXtsqz.png" class="menu-img" id="menu-icon">
+			<img src="https://i.imgur.com/lRpRNw4.png" class="menu-img" id="close-icon">
 		</button>
 		<div id="menu" class="menu" style="width: 0px;">
 			<br>
@@ -181,7 +184,7 @@
 			<a href="/">Home</a>
 			<a href="Links">Links</a>
 			<a href="contact">Contact</a>
-            <a href="shop">Shop</a>
+			<a href="shop">Shop</a>
 			<a href="Albums">Albums</a>
 			<a href="About">About Us</a>
 		</div>
@@ -207,7 +210,7 @@
 				<div class="side-by-side">
 					<div class="amazon-music">
 						<a href="https://music.amazon.co.uk/artists/B001R58MWA/tenderhooks">
-						<img src="https://i.imgur.com/HG3nalz.png" style="border-radius: 100%; max-width: 100%;"></a>
+						<img src="https://i.imgur.com/HG3nalz.png" style="border-radius: 100%; max-width: 100%;" naptha_cursor="text"></a>
 						<p style="color: white; font-size: 1em;">Amazon Music</p>
 					</div>
 					<div class="Spotify">
@@ -238,8 +241,8 @@
 					</div>
 				</div>
 				<div class="footer">
-                    <a href="/dev/patchnotes" id="site-version" style="color: #777;">© 2024 Tenderhooks. All rights reserved. Site Version: Loading...</a>
-                </div>
+					<a href="/dev/patchnotes" id="site-version" style="color: #777;">© 2024 Tenderhooks. All rights reserved. Site Version: 4.2.9MA</a>
+				</div>
 			</div>
 			<script> /* VERSION UPDTE*/
 				function fetchVersion() {
@@ -279,13 +282,13 @@
 					// Check if the URL contains a query parameter to disable the redirect (e.g., ?override=true)
 					const urlParams = new URLSearchParams(window.location.search);
 					const override = urlParams.get('override');
-			
+				
 					// If override is true, skip the redirect
 					if (override === 'yes') {
 						console.log("Offline redirect is temporarily disabled by query parameter.");
 						return; // Stop the redirect
 					}
-			
+				
 					// Fetch the file and proceed with the normal check
 					fetch('https://raw.githubusercontent.com/JensonGuffick/tenderhooks/main/offline.txt')
 						.then(response => response.text()) // Convert the response to text
@@ -298,7 +301,7 @@
 							console.error('Error fetching the file:', error);
 						});
 				}
-			
+				
 				// Call the offline check function
 				offlinecheck();
 			</script>

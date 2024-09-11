@@ -22,7 +22,6 @@
 			position: relative;
 			text-align: center;
 			overflow: hidden;
-			border-radius: 15px;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
@@ -35,7 +34,7 @@
 			}
 			.headertxt {
 			text-align: center;
-			font-size: 2em;
+			font-size: 4em;
 			font-weight: bold;
 			color: #fff;
 			width: 100%;
@@ -51,13 +50,15 @@
 			}
 			@media (max-width: 768px) {
 			.header .headertxt {
-			font-size: 2.5em;
-			padding: 8px;
+			font-size: 3em;
 			}
 			}
 			@media (max-width: 480px) {
 			.header .headertxt {
 			font-size: 2em;
+			}
+			.container {
+			padding-top: 50px;
 			}
 			}
 			.side-by-side {
@@ -72,18 +73,30 @@
 			top: 30px;
 			left: 20px;
 			z-index: 2;
-			background-color: #555;
+			background-color: transparent;
 			border: none;
 			cursor: pointer;
-			padding: 10px;
-			border-radius: 5px;
+			padding: 0;
+			width: 50px;
+			height: 50px;
 			}
-			.menu-btn div {
-			width: 30px;
-			height: 3px;
-			background-color: white;
-			margin: 5px 0;
-			transition: 0.4s;
+			.menu-img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			opacity: 0;
+			transition: opacity 0.5s ease;
+			}
+			#menu-icon {
+			opacity: 1;
+			}
+			.menu-open #menu-icon {
+			opacity: 0;
+			}
+			.menu-open #close-icon {
+			opacity: 1;
 			}
 			.menu {
 			height: 100%;
@@ -131,9 +144,8 @@
 	</head>
 	<body>
 		<button class="menu-btn" onclick="toggleMenu()">
-			<div class="bar1"></div>
-			<div class="bar2"></div>
-			<div class="bar3"></div>
+			<img src="https://i.imgur.com/OQXtsqz.png" class="menu-img" id="menu-icon">
+			<img src="https://i.imgur.com/lRpRNw4.png" class="menu-img" id="close-icon">
 		</button>
 		<div id="menu" class="menu" style="width: 0px;">
 			<br>
@@ -147,16 +159,17 @@
 		</div>
 		<div class="container">
 			<div class="header">
-				<p class="headertxt" style="font-size: 3em;">TENDERHOOKS BAND</p>
+				<p class="headertxt">TENDERHOOKS BAND</p>
 				<img src="https://i.imgur.com/MWXTFoK.png">
 			</div>
 			<div class="content">
 				<h1>IMPORTANT ANOUNCEMENT</h1>
 				<div style="border-style: solid; border-radius: 30px; border-color: red; border-width: 5px;" class="">
-					<h1>New Song!</h1>
+					<h1>New Announcement!</h1>
 					<div style="width: 100%; height: 0px; border-style: solid; color: red; border-width: 2.5px; transition: 0.5s"></div>
-					<h2>The latest single 'Corona Virus Blues' has been released!</h2>
-					<a href="/albums" style="font-size: 2em; color: #d1d1d1;">See the songs here.</a>
+					<h2>The next Full Band Live is being broadcasted on tiktok!</h2>
+					<h2>The date of the live is <b>12th september 2024.</b> See you there!</h2>
+					<a target="_blank" href="https://tiktok.com/@hooks109/live" style="font-size: 2em; color: #d1d1d1;">You can watch the live here!</a>
 				</div>
 				<h2>Gigs</h2>
 				<p style="color: #777;">Our gigs for the next 12 months.</p>
@@ -203,7 +216,7 @@
 				<br>
 				<br>
 				<div class="footer">
-					<a href="/dev/patchnotes" id="site-version" style="color: #777;">© 2024 Tenderhooks. All rights reserved. Site Version: 4.2.7MI</a>
+					<a href="/dev/patchnotes" id="site-version" style="color: #777;">© 2024 Tenderhooks. All rights reserved. Site Version:</a>
 				</div>
 			</div>
 		</div>

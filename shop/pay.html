@@ -108,7 +108,7 @@
             <p id="message" style="font-size: 2em;">Would you like to purchase the <u>***************</u> album?</p>
             <p id="price" style="color: #888; font-size: 1.5em;">This costs £*.**</p>
             <a class="pay" href="https://www.paypal.com/paypalme/tenderhooks">Pay with PayPal</a>
-            <p id="site-version" style="color: #666;">© 2024 Tenderhooks. All rights reserved. Site Version: 3.6.6</p>
+            <p id="site-version" style="color: #666;">© 2024 Tenderhooks. All rights reserved. Site Version: </p>
         </div>
     </div>
     <script> /* PAY */
@@ -118,6 +118,10 @@
         let price;
         if (album) {
             switch (album) {
+                case 'MrLaughing':
+                    message = 'Would you like to pre-order the <b>Mr.Laughing</b> album?';
+                    price = 'This album costs £10';
+                    break;
                 case '5.4_Light_Years':
                     message = 'Would you like to purchase the <b>5.4 Light Years</b> album?';
                     price = 'This album costs £12';
@@ -154,7 +158,6 @@
                     message = 'Would you like to purchase the <b>Devil Rides White Horses</b> album?';
                     price = 'This album costs £12';
                     break;
-                /* ---------------------------------- ADD MORE ALBUMS AFTER UPDATE ---------------------------------------*/
                 default:
                     message = `Would you like to purchase the ${album} album?`;
                     price = 'This album costs £12';
