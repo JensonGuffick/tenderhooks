@@ -105,18 +105,30 @@
 		top: 30px;
 		left: 20px;
 		z-index: 2;
-		background-color: #555;
+		background-color: transparent;
 		border: none;
 		cursor: pointer;
-		padding: 10px;
-		border-radius: 5px;
+		padding: 0;
+		width: 50px;
+		height: 50px;
 		}
-		.menu-btn div {
-		width: 30px;
-		height: 3px;
-		background-color: white;
-		margin: 5px 0;
-		transition: 0.4s;
+		.menu-img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		opacity: 0;
+		transition: opacity 0.5s ease;
+		}
+		#menu-icon {
+		opacity: 1;
+		}
+		.menu-open #menu-icon {
+		opacity: 0;
+		}
+		.menu-open #close-icon {
+		opacity: 1;
 		}
 		.menu {
 		height: 100%;
@@ -149,20 +161,12 @@
 		font-size: 36px;
 		margin-left: 50px;
 		}
-		.menu-open .bar1 {
-		transform: rotate(-45deg) translate(-5px, 6px);
-		}
-		.menu-open .bar2 {
-		opacity: 0;
-		}
-		.menu-open .bar3 {
-		transform: rotate(45deg) translate(-5px, -6px);
-		}
 	</style>
-	<noscript>This page wont function without Javascript!</noscript></head><body><button class="menu-btn" onclick="toggleMenu()">
-		<div class="bar1"></div>
-		<div class="bar2"></div>
-		<div class="bar3"></div>
+	</head>
+<body>
+	<button class="menu-btn" onclick="toggleMenu()">
+		<img src="https://i.imgur.com/OQXtsqz.png" class="menu-img" id="menu-icon">
+		<img src="https://i.imgur.com/lRpRNw4.png" class="menu-img" id="close-icon">
 	</button>
 	<div id="menu" class="menu" style="width: 0px;">
 		<br>
