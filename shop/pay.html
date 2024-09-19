@@ -5,64 +5,92 @@
 		<title>Complete Purchase</title>
 		<style>
 			body {
-			background-color: #333;
-			color: #fff;
-			font-family: sans-serif;
+			background: linear-gradient(135deg, #333, #444);
+			color: white;
+			font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
 			margin: 0;
 			padding: 0;
+			text-align: center;
 			}
 			.container {
-			width: 80%;
+			width: 90%;
 			margin: 0 auto;
 			padding: 20px;
-			padding-top: 80px;
 			}
-			.content {
-			margin-top: 100px;
+			.header {
+			position: relative;
 			text-align: center;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-top: 20px;
 			}
-			.content h2 {
-			margin-bottom: 20px;
+			.headertxt {
+			font-size: 4em;
+			font-weight: bold;
+			text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 			}
-			.pay {
-			display: inline-block;
-			width: 400px;
-			font-size: 1.5em;
-			text-align: center;
-			padding: 10px;
-			background-color: gold;
-			color: black;
+			.header img {
+			max-width: 100%;
+			height: auto;
+			border-radius: 15px;
+			}
+			@keyframes pulse {
+			0%, 100% { transform: scale(1); }
+			50% { transform: scale(1.1); }
+			}
+			.links a {
+			font-size: 1.2em;
+			color: #888;
 			text-decoration: none;
-			border-radius: 55px;
+			border: 2px solid #888;
+			padding: 10px 20px;
+			border-radius: 50px;
+			transition: all 0.3s ease;
 			}
-			.bankt {
-			display: inline-block;
-			width: 400px;
-			font-size: 1.5em;
-			text-align: center;
-			padding: 10px;
-			background-color: #444;
-			color: white;
+			.links a:hover {
+			color: #e74c3c;
+			border-color: #e74c3c;
+			box-shadow: 0 0 10px #e74c3c;
+			}
+			iframe {
+			border-radius: 35px;
+			}
+			.footer {
+			color: #777;
+			padding: 20px 0;
+			}
+			.side-by-side {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-wrap: wrap;
+			gap: 20px;
+			margin-top: 20px;
+			}
+			.side-by-side .links {
+			flex-basis: calc(50% - 20px);
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			}
+			.footer a {
+			color: #777;
 			text-decoration: none;
-			border-radius: 55px;
 			}
-			.menu-btn {
-			position: fixed;
-			top: 30px;
-			left: 20px;
-			z-index: 2;
-			background-color: #555;
-			border: none;
-			cursor: pointer;
-			padding: 10px;
-			border-radius: 5px;
+			.footer a:hover {
+			color: #e74c3c;
 			}
-			.menu-btn div {
-			width: 30px;
-			height: 3px;
-			background-color: white;
-			margin: 5px 0;
-			transition: 0.4s;
+			@media (max-width: 768px) {
+			.side-by-side .links {
+			flex-basis: 100%;
+			}
+			}
+			@media (max-width: 768px) {
+			.side-by-side {
+			flex-direction: column;
+			}
 			}
 			.menu {
 			height: 100%;
@@ -95,20 +123,61 @@
 			font-size: 36px;
 			margin-left: 50px;
 			}
-			.menu-open .bar1 {
-			transform: rotate(-45deg) translate(-5px, 6px);
+			.menu-btn {
+			position: fixed;
+			top: 30px;
+			left: 20px;
+			z-index: 2;
+			background-color: transparent;
+			border: none;
+			cursor: pointer;
+			padding: 0;
+			width: 50px;
+			height: 50px;
 			}
-			.menu-open .bar2 {
+			.menu-img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			opacity: 0;
+			transition: opacity 0.5s ease;
+			}
+			#menu-icon {
+			opacity: 1;
+			}
+			.menu-open #menu-icon {
 			opacity: 0;
 			}
-			.menu-open .bar3 {
-			transform: rotate(45deg) translate(-5px, -6px);
+			.menu-open #close-icon {
+			opacity: 1;
 			}
-			#image {
-			max-width: 100%;
-			height: auto;
-			display: block;
-			margin: 20px auto;
+			.content {
+			margin-top: 100px;
+			text-align: center;
+			}
+			.pay {
+			display: inline-block;
+			width: 400px;
+			font-size: 1.5em;
+			text-align: center;
+			padding: 10px;
+			background-color: gold;
+			color: black;
+			text-decoration: none;
+			border-radius: 55px;
+			}
+			.bankt {
+			display: inline-block;
+			width: 400px;
+			font-size: 1.5em;
+			text-align: center;
+			padding: 10px;
+			background-color: #444;
+			color: white;
+			text-decoration: none;
+			border-radius: 55px;
 			}
 		</style>
 	</head>
@@ -120,7 +189,7 @@
 				<a class="pay" target="_blank" href="https://www.paypal.com/paypalme/tenderhooks">Pay with PayPal</a><a class="bankt" target="_blank" onclick="BankTransferInvoked()">Pay By Bank Transfer</a>
 				<p style="font-size: 2em;">To Pay:</p>
 				<u style="font-size: 2em;">Choose your preferred payment method.</u>
-				<p id="site-version" style="color: #666;">© 2024 Tenderhooks. All rights reserved. Site Version: 4.3.3MA</p>
+				<p id="site-version" style="color: #666;">© 2024 Tenderhooks. All rights reserved. Site Version: Loading...</p>
 			</div>
 		</div>
 		<script src="/scripts/versionCheck.js"></script>

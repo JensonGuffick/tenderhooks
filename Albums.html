@@ -6,37 +6,60 @@
 		<title>Albums - Tenderhooks</title>
 		<style>
 			body {
-			background-color: #333;
-			color: #fff;
-			font-family: sans-serif;
+			background: linear-gradient(135deg, #333, #444);
+			color: white;
+			font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
 			margin: 0;
 			padding: 0;
+			text-align: center;
 			}
 			.container {
-			width: 80%;
+			width: 90%;
 			margin: 0 auto;
 			padding: 20px;
-			padding-top: 80px;
+			}
+			.header {
+			position: relative;
+			text-align: center;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
+			margin-top: 20px;
 			}
-			.header .headertxt {
-			font-size: 5em;
+			.headertxt {
+			font-size: 4em;
 			font-weight: bold;
-			color: #fff;
-			width: 100%;
-			padding: 10px;
-			box-sizing: border-box;
+			text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 			}
-			.content {
-			margin-top: 10px;
-			text-align: center;
-			align-items: center;
-			width: 80%;
+			.header img {
+			max-width: 100%;
+			height: auto;
+			border-radius: 15px;
 			}
-			.content h2 {
-			font-size: 5em;
+			@keyframes pulse {
+			0%, 100% { transform: scale(1); }
+			50% { transform: scale(1.1); }
+			}
+			.links a {
+			font-size: 1.2em;
+			color: #888;
+			text-decoration: none;
+			border: 2px solid #888;
+			padding: 10px 20px;
+			border-radius: 50px;
+			transition: all 0.3s ease;
+			}
+			.links a:hover {
+			color: #e74c3c;
+			border-color: #e74c3c;
+			box-shadow: 0 0 10px #e74c3c;
+			}
+			iframe {
+			border-radius: 35px;
+			}
+			.footer {
+			color: #777;
+			padding: 20px 0;
 			}
 			.albums {
 			display: flex;
@@ -74,47 +97,22 @@
 			font-size: 1.5em;
 			font-weight: bold;
 			}
+			.footer a {
+			color: #777;
+			text-decoration: none;
+			}
+			.footer a:hover {
+			color: #e74c3c;
+			}
 			@media (max-width: 768px) {
-			.header .headertxt {
-			font-size: 7em;
-			padding: 8px;
+			.side-by-side .links {
+			flex-basis: 100%;
 			}
 			}
-			@media (max-width: 480px) {
-			.header .headertxt {
-			font-size: 2.5em;
-			padding: 6px;
+			@media (max-width: 768px) {
+			.side-by-side {
+			flex-direction: column;
 			}
-			}
-			.menu-btn {
-			position: fixed;
-			top: 30px;
-			left: 20px;
-			z-index: 2;
-			background-color: transparent;
-			border: none;
-			cursor: pointer;
-			padding: 0;
-			width: 50px;
-			height: 50px;
-			}
-			.menu-img {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			opacity: 0;
-			transition: opacity 0.5s ease;
-			}
-			#menu-icon {
-			opacity: 1;
-			}
-			.menu-open #menu-icon {
-			opacity: 0;
-			}
-			.menu-open #close-icon {
-			opacity: 1;
 			}
 			.menu {
 			height: 100%;
@@ -147,6 +145,36 @@
 			font-size: 36px;
 			margin-left: 50px;
 			}
+			.menu-btn {
+			position: fixed;
+			top: 30px;
+			left: 20px;
+			z-index: 2;
+			background-color: transparent;
+			border: none;
+			cursor: pointer;
+			padding: 0;
+			width: 50px;
+			height: 50px;
+			}
+			.menu-img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			opacity: 0;
+			transition: opacity 0.5s ease;
+			}
+			#menu-icon {
+			opacity: 1;
+			}
+			.menu-open #menu-icon {
+			opacity: 0;
+			}
+			.menu-open #close-icon {
+			opacity: 1;
+			}
 		</style>
 	</head>
 	<body>
@@ -168,8 +196,8 @@
 				<a href="/dev/devindex">Dev</a>
 			</div>
 			<button class="menu-btn" onclick="toggleMenu()">
-				<img src="https://i.imgur.com/OQXtsqz.png" class="menu-img" id="menu-icon">
-				<img src="https://i.imgur.com/lRpRNw4.png" class="menu-img" id="close-icon">
+			<img src="https://i.imgur.com/OQXtsqz.png" class="menu-img" id="menu-icon">
+			<img src="https://i.imgur.com/lRpRNw4.png" class="menu-img" id="close-icon">
 			</button>
 		</div>
 		<div class="container">
@@ -238,16 +266,15 @@
 				<h1>Here are the current singles we have released.</h1>
 				<div class="albums">
 					<div class="album">
-						<a href="https://open.spotify.com/album/6rBGs5MLpeqVRQzmoB8yPi?si=XkgiI9aCTbWlNtA2UgtQ1w"><img src="https://i.imgur.com/GifNu26.jpeg" style="border-radius: 25px; max-width: 300px;"></a>
+						<a href="https://open.spotify.com/album/6rBGs5MLpeqVRQzmoB8yPi?si=XkgiI9aCTbWlNtA2UgtQ1w"><img src="https://i.imgur.com/GifNu26.jpeg" style="border-radius: 25px; max-width: 300px;" naptha_cursor="text"></a>
 						<p>Corona Virus Blues</p>
-						<p>Latest Single!</p>
 					</div>
 					<div class="album">
 						<a href="https://open.spotify.com/album/3bHga1Os2MW2EnFx8FCBBK?si=EEAdb8GRRQK9c0ou7S-L3Q"><img src="https://i.scdn.co/image/ab67616d00001e02b253a77823919e3add291fe0" style="border-radius: 25px;"></a>
 						<p>Brand New Day</p>
 					</div>
 					<div class="album">
-						<a href="https://open.spotify.com/album/0447AcWsfxLao1H1Z6v8eJ?si=eXbGa1-sR_ONn4Vhvpk2Tw"><img src="https://i.scdn.co/image/ab67616d00001e02635935b3336249577b79dbe1" style="border-radius: 25px;" naptha_cursor="text"></a>
+						<a href="https://open.spotify.com/album/0447AcWsfxLao1H1Z6v8eJ?si=eXbGa1-sR_ONn4Vhvpk2Tw"><img src="https://i.scdn.co/image/ab67616d00001e02635935b3336249577b79dbe1" style="border-radius: 25px;"></a>
 						<p>Mother Said</p>
 					</div>
 					<div class="album">
@@ -313,7 +340,7 @@
 				</div>
 			</div>
 			<div class="footer">
-				<a href="/dev/patchnotes" id="site-version" style="color: #777;">© 2024 Tenderhooks. All rights reserved. Site Version: 4.3.6_SUPERMAJOR</a>
+				<a id="site-version" href="/dev/patchnotes">© 2024 Tenderhooks. All rights reserved. Site Version: 4.3.9MI</a>
 			</div>
 		</div>
 		<script src="/scripts/menu.js"></script>
