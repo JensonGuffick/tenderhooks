@@ -40,9 +40,9 @@
 			table.blueTable td, table.blueTable th {
 			border: 1px solid #FFFFFF;
 			padding: 5px 0px;
+			font-size: 2em;
 			}
 			table.blueTable tbody td {
-			font-size: 11px;
 			font-weight: bold;
 			color: #FFFFFF;
 			}
@@ -82,7 +82,16 @@
 					<tbody>
 						<tr>
 							<td>1</td>
-							<td>Updated Menu Icons</td>
+							<td>Housekeeping on the code side</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>Fixed pay screen</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>Changed numerous items</td>
+						</tr>
 					</tbody>
 				</table>
 				<br>
@@ -92,44 +101,12 @@
 					<br>
 					<br>
 					<div class="footer">
-						<a href="/dev/patchnotes?again" id="site-version" style="color: #777;">© 2024 Tenderhooks. All rights reserved. Site Version: Loading...</a>
-					</div>         
+						<a href="#" id="site-version" style="color: #777;">© 2024 Tenderhooks. All rights reserved. Site Version: Loading...</a>
+					</div>
 				</div>
 			</div>
 		</div>
-		<script> /** VERSION CHECK **/
-						function fetchVersion() {
-						    fetch('https://raw.githubusercontent.com/JensonGuffick/tenderhooks/main/ver.txt')
-						        .then(response => {
-						            if (!response.ok) {
-						                throw new Error('Network response was not ok');
-						            }
-						            return response.text();
-						        })
-						        .then(version => {
-						            document.getElementById('site-version').textContent = '© 2024 Tenderhooks. All rights reserved. Site Version: ' + version.trim();
-						        })
-						        .catch(error => {
-						            console.error('There was a problem with the fetch operation:', error);
-						            document.getElementById('site-version').textContent = 'Version info unavailable! (404)';
-						        });
-						}
-						fetchVersion();
-		</script>
-		<script> /* OFFLINE CHECK */
-						function offlinecheck() {
-						    fetch('https://raw.githubusercontent.com/JensonGuffick/tenderhooks/main/offline.txt')
-						        .then(response => response.text()) // Convert the response to text
-						        .then(text => {
-						            if (text.toLowerCase().includes('yes')) {
-						                window.location.href = 'https://offline.tenderhooks.uk';
-						            }
-						        })
-						        .catch(error => {
-						            console.error('Error fetching the file:', error);
-						        });
-						}
-						offlinecheck();
-		</script>  
+		<script src="/scripts/offline.js"></script>
+		<script src="/scripts/offline.js"></script>  
 	</body>
 </html>
