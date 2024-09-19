@@ -226,58 +226,9 @@
 				<iframe id="pay-iframe" src="/shop/pay?album=5.4_Light_Years"></iframe>
 				<a id="close-pay-overlay" onclick="closePayPage()">X</a>
 			</div>
-			<script> // VERSION UPDATE
-				function fetchVersion() {
-				    fetch('https://raw.githubusercontent.com/JensonGuffick/tenderhooks/main/ver.txt')
-				        .then(response => {
-				            if (!response.ok) {
-				                throw new Error('Network response was not ok');
-				            }
-				            return response.text();
-				        })
-				        .then(version => {
-				            document.getElementById('site-version').textContent = '© 2024 Tenderhooks. All rights reserved. Site Version: ' + version.trim();
-				        })
-				        .catch(error => {
-				            console.error('There was a problem with the fetch operation:', error);
-				            document.getElementById('site-version').textContent = 'Version info unavailable! (404)';
-				        });
-				}
-				
-				fetchVersion();
-			</script>
-			<script> // MENU TOGGLE
-				function toggleMenu() {
-				    var menu = document.getElementById("menu");
-				    var btn = document.querySelector(".menu-btn");
-				    if (menu.style.width === "400px") {
-				        menu.style.width = "0";
-				        btn.classList.remove("menu-open");
-				    } else {
-				        menu.style.width = "400px";
-				        btn.classList.add("menu-open");
-				    }
-				}
-			</script>
-			<script> // PAY PAGE
-				function openPayPage(album) {
-				    var iframe = document.getElementById('pay-iframe');
-				    iframe.src = '/shop/pay?album=' + encodeURIComponent(album);
-				    document.getElementById('pay-overlay').style.display = 'block';
-				}
-				
-				// Function to close the pay page overlay
-				function closePayPage() {
-				    document.getElementById('pay-overlay').style.display = 'none';
-				}
-				
-				// Add click event to close the overlay when clicked outside the iframe
-				document.getElementById('pay-overlay').addEventListener('click', function(event) {
-				    if (event.target === this) {
-				        closePayPage();
-				    }
-				});
-			</script>
+			<script src="/scripts/offline.js"></script>
+			<script src="/scripts/menu.js"></script>
+			<script src="/scripts/payOverlay.js"></script>
 		</div>
 	</body>
 </html>
