@@ -1,329 +1,315 @@
 <html lang="en">
 	<head>
-	<link rel="shortcut icon" type="image/x-icon" href="https://i.imgur.com/LJQtQiU.png">
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Albums - Tenderhooks</title>
-	<style>
-		body {
-		background-color: #333;
-		color: #fff;
-		font-family: sans-serif;
-		margin: 0;
-		padding: 0;
-		}
-		.container {
-		width: 80%;
-		margin: 0 auto;
-		padding: 20px;
-		padding-top: 80px;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		}
-		.header .headertxt {
-		font-size: 5em;
-		font-weight: bold;
-		color: #fff;
-		width: 100%;
-		padding: 10px;
-		box-sizing: border-box;
-		}
-		.links {
-		background-color: #888;
-		height: 70px;
-		width: 150px;
-		border-radius: 35px;
-		font-weight: bold;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		text-decoration: none;
-		color: white;
-		margin: 0 5px;
-		border: 2px solid black;
-		}
-		.links button {
-		background: none;
-		border: none;
-		color: inherit;
-		font: inherit;
-		cursor: pointer;
-		padding: 0;
-		outline: none;
-		}
-		.content {
-		margin-top: 10px;
-		text-align: center;
-		align-items: center;
-		width: 80%;
-		}
-		.content h2 {
-		font-size: 5em;
-		}
-		.albums {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		gap: 50px;
-		margin-top: 20px;
-		flex-wrap: wrap;
-		padding: 0px;
-		}
-		.album {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		margin: 10px;
-		border-radius: 10px;
-		}
-		.album .div .img {
-		border-radius: 20px;
-		}
-		.album img {
-		height: auto;
-		}
-		.album p {
-		margin-top: 10px;
-		font-size: 1.5em;
-		font-weight: bold;
-		}
-		@media (max-width: 768px) {
-		.header .headertxt {
-		font-size: 7em;
-		padding: 8px;
-		}
-		}
-		@media (max-width: 480px) {
-		.header .headertxt {
-		font-size: 2.5em;
-		padding: 6px;
-		}
-		}
-		.menu-btn {
-		position: fixed;
-		top: 30px;
-		left: 20px;
-		z-index: 2;
-		background-color: transparent;
-		border: none;
-		cursor: pointer;
-		padding: 0;
-		width: 50px;
-		height: 50px;
-		}
-		.menu-img {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		opacity: 0;
-		transition: opacity 0.5s ease;
-		}
-		#menu-icon {
-		opacity: 1;
-		}
-		.menu-open #menu-icon {
-		opacity: 0;
-		}
-		.menu-open #close-icon {
-		opacity: 1;
-		}
-		.menu {
-		height: 100%;
-		width: 0;
-		position: fixed;
-		top: 0;
-		left: 0;
-		background-color: #111;
-		overflow-x: hidden;
-		transition: 0.5s;
-		padding-top: 60px;
-		z-index: 1;
-		}
-		.menu a {
-		padding: 8px 8px 8px 32px;
-		text-decoration: none;
-		font-size: 25px;
-		color: white;
-		display: block;
-		transition: 0.3s;
-		}
-		.menu a:hover {
-		color: #999;
-		font-size: 2em;
-		}
-		.menu .close-btn {
-		position: absolute;
-		top: 20px;
-		right: 25px;
-		font-size: 36px;
-		margin-left: 50px;
-		}
-	</style>
+		<link rel="shortcut icon" type="image/x-icon" href="https://i.imgur.com/LJQtQiU.png">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Albums - Tenderhooks</title>
+		<style>
+			body {
+			background-color: #333;
+			color: #fff;
+			font-family: sans-serif;
+			margin: 0;
+			padding: 0;
+			}
+			.container {
+			width: 80%;
+			margin: 0 auto;
+			padding: 20px;
+			padding-top: 80px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			}
+			.header .headertxt {
+			font-size: 5em;
+			font-weight: bold;
+			color: #fff;
+			width: 100%;
+			padding: 10px;
+			box-sizing: border-box;
+			}
+			.content {
+			margin-top: 10px;
+			text-align: center;
+			align-items: center;
+			width: 80%;
+			}
+			.content h2 {
+			font-size: 5em;
+			}
+			.albums {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 50px;
+			margin-top: 20px;
+			flex-wrap: wrap;
+			padding: 0px;
+			}
+			.singles {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 50px;
+			margin-top: 20px;
+			flex-wrap: wrap;
+			padding: 0px;
+			}
+			.album {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin: 10px;
+			border-radius: 10px;
+			}
+			.album .div .img {
+			border-radius: 20px;
+			}
+			.album img {
+			height: auto;
+			}
+			.album p {
+			margin-top: 10px;
+			font-size: 1.5em;
+			font-weight: bold;
+			}
+			@media (max-width: 768px) {
+			.header .headertxt {
+			font-size: 7em;
+			padding: 8px;
+			}
+			}
+			@media (max-width: 480px) {
+			.header .headertxt {
+			font-size: 2.5em;
+			padding: 6px;
+			}
+			}
+			.menu-btn {
+			position: fixed;
+			top: 30px;
+			left: 20px;
+			z-index: 2;
+			background-color: transparent;
+			border: none;
+			cursor: pointer;
+			padding: 0;
+			width: 50px;
+			height: 50px;
+			}
+			.menu-img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			opacity: 0;
+			transition: opacity 0.5s ease;
+			}
+			#menu-icon {
+			opacity: 1;
+			}
+			.menu-open #menu-icon {
+			opacity: 0;
+			}
+			.menu-open #close-icon {
+			opacity: 1;
+			}
+			.menu {
+			height: 100%;
+			width: 0;
+			position: fixed;
+			top: 0;
+			left: 0;
+			background-color: #111;
+			overflow-x: hidden;
+			transition: 0.5s;
+			padding-top: 60px;
+			z-index: 1;
+			}
+			.menu a {
+			padding: 8px 8px 8px 32px;
+			text-decoration: none;
+			font-size: 25px;
+			color: white;
+			display: block;
+			transition: 0.3s;
+			}
+			.menu a:hover {
+			color: #999;
+			font-size: 2em;
+			}
+			.menu .close-btn {
+			position: absolute;
+			top: 20px;
+			right: 25px;
+			font-size: 36px;
+			margin-left: 50px;
+			}
+		</style>
 	</head>
-<body>
-	<button class="menu-btn" onclick="toggleMenu()">
+	<body>
+		<button class="menu-btn" onclick="toggleMenu()">
 		<img src="https://i.imgur.com/OQXtsqz.png" class="menu-img" id="menu-icon">
 		<img src="https://i.imgur.com/lRpRNw4.png" class="menu-img" id="close-icon">
-	</button>
-	<div id="menu" class="menu" style="width: 0px;">
-		<br>
-		<br>
-		<a href="/">Home</a>
-		<a href="Links">Links</a>
-		<a href="contact">Contact</a>
-		<a href="shop">Shop</a>
-		<a href="Albums">Albums</a>
-		<a href="About">About Us</a>
-	</div>
-	<div class="container">
-		<div class="header">
-			<p class="headertxt">Our Albums</p>
+		</button>
+		<div id="menu" class="menu" style="width: 0px;">
+			<br>
+			<br>
+			<a href="/">Home</a>
+			<a href="Links">Links</a>
+			<a href="contact">Contact</a>
+			<a href="shop">Shop</a>
+			<a href="Albums">Albums</a>
+			<a href="About">About Us</a>
 		</div>
-		<h1 style="color: #777; text-align: center;">(Clicking these will open in spotify.) Check out our <a href="Links" style="color: #888; font-size: 1em;">other streaming platforms.</a></h1>
-		<div class="content">
-			<h1>All our albums:</h1>
+		<div class="container">
+			<div class="header">
+				<p class="headertxt">Our Albums</p>
+			</div>
+			<h1 style="color: #777; text-align: center; font-size: 1.5em;">(Clicking these will open in spotify.) Check out our <a href="Links" style="color: #888;">other streaming platforms.</a></h1>
 			<div class="albums">
-				<div class="album">
-					<a>
-					<img src="https://t4.ftcdn.net/jpg/02/23/80/31/360_F_223803185_15cZcRdKQ8yfdQC67176ABiNpiURYojP.jpg" style="border-radius: 25px; max-width: 300px;">
-					</a>
-					<p>Mr. Laughing</p>
-					<a style="color: white;" href="/dev/new-album">Learn More</a>
-				</div>
-				<div class="album">
-					<a href="https://open.spotify.com/album/3DlhFsp7DkAVY66FRgM4dl?si=v53NIDBpRVGCtalWKEOlEA"><img src="https://i.scdn.co/image/ab67616d00001e021f4d91e3603ae9c0f97c78e1" style="border-radius: 25px;"></a>
-					<p>5.4 light years</p>
-					<p>(2023)</p>
-				</div>
-				<div class="album">
-					<a href="https://open.spotify.com/album/0FDMor63U3L07IMV91Cupv?si=HmeAmT-wR5mKdxClRw21wA"><img src="https://i.scdn.co/image/ab67616d00001e028bfd5ce97f4f28f954fa212a" style="border-radius: 25px;"></a>
-					<p>'Hooks!</p>
-					<p>(2022)</p>
-				</div>
-				<div class="album">
-					<a href="https://open.spotify.com/album/6OXj6up6cezIfAxuybSKUB?si=PYDt1u_aTyWbZ9hVo7xxWw"><img src="https://i.scdn.co/image/ab67616d00001e02566e235f987a0e0710022256" style="border-radius: 25px;"></a>
-					<p>20-20 Vision</p>
-					<p>(2020)</p>
-				</div>
-				<div class="album">
-					<a href="https://open.spotify.com/album/2WAlVxmxXAzNS04pL1tYpV?si=V3pENq4mTyCehFHBxRNOJA"><img src="https://i.scdn.co/image/ab67616d00001e029f71b5f18059efecadc58290" style="border-radius: 25px;"></a>
-					<p>Skeleton Dance</p>
-					<p>(2019)</p>
-				</div>
-				<div class="album">
-					<a href="https://open.spotify.com/album/4UqnXXHlM1eIglJzj3nBCG?si=jOIlWUv1TQyqp2bIqNkx0w"><img src="https://i.scdn.co/image/ab67616d00001e0228d8852cae6232a899e3b9fe" style="border-radius: 25px;"></a>
-					<p>North Star</p>
-					<p>(2017)</p>
-				</div>
-				<div class="album">
-					<a href="https://open.spotify.com/album/2ryzGPRiwAqHr22IhS3yca?si=tBr5zAOfT9Spp5sa68pgew"><img src="https://i.scdn.co/image/ab67616d00001e02f928af2c7406e33b97175c66" style="border-radius: 25px;"></a>
-					<p>Loving Sword</p>
-					<p>(2016)</p>
-				</div>
-				<div class="album">
-					<a href="https://open.spotify.com/album/698rs2xIgBoWXYe4zNF6VG?si=Rzgr1nF7Qq6V7R2DyS9M1Q"><img src="https://i.scdn.co/image/ab67616d00001e025413f12ee0312a2dcfb646c9" style="border-radius: 25px;"></a>
-					<p>Tenderhooks</p>
-					<p>(2008)</p>
-				</div>
-				<div class="album">
-					<a href="https://open.spotify.com/album/7m8uF0lj2Gk2cn10UqEHlL?si=SUTrYf41TlicWRSy9ySCxg"><img src="https://i.scdn.co/image/ab67616d00001e02ee5756f7a06a30f30c75aadd" style="border-radius: 25px;"></a>
-					<p>Eco Warrior</p>
-					<p>(2006)</p>
-				</div>
-				<div class="album">
-					<a href="https://open.spotify.com/album/6PjJCwx1fahZrgnDfi1NoE?si=z2vvZqSiRRS13VZ4_RrxNg"><img src="https://i.scdn.co/image/ab67616d00001e02d086fb046af70ca337bd2aea" style="border-radius: 25px;"></a>
-					<p>Devil Rides White Horses</p>
-					<p>(2005)</p>
+				<h1>All our albums:</h1>
+				<div class="albums">
+					<div class="album">
+						<a>
+						<img src="https://t4.ftcdn.net/jpg/02/23/80/31/360_F_223803185_15cZcRdKQ8yfdQC67176ABiNpiURYojP.jpg" style="border-radius: 25px; max-width: 300px;">
+						</a>
+						<p>Mr. Laughing</p>
+						<a style="color: white;" href="/dev/new-album">Learn More</a>
+					</div>
+					<div class="album">
+						<a href="https://open.spotify.com/album/3DlhFsp7DkAVY66FRgM4dl?si=v53NIDBpRVGCtalWKEOlEA"><img src="https://i.scdn.co/image/ab67616d00001e021f4d91e3603ae9c0f97c78e1" style="border-radius: 25px;"></a>
+						<p>5.4 light years</p>
+						<p>(2023)</p>
+					</div>
+					<div class="album">
+						<a href="https://open.spotify.com/album/0FDMor63U3L07IMV91Cupv?si=HmeAmT-wR5mKdxClRw21wA"><img src="https://i.scdn.co/image/ab67616d00001e028bfd5ce97f4f28f954fa212a" style="border-radius: 25px;"></a>
+						<p>'Hooks!</p>
+						<p>(2022)</p>
+					</div>
+					<div class="album">
+						<a href="https://open.spotify.com/album/6OXj6up6cezIfAxuybSKUB?si=PYDt1u_aTyWbZ9hVo7xxWw"><img src="https://i.scdn.co/image/ab67616d00001e02566e235f987a0e0710022256" style="border-radius: 25px;"></a>
+						<p>20-20 Vision</p>
+						<p>(2020)</p>
+					</div>
+					<div class="album">
+						<a href="https://open.spotify.com/album/2WAlVxmxXAzNS04pL1tYpV?si=V3pENq4mTyCehFHBxRNOJA"><img src="https://i.scdn.co/image/ab67616d00001e029f71b5f18059efecadc58290" style="border-radius: 25px;"></a>
+						<p>Skeleton Dance</p>
+						<p>(2019)</p>
+					</div>
+					<div class="album">
+						<a href="https://open.spotify.com/album/4UqnXXHlM1eIglJzj3nBCG?si=jOIlWUv1TQyqp2bIqNkx0w"><img src="https://i.scdn.co/image/ab67616d00001e0228d8852cae6232a899e3b9fe" style="border-radius: 25px;"></a>
+						<p>North Star</p>
+						<p>(2017)</p>
+					</div>
+					<div class="album">
+						<a href="https://open.spotify.com/album/2ryzGPRiwAqHr22IhS3yca?si=tBr5zAOfT9Spp5sa68pgew"><img src="https://i.scdn.co/image/ab67616d00001e02f928af2c7406e33b97175c66" style="border-radius: 25px;"></a>
+						<p>Loving Sword</p>
+						<p>(2016)</p>
+					</div>
+					<div class="album">
+						<a href="https://open.spotify.com/album/698rs2xIgBoWXYe4zNF6VG?si=Rzgr1nF7Qq6V7R2DyS9M1Q"><img src="https://i.scdn.co/image/ab67616d00001e025413f12ee0312a2dcfb646c9" style="border-radius: 25px;"></a>
+						<p>Tenderhooks</p>
+						<p>(2008)</p>
+					</div>
+					<div class="album">
+						<a href="https://open.spotify.com/album/7m8uF0lj2Gk2cn10UqEHlL?si=SUTrYf41TlicWRSy9ySCxg"><img src="https://i.scdn.co/image/ab67616d00001e02ee5756f7a06a30f30c75aadd" style="border-radius: 25px;"></a>
+						<p>Eco Warrior</p>
+						<p>(2006)</p>
+					</div>
+					<div class="album">
+						<a href="https://open.spotify.com/album/6PjJCwx1fahZrgnDfi1NoE?si=z2vvZqSiRRS13VZ4_RrxNg"><img src="https://i.scdn.co/image/ab67616d00001e02d086fb046af70ca337bd2aea" style="border-radius: 25px;" naptha_cursor="text"></a>
+						<p>Devil Rides White Horses</p>
+						<p>(2005)</p>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="content">
-			<h1>Here are the current singles we have released.</h1>
-			<div class="albums">
-				<div class="album">
-					<a href="https://open.spotify.com/album/6rBGs5MLpeqVRQzmoB8yPi?si=XkgiI9aCTbWlNtA2UgtQ1w"><img src="https://i.imgur.com/GifNu26.jpeg" style="border-radius: 25px; max-width: 300px;"></a>
-					<p>Corona Virus Blues</p>
-					<p>Latest Single!</p>
-				</div>
-				<div class="album">
-					<a href="https://open.spotify.com/album/3bHga1Os2MW2EnFx8FCBBK?si=EEAdb8GRRQK9c0ou7S-L3Q"><img src="https://i.scdn.co/image/ab67616d00001e02b253a77823919e3add291fe0" style="border-radius: 25px;"></a>
-					<p>Brand New Day</p>
-				</div>
-				<div class="album">
-					<a href="https://open.spotify.com/album/0447AcWsfxLao1H1Z6v8eJ?si=eXbGa1-sR_ONn4Vhvpk2Tw"><img src="https://i.scdn.co/image/ab67616d00001e02635935b3336249577b79dbe1" style="border-radius: 25px;"></a>
-					<p>Mother Said</p>
-				</div>
-				<div class="album">
-					<a href="https://open.spotify.com/album/1mhwK6z1aNrtHDH5ABz1lQ?si=klB3mMOJR4qsUSqwnYikkg"><img src="https://i.scdn.co/image/ab67616d00001e020960b4d8a61bf9959ecb45d6" style="border-radius: 25px;"></a>
-					<p>Palace Pier</p>
-				</div>
-				<div class="album">
-					<a href="https://open.spotify.com/album/0CdVF7mFvb3jlGAXfY9veI?si=0-lXo_uOSU-DnBBOl2JsFg"><img src="https://i.scdn.co/image/ab67616d00001e027ff15ac1721937597bb87a7f" style="border-radius: 25px;"></a>
-					<p>Big Brother</p>
-				</div>
-				<div class="album">
-					<a href="https://open.spotify.com/album/7B4rGJU00124hyH6LNwdnD?si=EBwv0NxwQIyuWLtrMILa8Q"><img src="https://i.scdn.co/image/ab67616d00001e027e9866b9318d19f9ab48466b" style="border-radius: 25px;"></a>
-					<p>Where are my fans? [E]</p>
-				</div>
-				<div class="album">
-					<a href="https://open.spotify.com/album/2Ul8beXDiuFm8lmPpuxpQN?si=YLuddUEEQSOXEVSMGVG9rA"><img src="https://i.scdn.co/image/ab67616d00001e02d10ba09ccba699a824e98aa6" style="border-radius: 25px;"></a>
-					<p>Festival Song</p>
-				</div>
-				<div class="album">
-					<a href="https://open.spotify.com/album/6badNQ9NcbWt5lbIkvtMSJ?si=uJjZ4CUWQhmIS2ixkD03OA"><img src="https://i.scdn.co/image/ab67616d00001e02895f6e9532483ce74d6814c0" style="border-radius: 25px;"></a>
-					<p>Written Across my heart</p>
-				</div>
-				<div class="album">
-					<a href="https://open.spotify.com/album/5keAjJHMCwGYJO89jO4TZ8?si=yA2MglYTRBeHfbzCEYU22g"><img src="https://i.scdn.co/image/ab67616d00001e022ceafeae9bf316473d8e1dfc" style="border-radius: 25px;"></a>
-					<p>Queen of the green screen</p>
-				</div>
-				<div class="album">
-					<a href="https://open.spotify.com/album/6iGA2hzq1KPKLS4ET4QpXD?si=VGWy8wEaTk-_Q9nhVRedlQ"><img src="https://i.scdn.co/image/ab67616d00001e0227439fab2cdba82914db8232" style="border-radius: 25px;"></a>
-					<p>Never gonna be like it was</p>
-				</div>
-				<div class="album">
-					<a href="https://open.spotify.com/album/3c7bxJmSsVq7L1fFMEvl8I?si=h2JsaM69Q8uEDAYsXbtDJw"><img src="https://i.scdn.co/image/ab67616d00001e02cff62b978fe4ffeb232edbd4" style="border-radius: 25px;"></a>
-					<p>Have You A Dollar For Me</p>
-				</div>
-				<div class="album">
-					<a href="https://open.spotify.com/album/4yWByukJQ3kvKz0yPC1XuX?si=vMzb9Bh1QXO74qiWDFT8LQ"><img src="https://i.scdn.co/image/ab67616d00001e02d814404fe934c4e1c705b34a" style="border-radius: 25px;"></a>
-					<p>Queen Of Hearts</p>
-				</div>
-				<div class="album">
-					<a href="https://open.spotify.com/album/1P8eoyVBTOWbO3PGhqODRu?si=wn2A5ZBJT7q1P52n3LZbtw"><img src="https://i.scdn.co/image/ab67616d00001e02433c420673caa90a7f019d36" style="border-radius: 25px;"></a>
-					<p>Lady Luck</p>
-				</div>
-				<div class="album">
-					<a href="https://open.spotify.com/album/2mVTt0RMXzYSSGwNnNvTXs?si=z912iL4BSUuPCnFtvfMEfQ"><img src="https://i.scdn.co/image/ab67616d00001e02051937440457450476e6583d" style="border-radius: 25px;"></a>
-					<p>5.4 Light Years</p>
-				</div>
-				<div class="album">
-					<a href="https://open.spotify.com/album/4q3aumowQZmCrUFrzvEjAN?si=w92TUCBKSNmWKHRpRjxAPw"><img src="https://i.scdn.co/image/ab67616d00001e02d91a74fa87ddc32bc8953d3c" style="border-radius: 25px;"></a>
-					<p>Station Guard Hero</p>
-				</div>
-				<div class="album">
-					<a href="https://open.spotify.com/album/09WRLUOfrJsge9ho7rvDst?si=Yph2UppuRZWXQfSHwtqoTg"><img src="https://i.scdn.co/image/ab67616d00001e020d1f39c0440534b06e47ca67" style="border-radius: 25px;"></a>
-					<p>The Hour Glass</p>
-				</div>
-				<div class="album">
-					<a href="https://open.spotify.com/album/4I79BYWBdM3FUIQqQGlRP7?si=9tSKNsBHRySvAKYIGnHwXg"><img src="https://i.scdn.co/image/ab67616d00001e02607da1ec5a1d182758575d39" style="border-radius: 25px;"></a>
-					<p>Yolena (Dance Remix)</p>
-				</div>
-				<div class="album">
-					<a href="https://open.spotify.com/album/3QcTvcoMVsqFvpPqWIYDqv?si=T3_VjN5MSpKzHLknFrGKJg"><img src="https://i.scdn.co/image/ab67616d00001e024442099a8d48c33363c9c694" style="border-radius: 25px;"></a>
-					<p>Tenderhooks Do Santa!</p>
+			<div class="singles">
+				<h1>Here are the current singles we have released.</h1>
+				<div class="albums">
+					<div class="album">
+						<a href="https://open.spotify.com/album/6rBGs5MLpeqVRQzmoB8yPi?si=XkgiI9aCTbWlNtA2UgtQ1w"><img src="https://i.imgur.com/GifNu26.jpeg" style="border-radius: 25px; max-width: 300px;"></a>
+						<p>Corona Virus Blues</p>
+						<p>Latest Single!</p>
+					</div>
+					<div class="album">
+						<a href="https://open.spotify.com/album/3bHga1Os2MW2EnFx8FCBBK?si=EEAdb8GRRQK9c0ou7S-L3Q"><img src="https://i.scdn.co/image/ab67616d00001e02b253a77823919e3add291fe0" style="border-radius: 25px;"></a>
+						<p>Brand New Day</p>
+					</div>
+					<div class="album">
+						<a href="https://open.spotify.com/album/0447AcWsfxLao1H1Z6v8eJ?si=eXbGa1-sR_ONn4Vhvpk2Tw"><img src="https://i.scdn.co/image/ab67616d00001e02635935b3336249577b79dbe1" style="border-radius: 25px;" naptha_cursor="text"></a>
+						<p>Mother Said</p>
+					</div>
+					<div class="album">
+						<a href="https://open.spotify.com/album/1mhwK6z1aNrtHDH5ABz1lQ?si=klB3mMOJR4qsUSqwnYikkg"><img src="https://i.scdn.co/image/ab67616d00001e020960b4d8a61bf9959ecb45d6" style="border-radius: 25px;"></a>
+						<p>Palace Pier</p>
+					</div>
+					<div class="album">
+						<a href="https://open.spotify.com/album/0CdVF7mFvb3jlGAXfY9veI?si=0-lXo_uOSU-DnBBOl2JsFg"><img src="https://i.scdn.co/image/ab67616d00001e027ff15ac1721937597bb87a7f" style="border-radius: 25px;"></a>
+						<p>Big Brother</p>
+					</div>
+					<div class="album">
+						<a href="https://open.spotify.com/album/7B4rGJU00124hyH6LNwdnD?si=EBwv0NxwQIyuWLtrMILa8Q"><img src="https://i.scdn.co/image/ab67616d00001e027e9866b9318d19f9ab48466b" style="border-radius: 25px;"></a>
+						<p>Where are my fans? [E]</p>
+					</div>
+					<div class="album">
+						<a href="https://open.spotify.com/album/2Ul8beXDiuFm8lmPpuxpQN?si=YLuddUEEQSOXEVSMGVG9rA"><img src="https://i.scdn.co/image/ab67616d00001e02d10ba09ccba699a824e98aa6" style="border-radius: 25px;"></a>
+						<p>Festival Song</p>
+					</div>
+					<div class="album">
+						<a href="https://open.spotify.com/album/6badNQ9NcbWt5lbIkvtMSJ?si=uJjZ4CUWQhmIS2ixkD03OA"><img src="https://i.scdn.co/image/ab67616d00001e02895f6e9532483ce74d6814c0" style="border-radius: 25px;"></a>
+						<p>Written Across my heart</p>
+					</div>
+					<div class="album">
+						<a href="https://open.spotify.com/album/5keAjJHMCwGYJO89jO4TZ8?si=yA2MglYTRBeHfbzCEYU22g"><img src="https://i.scdn.co/image/ab67616d00001e022ceafeae9bf316473d8e1dfc" style="border-radius: 25px;"></a>
+						<p>Queen of the green screen</p>
+					</div>
+					<div class="album">
+						<a href="https://open.spotify.com/album/6iGA2hzq1KPKLS4ET4QpXD?si=VGWy8wEaTk-_Q9nhVRedlQ"><img src="https://i.scdn.co/image/ab67616d00001e0227439fab2cdba82914db8232" style="border-radius: 25px;"></a>
+						<p>Never gonna be like it was</p>
+					</div>
+					<div class="album">
+						<a href="https://open.spotify.com/album/3c7bxJmSsVq7L1fFMEvl8I?si=h2JsaM69Q8uEDAYsXbtDJw"><img src="https://i.scdn.co/image/ab67616d00001e02cff62b978fe4ffeb232edbd4" style="border-radius: 25px;"></a>
+						<p>Have You A Dollar For Me</p>
+					</div>
+					<div class="album">
+						<a href="https://open.spotify.com/album/4yWByukJQ3kvKz0yPC1XuX?si=vMzb9Bh1QXO74qiWDFT8LQ"><img src="https://i.scdn.co/image/ab67616d00001e02d814404fe934c4e1c705b34a" style="border-radius: 25px;"></a>
+						<p>Queen Of Hearts</p>
+					</div>
+					<div class="album">
+						<a href="https://open.spotify.com/album/1P8eoyVBTOWbO3PGhqODRu?si=wn2A5ZBJT7q1P52n3LZbtw"><img src="https://i.scdn.co/image/ab67616d00001e02433c420673caa90a7f019d36" style="border-radius: 25px;"></a>
+						<p>Lady Luck</p>
+					</div>
+					<div class="album">
+						<a href="https://open.spotify.com/album/2mVTt0RMXzYSSGwNnNvTXs?si=z912iL4BSUuPCnFtvfMEfQ"><img src="https://i.scdn.co/image/ab67616d00001e02051937440457450476e6583d" style="border-radius: 25px;"></a>
+						<p>5.4 Light Years</p>
+					</div>
+					<div class="album">
+						<a href="https://open.spotify.com/album/4q3aumowQZmCrUFrzvEjAN?si=w92TUCBKSNmWKHRpRjxAPw"><img src="https://i.scdn.co/image/ab67616d00001e02d91a74fa87ddc32bc8953d3c" style="border-radius: 25px;"></a>
+						<p>Station Guard Hero</p>
+					</div>
+					<div class="album">
+						<a href="https://open.spotify.com/album/09WRLUOfrJsge9ho7rvDst?si=Yph2UppuRZWXQfSHwtqoTg"><img src="https://i.scdn.co/image/ab67616d00001e020d1f39c0440534b06e47ca67" style="border-radius: 25px;"></a>
+						<p>The Hour Glass</p>
+					</div>
+					<div class="album">
+						<a href="https://open.spotify.com/album/4I79BYWBdM3FUIQqQGlRP7?si=9tSKNsBHRySvAKYIGnHwXg"><img src="https://i.scdn.co/image/ab67616d00001e02607da1ec5a1d182758575d39" style="border-radius: 25px;"></a>
+						<p>Yolena (Dance Remix)</p>
+					</div>
+					<div class="album">
+						<a href="https://open.spotify.com/album/3QcTvcoMVsqFvpPqWIYDqv?si=T3_VjN5MSpKzHLknFrGKJg"><img src="https://i.scdn.co/image/ab67616d00001e024442099a8d48c33363c9c694" style="border-radius: 25px;"></a>
+						<p>Tenderhooks Do Santa!</p>
+					</div>
 				</div>
 			</div>
+			<div class="footer">
+				<a href="/dev/patchnotes" id="site-version" style="color: #777;">© 2024 Tenderhooks. All rights reserved. Site Version: 4.3.6_SUPERMAJOR</a>
+			</div>
 		</div>
-		<div class="footer">
-			<a href="/dev/patchnotes" id="site-version" style="color: #777;">© 2024 Tenderhooks. All rights reserved. Site Version: 4.1.8TW</a>
-		</div>
-	</div>
-	<script src="/scripts/menu.js"></script>
-	<script src="/scripts/versionCheck.js"></script>
-	<script src="/scripts/offline.js"></script>
-</body>
+		<script src="/scripts/menu.js"></script>
+		<script src="/scripts/versionCheck.js"></script>
+		<script src="/scripts/offline.js"></script>
+	</body>
 </html>
