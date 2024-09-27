@@ -7,7 +7,7 @@ function offlinecheck() {
         return;
     }
 
-    fetch('https://tenderhooks.uk/dev/offline.txt')
+    fetch('https://raw.githubusercontent.com/JensonGuffick/tenderhooks/9e5518bab673fa85e6670da2a2d6dede76a0137a/dev/offline.txt')
         .then(response => response.text())
         .then(text => {
             if (text.toLowerCase().includes('yes')) {
