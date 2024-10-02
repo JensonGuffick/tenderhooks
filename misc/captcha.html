@@ -55,11 +55,19 @@
 		<div>
 			<h1>Hmmm..</h1>
 			<p>Are you really A human?</p>
-			<form action="?" method="POST">
+			<form action="Redirect()" method="POST">
 				<div class="g-recaptcha" data-sitekey="6Lfk1lUqAAAAAIhOi3fr76zOOm6LURjXCYW2u_Fy"></div>
 				<br>
 				<input type="submit" value="Submit" class="a">
 			</form>
 		</div>
 	</body>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const redirect = urlParams.get('redirect');
+        console.log(redirect);
+        function Redirect() {
+            window.location.href = redirect;
+        }
+    </script>
 </html>
