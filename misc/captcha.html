@@ -2,7 +2,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Human?</title>
+		<title>Are You Human?</title>
 		<script src="https://www.google.com/recaptcha/api.js" async="" defer=""></script>
 		<style>
 			body {
@@ -27,7 +27,7 @@
 			margin: 20px 0;
 			color: #bbb;
 			}
-			.a {
+			.submit {
 			font-size: 1.2em;
 			color: #888;
 			text-decoration: none;
@@ -41,33 +41,49 @@
 			border-color: #e74c3c;
 			box-shadow: 0 0 10px #e74c3c;
 			}
-			@keyframes pulse {
-			0%, 100% {
-			transform: scale(1);
-			}
-			50% {
-			transform: scale(1.1);
-			}
-			}
 		</style>
 	</head>
 	<body>
 		<div>
 			<h1>Hmmm..</h1>
 			<p>Are you really A human?</p>
-			<form action="javascript:Redirect()" method="POST">
-				<div class="g-recaptcha" data-sitekey="6Lfk1lUqAAAAAIhOi3fr76zOOm6LURjXCYW2u_Fy"></div>
+			<form id="human" method="POST">
+				<div class="g-recaptcha" data-sitekey="6Lfk1lUqAAAAAIhOi3fr76zOOm6LURjXCYW2u_Fy" data-theme="dark" data-callback="onCaptchaComplete"></div>
 				<br>
-				<input type="submit" value="Submit" class="a">
+				<input type="submit" value="Submit" class="submit">
 			</form>
 		</div>
+		<script>
+			const urlParams = new URLSearchParams(window.location.search);
+			const redirect = urlParams.get('redirect');
+            let attempts = 0;
+			console.log(redirect);
+			
+			document.getElementById("human").addEventListener("submit", function (event) {
+			    var response = grecaptcha.getResponse();
+			    if (response.length === 0) {
+                    attempts++;
+			        alert("Please complete the captcha to proceed.");
+			        event.preventDefault();
+                    if (attempts >= 3) {
+                    alert("Too many failed attempts.");
+                    window.close();
+                }
+			    } else {
+			        Redirect();
+			    }
+			});
+			
+			function Redirect() {
+			    if (redirect) {
+			        window.location.href = redirect;
+			    } else {
+			        alert("No redirect URL specified.");
+			    }
+			}
+			function onCaptchaComplete() {
+			    console.log('Captcha Complete!');
+			}
+		</script>
 	</body>
-    <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const redirect = urlParams.get('redirect');
-        console.log(redirect);
-        function Redirect() {
-            window.location.href = redirect;
-        }
-    </script>
 </html>
