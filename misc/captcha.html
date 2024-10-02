@@ -1,0 +1,65 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Human?</title>
+		<script src="https://www.google.com/recaptcha/api.js" async="" defer=""></script>
+		<style>
+			body {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			margin: 0;
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			background: linear-gradient(135deg, #333, #444);
+			color: white;
+			text-align: center;
+			}
+			h1 {
+			font-size: 6em;
+			margin: 0;
+			letter-spacing: -0.05em;
+			text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+			}
+			p {
+			font-size: 1.5em;
+			margin: 20px 0;
+			color: #bbb;
+			}
+			.a {
+			font-size: 1.2em;
+			color: #888;
+			text-decoration: none;
+			border: 2px solid #888;
+			padding: 10px 20px;
+			border-radius: 50px;
+			transition: all 0.3s ease;
+			}
+			a:hover {
+			color: #e74c3c;
+			border-color: #e74c3c;
+			box-shadow: 0 0 10px #e74c3c;
+			}
+			@keyframes pulse {
+			0%, 100% {
+			transform: scale(1);
+			}
+			50% {
+			transform: scale(1.1);
+			}
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<h1>Hmmm..</h1>
+			<p>Are you really A human?</p>
+			<form action="?" method="POST">
+				<div class="g-recaptcha" data-sitekey="your_site_key"></div>
+				<br>
+				<input type="submit" value="Submit" class="a">
+			</form>
+		</div>
+	</body>
+</html>
