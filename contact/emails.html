@@ -1,46 +1,51 @@
 <html lang="en">
 	<head>
 		<link rel="shortcut icon" type="image/x-icon" href="https://i.imgur.com/LJQtQiU.png">
-		<style> body .container { font-family: sans-serif } </style>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Contact - Tenderhooks</title>
 		<style>
 			body {
-			background-color: #333;
-			color: #fff;
-			font-family: Arial, sans-serif;
+			background: linear-gradient(135deg, #333, #444);
+			color: white;
+			font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
 			margin: 0;
 			padding: 0;
+			text-align: center;
 			}
 			.container {
-			width: 80%;
+			width: 90%;
 			margin: 0 auto;
 			padding: 20px;
-			padding-top: 80px;
+			}
+			.header {
+			position: relative;
+			text-align: center;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
+			margin-top: 20px;
 			}
-			.header .headertxt {
-			font-size: 5em;
+			.headertxt {
+			font-size: 4em;
 			font-weight: bold;
-			color: #fff;
-			width: 100%;
-			padding: 10px;
-			box-sizing: border-box;
+			text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 			}
-			.content {
-			margin-top: 10px;
-			text-align: center;
-			align-items: center;
-			width: 80%;
+			.footer {
+			color: #777;
+			padding: 20px 0;
 			}
-			.content h2 {
-			font-size: 5em;
+			.footer a {
+			color: #777;
+			text-decoration: none;
+			}
+			.footer a:hover {
+			color: #e74c3c;
 			}
 			.email {
 			background-color: #11C155;
+			color: white;
+			text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 			border-radius: 35px;
 			height: 50px;
 			width: 100%;
@@ -48,48 +53,32 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			text-decoration: none;
-			color: white;
 			margin: 0 5px;
-			border: 2px solid black;
-			align-items: center;
-			}
-			@media (max-width: 768px) {
-			.header .headertxt {
-			font-size: 7em;
-			padding: 8px;
-			}
-			}
-			@media (max-width: 480px) {
-			.header .headertxt {
-			font-size: 2.5em;
-			padding: 6px;
-			}
-			}
-			.version-info { 
-			color: #666; 
+			box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 			}
 		</style>
 		<script src="/scripts/Brevo.js"></script>
 	</head>
 	<body>
 		<div class="container">
-			<a href="/contact" style="color: white;">◀ Go back to the home page</a>
+			<a style="text-shadow: 0 0 20px rgba(0, 0, 0, 0.5); font-size: 2em;">
+			<a style="text-decoration: none; color: white;" href="/contact">◀</a>
+			<a href="/contact" style="color: white; font-weight: black;"><a>Go back to the home page</a></a>
+			</a>
 			<div class="header">
 				<p class="headertxt">Emails</p>
 			</div>
 			<div class="content">
-				<a style="background-color: #777;" href="mailto:gigs@tenderhooks.uk" class="email">Gigs</a>
+				<a style="background-color: #777;" href="mailto:gigs@tenderhooks.uk" class="email"><b>Gigs</b></a>
 				<br>
-				<a style="background-color: #777;" href="mailto:markus@tenderhooks.uk" class="email">Markus</a>
+				<a style="background-color: #777;" href="mailto:markus@tenderhooks.uk" class="email"><b>Markus</b></a>
 				<br>
-				<a style="background-color: #777;" href="mailto:help@tenderhooks.uk" class="email">Help</a>
+				<a style="background-color: #777;" href="mailto:help@tenderhooks.uk" class="email"><b>Help</b></a>
 			</div>
 			<br>
-			<br>
-			<br>
-			<br>
-			<p id="site-version" class="version-info">© 2024 Tenderhooks. All rights reserved. Site Version: 3.4.3</p>
+			<div class="footer">
+				<a id="site-version" href="/dev/patchnotes"><b>© 2024 Tenderhooks. All rights reserved. Site Version: Loading...</b></a>
+			</div>
 		</div>
 		<script src="/scripts/versionCheck.js"></script>
 		<script src="/scripts/offline.js"></script>

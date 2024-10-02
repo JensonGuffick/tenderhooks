@@ -31,50 +31,9 @@
 			font-weight: bold;
 			text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 			}
-			.header img {
-			max-width: 100%;
-			height: auto;
-			border-radius: 15px;
-			}
-			@keyframes pulse {
-			0%, 100% { transform: scale(1); }
-			50% { transform: scale(1.1); }
-			}
-			.links a {
-			font-size: 1.2em;
-			color: #888;
-			text-decoration: none;
-			border: 2px solid #888;
-			padding: 10px 20px;
-			border-radius: 50px;
-			transition: all 0.3s ease;
-			}
-			.links a:hover {
-			color: #e74c3c;
-			border-color: #e74c3c;
-			box-shadow: 0 0 10px #e74c3c;
-			}
-			iframe {
-			border-radius: 35px;
-			}
 			.footer {
 			color: #777;
 			padding: 20px 0;
-			}
-			.side-by-side {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			flex-wrap: wrap;
-			gap: 20px;
-			margin-top: 20px;
-			}
-			.side-by-side .links {
-			flex-basis: calc(50% - 20px);
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
 			}
 			.footer a {
 			color: #777;
@@ -82,16 +41,6 @@
 			}
 			.footer a:hover {
 			color: #e74c3c;
-			}
-			@media (max-width: 768px) {
-			.side-by-side .links {
-			flex-basis: 100%;
-			}
-			}
-			@media (max-width: 768px) {
-			.side-by-side {
-			flex-direction: column;
-			}
 			}
 			.menu {
 			height: 100%;
@@ -144,6 +93,7 @@
 			height: 100%;
 			opacity: 0;
 			transition: opacity 0.5s ease;
+			box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 			}
 			#menu-icon {
 			opacity: 1;
@@ -156,18 +106,17 @@
 			}
 			.button {
 			background-color: #11C155;
+			color: white;
+			text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 			border-radius: 35px;
-			height: 100px;
+			height: 50px;
 			width: 100%;
-			font-weight: bold;
+			font-size: 2em;
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			text-decoration: none;
-			color: white;
 			margin: 0 5px;
-			border: 2px solid black;
-			align-items: center;
+			box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 			}
 		</style>
 		<script src="/scripts/Brevo.js"></script>
@@ -188,7 +137,7 @@
 			<div style="border-style: solid; border-width: 1px;"></div>
 			<div class="Other">
 				<br>
-				<a href="/dev/devindex">Dev</a>
+				<a href="/misc/help.html">Help</a>
 			</div>
 			<button class="menu-btn" onclick="toggleMenu()">
 			<img src="https://i.imgur.com/OQXtsqz.png" class="menu-img" id="menu-icon">
@@ -200,16 +149,17 @@
 				<p class="headertxt">Contact us</p>
 			</div>
 			<div class="content">
-				<a href="contact/emails" class="button">See our emails</a>
+				<a href="/misc/captcha?redirect=/contact/emails" class="button" style="background-color: #FFFFFF; color: #000000;">See our emails</a>
 				<br>   
-				<a href="https://www.facebook.com/search/top?q=tenderhooks" class="button" style="background-color: #2276bf;">Facebook</a>
+				<a target="_blank" href="https://www.facebook.com/groups/2150677275247269" class="button" style="background-color: #2276bf;">Facebook</a>
+				<br><a target="_blank" href="https://www.instagram.com/tenderhooksband" class="button" style="background: linear-gradient(115deg, rgb(249, 206, 52), rgb(238, 42, 123), rgb(98, 40, 215));">Instagram</a><br><a target="_blank" href="https://www.instagram.com/tenderhooksband" class="button" style="background-color: black; text-decoration: none;">𝕏</a>
 			</div>
 			<br>
 			<br>
 			<br>
 			<br>
 			<div class="footer">
-				<a id="site-version" href="/dev/patchnotes">© 2024 Tenderhooks. All rights reserved. Site Version: Loading...</a>
+				<a id="site-version" href="/dev/patchnotes"><b>© 2024 Tenderhooks. All rights reserved. Site Version: 4.7.0TW</b></a>
 			</div>
 		</div>
 		<script src="/scripts/menu.js"></script>
