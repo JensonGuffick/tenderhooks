@@ -7,7 +7,7 @@
             return response.text();
         })
         .then(version => {
-            print(version);
+            console.log(version);
             document.getElementById('site-version').textContent = '© 2024 Tenderhooks. All rights reserved. Site Version: ' + version.trim();
         })
         .catch(error => {
