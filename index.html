@@ -50,9 +50,9 @@
 			transition: all 0.3s ease;
 			}
 			.links a:hover {
-			color: #e74c3c;
-			border-color: #e74c3c;
-			box-shadow: 0 0 10px #e74c3c;
+			color: #757575;
+			border-color: #757575;
+			box-shadow: 0 0 10px #a8a8a8;
 			}
 			iframe {
 			border-radius: 35px;
@@ -79,9 +79,10 @@
 			.footer a {
 			color: #777;
 			text-decoration: none;
+			transition: ease color 0.3s;
 			}
 			.footer a:hover {
-			color: #e74c3c;
+			color: #b4b4b4;
 			}
 			@media (max-width: 768px) {
 			.side-by-side .links {
@@ -117,13 +118,6 @@
 			color: #999;
 			font-size: 2em;
 			}
-			.menu .close-btn {
-			position: absolute;
-			top: 20px;
-			right: 25px;
-			font-size: 36px;
-			margin-left: 50px;
-			}
 			.menu-btn {
 			position: fixed;
 			top: 30px;
@@ -143,6 +137,8 @@
 			width: 100%;
 			height: 100%;
 			opacity: 0;
+			transition: opacity 0.5s ease;
+			box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 			transition: opacity 0.5s ease;
 			}
 			#menu-icon {
@@ -164,31 +160,31 @@
 					<br>
 					<br>
 					<a href="#">Home</a>
-					<a href="Links">Links</a>
-					<a href="contact">Contact</a>
-					<a href="shop">Shop</a>
-					<a href="Albums">Albums</a>
-					<a href="About">About Us</a>
+					<a href="/Links.html">Links</a>
+					<a href="/contact.html">Contact</a>
+					<a href="/shop.html">Shop</a>
+					<a href="/Albums.html">Albums</a>
+					<a href="/About.html">About Us</a>
 					<br>
 				</div>
 				<div style="border-style: solid; border-width: 1px;"></div>
 				<div class="Other">
 					<br>
-					<a href="/misc/Help">Help</a>
+					<a href="/misc/Help.html">Help</a>
 				</div>
 				<button class="menu-btn" onclick="toggleMenu()">
-				<img src="https://i.imgur.com/OQXtsqz.png" class="menu-img" id="menu-icon">
-				<img src="https://i.imgur.com/lRpRNw4.png" class="menu-img" id="close-icon">
+					<img src="/images/OpenMenu.png" class="menu-img" id="menu-icon">
+					<img src="/images/CloseMenu.png" class="menu-img" id="close-icon">
 				</button>
 			</div>
 			<div class="header">
 				<p class="headertxt">TENDERHOOKS BAND</p>
-				<img src="https://i.imgur.com/MWXTFoK.png">
+				<img src="/images/BandLineup.png">
 			</div>
 			<div class="content">
 				<h2>Gigs</h2>
 				<p style="color: #777;">Our gigs for the next 12 months. Click the image for the Google Maps address</p>
-				<iframe src="/gigs/gigs" style="width: 90%; height: 70%; border-style: none;"></iframe>
+				<iframe src="/gigs/gigs.html" style="width: 90%; height: 70%; border-style: dashed;"></iframe>
 				<h2>Music</h2>
 				<p>Stay tuned for the latest songs! Check out our upcoming events and new releases below.</p>
 				<iframe src="https://open.spotify.com/embed/artist/145sIL2lTb9SrV5oEi9Wv1" width="100%" height="352"></iframe>
@@ -196,7 +192,7 @@
 					<div class="links">
 						<a href="https://discord.gg/PnwH6jHCMy">
 							<p style="font-size: 2em;">Discord</p>
-							<img src="https://i.imgur.com/zWrvDgw.png" style="background-color: white; border-radius: 25px;">
+							<img src="/images/Discord.png" style="background-color: white; border-radius: 25px;">
 						</a>
 					</div>
 					<div class="links">
@@ -214,7 +210,7 @@
 						</a>
 					</div>
 					<div class="links">
-						<a href="https://tenderhooks.uk/Links">
+						<a href="https://tenderhooks.uk/Links.html">
 							<p style="font-size: 2em;">All links</p>
 							<img src="https://i.imgur.com/LJQtQiU.png" style="background-color: white; border-radius: 25px;">
 						</a>
@@ -222,7 +218,7 @@
 				</div>
 				<iframe width="100%" height="60%" src="https://www.youtube.com/embed/aM1jjhh-0Lo"></iframe>
 				<div class="footer">
-					<a id="site-version" href="/dev/patchnotes">© 2024 Tenderhooks. All rights reserved. Site Version</a>
+					<a id="site-version" href="/dev/patchnotes.html">© 2024 Tenderhooks. All rights reserved. Site Version</a>
 				</div>
 			</div>
 		</div>
