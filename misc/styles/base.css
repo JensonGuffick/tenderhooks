@@ -1,0 +1,262 @@
+body {
+    background: linear-gradient(135deg, #333, #444);
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.container {
+    margin: 0 auto;
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.headertxt {
+    font-size: 4em;
+    font-weight: bold;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.subheader {
+    color: #ececec;
+    font-size: 2.5em;
+    font-weight: bold;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.header img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.side-by-side {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px;
+}
+
+.Homelinks {
+    border: dashed 1px;
+    border-color: #ffffff;
+    border-radius: 50px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    transition: ease box-shadow 0.5s;
+}
+
+.Homelinks:hover {
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+}
+
+.Homelinks a {
+    font-size: 1.2em;
+    color: #888;
+    transition: all 0.3s ease;
+}
+
+.homelinkimg {
+    max-width: 100%
+}
+
+iframe {
+    border: dashed 1px;
+    border-radius: 35px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.footer {
+    color: #777;
+    padding: 20px 0;
+}
+
+.footer a {
+    color: #777;
+    text-decoration: none;
+    transition: ease color 0.3s;
+}
+
+.footer a:hover {
+    color: #b4b4b4;
+}
+
+@media (max-width: 768px) {
+    .side-by-side .links {
+        flex-basis: 100%;
+    }
+
+    .side-by-side {
+        flex-direction: column;
+    }
+
+    .headertxt {
+        font-size: 3em;
+    }
+}
+
+
+.menu {
+    height: 80%;
+    position: fixed;
+    top: 20;
+    left: 10;
+    border-radius: 20px;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    z-index: 1;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.menu a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    color: #999;
+    font-size: 2em;
+}
+
+.menu-btn {
+    position: fixed;
+    top: 30px;
+    left: 20px;
+    z-index: 2;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: 50px;
+    height: 50px;
+}
+
+.menu-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    transition: opacity 0.5s ease;
+}
+
+.menu-img:hover {
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+}
+
+#menu-icon {
+    opacity: 1;
+}
+
+.menu-open #menu-icon {
+    opacity: 0;
+}
+
+.menu-open #close-icon {
+    opacity: 1;
+}
+
+.button {
+    background-color: #11C155;
+    color: white;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    border-radius: 35px;
+    height: 50px;
+    width: 100%;
+    font-size: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.email {
+    background-color: #11C155;
+    color: white;
+    text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    border-radius: 35px;
+    height: 50px;
+    width: 100%;
+    font-size: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    transition: ease box-shadow 0.3s;
+}
+
+.email:hover {
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+}
+
+
+.albums {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    padding: 0px;
+}
+
+.singles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    padding: 0px;
+}
+
+.album {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.album .div .img {
+    border-radius: 20px;
+}
+
+.album img {
+    height: auto;
+}
+
+.album p {
+    margin-top: 10px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+@media (max-width: 550px) {
+    .people {
+        flex-direction: column;
+    }
+}

@@ -1,5 +1,5 @@
  function fetchVersion() {
-    fetch('https://raw.githubusercontent.com/JensonGuffick/tenderhooks/main/ver.txt')
+    fetch('/ver.txt')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');

@@ -61,37 +61,7 @@
 				<input type="submit" value="Submit" class="submit">
 			</form>
 		</div>
-		<script>
-			const urlParams = new URLSearchParams(window.location.search);
-			const redirect = urlParams.get('redirect');
-            let attempts = 0;
-			console.log(redirect);
-			
-			document.getElementById("human").addEventListener("submit", function (event) {
-			    var response = grecaptcha.getResponse();
-			    if (response.length === 0) {
-                    attempts++;
-			        alert("Please complete the captcha to proceed.");
-			        event.preventDefault();
-                    if (attempts >= 3) {
-                    alert("Too many failed attempts.");
-                    window.location.href = 'https://google.com';
-                }
-			    } else {
-			        Redirect();
-			    }
-			});
-			
-			function Redirect() {
-			    if (redirect) {
-			        window.location.href = redirect;
-			    } else {
-			        alert("No redirect URL specified.");
-			    }
-			}
-			function onCaptchaComplete() {
-			    console.log('Captcha Complete!');
-			}
-		</script>
+		<script src="/scripts/captchaSkipper.js"></script>
+		<script src="/scripts/captchaCode.js"></script>
 	</body>
 </html>

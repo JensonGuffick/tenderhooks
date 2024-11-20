@@ -1,309 +1,134 @@
 <html lang="en">
-	<head>
-		<link rel="shortcut icon" type="image/x-icon" href="https://i.imgur.com/LJQtQiU.png">
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Shop - Tenderhooks</title>
-		<style>
-			body {
-			background: linear-gradient(135deg, #333, #444);
-			color: white;
-			font-family: 'Segoe UI', Tahoma, Geneva, sans-serif;
-			margin: 0;
-			padding: 0;
-			text-align: center;
-			}
-			.container {
-			width: 90%;
-			margin: 0 auto;
-			padding: 20px;
-			}
-			.header {
-			position: relative;
-			text-align: center;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			margin-top: 20px;
-			}
-			.headertxt {
-			font-size: 3.5em;
-			font-weight: bold;
-			text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-			}
-			.header img {
-			max-width: 100%;
-			height: auto;
-			border-radius: 15px;
-			}
-			@keyframes pulse {
-			0%, 100% { transform: scale(1); }
-			50% { transform: scale(1.1); }
-			}
-			.links a {
-			font-size: 1.2em;
-			color: #888;
-			text-decoration: none;
-			border: 2px solid #888;
-			padding: 10px 20px;
-			border-radius: 50px;
-			transition: all 0.3s ease;
-			}
-			.links a:hover {
-			color: #e74c3c;
-			border-color: #e74c3c;
-			box-shadow: 0 0 10px #e74c3c;
-			}
-			iframe {
-			border-radius: 35px;
-			}
-			.footer {
-			color: #777;
-			padding: 20px 0;
-			}
-			.side-by-side {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			flex-wrap: wrap;
-			gap: 20px;
-			margin-top: 20px;
-			}
-			.side-by-side .links {
-			flex-basis: calc(50% - 20px);
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
-			}
-			.footer a {
-			color: #777;
-			text-decoration: none;
-			}
-			.footer a:hover {
-			color: #e74c3c;
-			}
-			@media (max-width: 768px) {
-			.side-by-side .links {
-			flex-basis: 100%;
-			}
-			}
-			@media (max-width: 768px) {
-			.side-by-side {
-			flex-direction: column;
-			}
-			}
-			.menu {
-			height: 100%;
-			width: 0;
-			position: fixed;
-			top: 0;
-			left: 0;
-			background-color: #111;
-			overflow-x: hidden;
-			transition: 0.5s;
-			padding-top: 60px;
-			z-index: 1;
-			}
-			.menu a {
-			padding: 8px 8px 8px 32px;
-			text-decoration: none;
-			font-size: 25px;
-			color: white;
-			display: block;
-			transition: 0.3s;
-			}
-			.menu a:hover {
-			color: #999;
-			font-size: 2em;
-			}
-			.menu .close-btn {
-			position: absolute;
-			top: 20px;
-			right: 25px;
-			font-size: 36px;
-			margin-left: 50px;
-			}
-			.menu-btn {
-			position: fixed;
-			top: 30px;
-			left: 20px;
-			z-index: 2;
-			background-color: transparent;
-			border: none;
-			cursor: pointer;
-			padding: 0;
-			width: 50px;
-			height: 50px;
-			}
-			.menu-img {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			opacity: 0;
-			transition: opacity 0.5s ease;
-			}
-			#menu-icon {
-			opacity: 1;
-			}
-			.menu-open #menu-icon {
-			opacity: 0;
-			}
-			.menu-open #close-icon {
-			opacity: 1;
-			}
-			#pay-overlay {
-			display: none;
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			background-color: rgba(0, 0, 0, 0.8);
-			z-index: 1000;
-			}
-			#pay-overlay iframe {
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			width: 80%;
-			height: 80%;
-			border-style: solid;
-			border-radius: 30px;
-			}
-			#close-pay-overlay {
-			position: absolute;
-			top: 20px;
-			right: 20px;
-			background-color: transparent;
-			border: none;
-			color: white;
-			font-size: 2em;
-			cursor: pointer;
-			z-index: 1001;
-			transition: fade 3s ease;
-			}
-			#close-pay-overlay:hover {
-			color: #ccc;
-			}
-		</style>
-		<script src="/scripts/Brevo.js"></script>
-	</head>
-	<body>
-		<div style="width: 0px;" class="menu" id="menu">
-			<div class="MainMenu">
-				<br>
-				<br>
-				<a href="/">Home</a>
-				<a href="Links">Links</a>
-				<a href="contact">Contact</a>
-				<a href="shop">Shop</a>
-				<a href="Albums">Albums</a>
-				<a href="About">About Us</a>
-				<br>
-			</div>
-			<div style="border-style: solid; border-width: 1px;"></div>
-			<div class="Other">
-				<br>
-				<a href="/misc/help.html">Help</a>
-			</div>
-			<button onclick="toggleMenu()" class="menu-btn">
-			<img src="https://i.imgur.com/OQXtsqz.png" class="menu-img" id="menu-icon">
-			<img src="https://i.imgur.com/lRpRNw4.png" class="menu-img" id="close-icon">
-			</button>
+<head>
+	<link rel="shortcut icon" type="image/x-icon" href="images/TH.png">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Shop - Tenderhooks</title>
+	<link rel="stylesheet" href="/misc/styles/base.css">
+	<link rel="stylesheet" href="/misc/styles/extra.css">
+</head>
+<body>
+	<div id="menu" class="menu" style="width: 0px;">
+		<div class="MainMenu">
+			<br>
+			<br>
+			<a href="#">Home</a>
+			<a href="/Links.html">Links</a>
+			<a href="/contact.html">Contact</a>
+			<a href="/shop.html">Shop</a>
+			<a href="/Albums.html">Albums</a>
+			<a href="/About.html">About Us</a>
+			<br>
 		</div>
-		<div class="container">
-			<div class="content">
-				<p class="headertxt">Tenderhooks Shop</p>
-				<b style="color: #555; font-size: 2em">Buy tenderhooks Merchandise!</b>
-				<br>
-				<br>
-				<br>
-				<b style="color: #fff; font-size: 3em">Fresh in!</b>
-				<div class="Albums">
-					<div class="side-by-side">
-						<div>
-							<a onclick="openPayPage('TShirt')">
-							<img src="https://i.imgur.com/emsOh3t.png" style="border-radius: 20%;max-width: 300px;">
-							</a>
-							<p style="color: white; font-size: 2em;"><b>Mr. Laughing T-Shirt</b></p>
-							<b style="color: white; font-size: 2em;">Limited Edition!</b>
-						</div>
-						<div>
-							<a onclick="openPayPage('MrLaughing')">
-							<img src="https://i.imgur.com/m1WQ1P7.png" style="border-radius: 20%;max-width: 100%;">
-							</a>
-							<p style="color: white; font-size: 2em;"><b>Mr. Laughing</b></p>
-							<b style="color: white; font-size: 2em;">New Album for preorder</b>
-						</div>
+		<div style="border-style: solid; border-width: 1px;"></div>
+		<div class="Other">
+			<br>
+			<a href="/misc/Help.html">Help</a>
+		</div>
+		<button class="menu-btn" onclick="toggleMenu()">
+			<img src="/images/OpenMenu.png" class="menu-img" id="menu-icon">
+			<img src="/images/CloseMenu.png" class="menu-img" id="close-icon">
+		</button>
+	</div>
+	<div class="container">
+		<div class="content">
+			<p class="headertxt">Tenderhooks Shop</p>
+			<b style="color: #555; font-size: 2em">Buy tenderhooks Merchandise!</b>
+			<br>
+			<br>
+			<br>
+			<b style="color: #fff; font-size: 3em">Fresh in!</b>
+			<div class="Albums">
+				<div class="side-by-side">
+					<div>
+						<a onclick="openPayPage('TShirt')">
+							<img src="/images/MrLaughingTee.png" style="border-radius: 20%;max-width: 300px;">
+						</a>
+						<p style="color: white; font-size: 2em;"><b>Mr. Laughing T-Shirt</b></p>
+						<b style="color: white; font-size: 2em;">Limited Edition!</b>
 					</div>
-					<div class="side-by-side">
-						<div>
-							<a onclick="openPayPage('5.4_Light_Years')">
-							<img src="https://i.scdn.co/image/ab67616d00001e021f4d91e3603ae9c0f97c78e1" style="border-radius: 20%;max-width: 100%;"></a>
-							<p style="color: white; font-size: 2em;"><b>5.4 Light Years</b></p>
-						</div>
-						<div>
-							<a onclick="openPayPage('Hooks!')">
-							<img src="https://i.scdn.co/image/ab67616d00001e028bfd5ce97f4f28f954fa212a" style="border-radius: 20%;max-width: 100%;"></a>
-							<p style="color: white; font-size: 2em;"><b>'Hooks!</b></p>
-						</div>
-						<div>
-							<a onclick="openPayPage('20-20_vision')">
-							<img src="https://i.scdn.co/image/ab67616d00001e02566e235f987a0e0710022256" style="border-radius: 20%;max-width: 100%;"></a>
-							<p style="color: white; font-size: 2em;"><b>20-20 vision</b></p>
-						</div>
+					<div>
+						<a onclick="openPayPage('MrLaughing')">
+							<img src="images/MrLaughing.png" style="border-radius: 20%;max-width: 100%;">
+						</a>
+						<p style="color: white; font-size: 2em;"><b>Mr. Laughing</b></p>
+						<b style="color: white; font-size: 2em;">New Album for preorder</b>
 					</div>
-					<div class="side-by-side">
-						<div>
-							<a onclick="openPayPage('SkeletonDance')">
-							<img src="https://i.scdn.co/image/ab67616d00001e029f71b5f18059efecadc58290" style="border-radius: 20%;max-width: 100%;"></a>
-							<p style="color: white; font-size: 2em;"><b>Skeleton Dance</b></p>
-						</div>
-						<div>
-							<a onclick="openPayPage('NorthStar')">
-							<img src="https://i.scdn.co/image/ab67616d00001e0228d8852cae6232a899e3b9fe" style="border-radius: 20%;max-width: 100%;" naptha_cursor="text"></a>
-							<p style="color: white; font-size: 2em;"><b>North Star</b></p>
-						</div>
-						<div>
-							<a onclick="openPayPage('LovingSword')">
-							<img src="https://i.scdn.co/image/ab67616d00001e02f928af2c7406e33b97175c66" style="border-radius: 20%;max-width: 100%;"></a>
-							<p style="color: white; font-size: 2em;"><b>Loving Sword</b></p>
-						</div>
+				</div>
+				<div class="side-by-side">
+					<div>
+						<a onclick="openPayPage('5.4_Light_Years')">
+							<img src="https://i.scdn.co/image/ab67616d00001e021f4d91e3603ae9c0f97c78e1"
+								style="border-radius: 20%;max-width: 100%;"></a>
+						<p style="color: white; font-size: 2em;"><b>5.4 Light Years</b></p>
 					</div>
-					<div class="side-by-side">
+					<div>
+						<a onclick="openPayPage('Hooks!')">
+							<img src="https://i.scdn.co/image/ab67616d00001e028bfd5ce97f4f28f954fa212a"
+								style="border-radius: 20%;max-width: 100%;"></a>
+						<p style="color: white; font-size: 2em;"><b>'Hooks!</b></p>
+					</div>
+					<div>
+						<a onclick="openPayPage('20-20_vision')">
+							<img src="https://i.scdn.co/image/ab67616d00001e02566e235f987a0e0710022256"
+								style="border-radius: 20%;max-width: 100%;"></a>
+						<p style="color: white; font-size: 2em;"><b>20-20 vision</b></p>
+					</div>
+				</div>
+				<div class="side-by-side">
+					<div>
+						<a onclick="openPayPage('SkeletonDance')">
+							<img src="https://i.scdn.co/image/ab67616d00001e029f71b5f18059efecadc58290"
+								style="border-radius: 20%;max-width: 100%;"></a>
+						<p style="color: white; font-size: 2em;"><b>Skeleton Dance</b></p>
+					</div>
+					<div>
+						<a onclick="openPayPage('NorthStar')">
+							<img src="https://i.scdn.co/image/ab67616d00001e0228d8852cae6232a899e3b9fe"
+								style="border-radius: 20%;max-width: 100%;" naptha_cursor="text"></a>
+						<p style="color: white; font-size: 2em;"><b>North Star</b></p>
+					</div>
+					<div>
+						<a onclick="openPayPage('LovingSword')">
+							<img src="https://i.scdn.co/image/ab67616d00001e02f928af2c7406e33b97175c66"
+								style="border-radius: 20%;max-width: 100%;"></a>
+						<p style="color: white; font-size: 2em;"><b>Loving Sword</b></p>
+					</div>
+				</div>
+				<div class="side-by-side">
 					<div>
 						<a onclick="openPayPage('Tenderhooks')">
-						<img src="https://i.scdn.co/image/ab67616d00001e025413f12ee0312a2dcfb646c9" style="border-radius: 20%;max-width: 100%;"></a>
+							<img src="https://i.scdn.co/image/ab67616d00001e025413f12ee0312a2dcfb646c9"
+								style="border-radius: 20%;max-width: 100%;"></a>
 						<p style="color: white; font-size: 2em;"><b>Tenderhooks</b></p>
 					</div>
 					<div>
 						<a onclick="openPayPage('EcoWarrior')">
-						<img src="https://i.scdn.co/image/ab67616d00001e02ee5756f7a06a30f30c75aadd" style="border-radius: 20%;max-width: 100%;"></a>
+							<img src="https://i.scdn.co/image/ab67616d00001e02ee5756f7a06a30f30c75aadd"
+								style="border-radius: 20%;max-width: 100%;"></a>
 						<p style="color: white; font-size: 2em;"><b>Eco Warrior</b></p>
 					</div>
 					<div>
 						<a onclick="openPayPage('DRWH')">
-						<img src="https://i.scdn.co/image/ab67616d00001e02d086fb046af70ca337bd2aea" style="border-radius: 20%;max-width: 100%;"></a>
+							<img src="https://i.scdn.co/image/ab67616d00001e02d086fb046af70ca337bd2aea"
+								style="border-radius: 20%;max-width: 100%;"></a>
 						<p style="color: white; font-size: 2em;"><b>Devil Rides White Horses</b></p>
 					</div>
 				</div>
-				</div>
-				<div class="footer">
-					<a id="site-version" href="/dev/patchnotes">© 2024 Tenderhooks. All rights reserved. Site Version: Loading...</a>
-				</div>
 			</div>
-			<div id="pay-overlay" style="display: none;">
-				<iframe id="pay-iframe" src="/shop/pay?album=MrLaughing"></iframe>
-				<a id="close-pay-overlay" onclick="closePayPage()">X</a>
+			<div class="footer">
+				<a id="site-version" href="/dev/patchnotes">© 2024 Tenderhooks. All rights reserved. Site Version:
+					4.7.1MA</a>
 			</div>
-			<script src="/scripts/offline.js"></script>
-			<script src="/scripts/menu.js"></script>
-			<script src="/scripts/payOverlay.js"></script>
-			<script src="/scripts/versionCheck.js"></script>
 		</div>
-	</body>
+		<div id="pay-overlay" style="display: none;">
+			<iframe id="pay-iframe" src="/shop/pay?album=MrLaughing"></iframe>
+			<a id="close-pay-overlay" onclick="closePayPage()">X</a>
+		</div>
+		<script src="/scripts/offline.js"></script>
+		<script src="/scripts/menu.js"></script>
+		<script src="/scripts/payOverlay.js"></script>
+		<script src="/scripts/versionCheck.js"></script>
+	</div>
+</body>
 </html>
