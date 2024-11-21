@@ -36,3 +36,44 @@
 #close-pay-overlay:hover {
     color: #ccc;
 }
+
+.helpInput {
+    background-color: #5f5f5f;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 20px;
+    border: none;
+    width: 600px;
+    height: 50px;
+    font-size: 2em;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+
+.issueInput {
+    background-color: #5f5f5f;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 20px;
+    border: none;
+    width: 600px;
+    height: 200px;
+    font-size: 2em;
+    resize: none;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.helpSubmit {
+    width: 300px;
+    height: 100px;
+    background-color: #5f5f5f;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    font-size: 2em;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    
+}

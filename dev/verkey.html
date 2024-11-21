@@ -35,52 +35,7 @@
         <br>
         <br>
         <a href="javascript:window.history.back();" style="font-size: 2em; color: white;">Go back</a>
-		<script> /** VERSION CHECK **/
-			function fetchVersion() {
-			    fetch('https://raw.githubusercontent.com/JensonGuffick/tenderhooks/main/ver.txt')
-			        .then(response => {
-			            if (!response.ok) {
-			                throw new Error('Network response was not ok');
-			            }
-			            return response.text();
-			        })
-			        .then(version => {
-			            document.getElementById('current-ver').textContent = 'The current version is ' + version.trim();
-			        })
-			        .catch(error => {
-			            console.error('There was a problem with the fetch operation:', error);
-			            document.getElementById('site-version').textContent = 'Version info unavailable! (404)';
-			        });
-			}
-			fetchVersion();
-		</script>
-		<script> /* OFFLINE CHECK */
-			function offlinecheck() {
-				// Check if the URL contains a query parameter to disable the redirect (e.g., ?override=true)
-				const urlParams = new URLSearchParams(window.location.search);
-				const override = urlParams.get('override');
-		
-				// If override is true, skip the redirect
-				if (override === 'yes') {
-					console.log("Offline redirect is temporarily disabled by query parameter.");
-					return; // Stop the redirect
-				}
-		
-				// Fetch the file and proceed with the normal check
-				fetch('https://raw.githubusercontent.com/JensonGuffick/tenderhooks/main/offline.txt')
-					.then(response => response.text()) // Convert the response to text
-					.then(text => {
-						if (text.toLowerCase().includes('yes')) {
-							window.location.href = 'https://offline.tenderhooks.uk';
-						}
-					})
-					.catch(error => {
-						console.error('Error fetching the file:', error);
-					});
-			}
-		
-			// Call the offline check function
-			offlinecheck();
-		</script>
+		<script src="/scripts/versionCheck.js"></script>
+		<script src="/scripts/offline.js"></script>
 	</body>
 </html>

@@ -1,105 +1,111 @@
 <html lang="en">
-	<head>
-		<link rel="shortcut icon" type="image/x-icon" href="https://i.imgur.com/LJQtQiU.png">
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Patchnotes - Tenderhooks</title>
-		<style>
-			body {
-			background-color: #333;
-			color: #fff;
-			font-family: sans-serif;
-			margin: 0;
-			padding: 0;
-			text-align: center;
-			}
-			.container {
-			width: 80%;
-			margin: 0 auto;
-			padding: 20px;
-			padding-top: 0px;
-			}
-			.header {
-			position: relative;
-			text-align: center;
-			overflow: hidden;
-			border-radius: 15px;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			}
-			.version-info {
-			color: #FFFFFF;
-			}
-			table.blueTable {
+<head>
+	<link rel="shortcut icon" type="image/x-icon" href="/images/TH.png">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Patchnotes - Tenderhooks</title>
+	<link rel="stylesheet" href="/misc/styles/base.css">
+	<style>
+		table.blueTable {
 			font-family: "Arial Black", Gadget, sans-serif;
 			width: 100%;
 			text-align: center;
 			border-bottom-left-radius: 10px;
-			}
-			table.blueTable td, table.blueTable th {
+		}
+
+		table.blueTable td,
+		table.blueTable th {
 			border: 1px solid #FFFFFF;
 			padding: 5px 0px;
 			font-size: 2em;
-			}
-			table.blueTable tbody td {
+		}
+
+		table.blueTable tbody td {
 			font-weight: bold;
 			color: #FFFFFF;
-			}
-			table.blueTable tr:nth-child(even) {
+		}
+
+		table.blueTable tr:nth-child(even) {
 			background: #717171;
-			}
-			table.blueTable thead {
+		}
+
+		table.blueTable thead {
 			background: #262626;
 			border-bottom: 1px solid #B0B0B0;
-			}
-			}
-			table.blueTable thead th:first-child {
+		}
+		}
+
+		table.blueTable thead th:first-child {
 			border-left: none;
-			}
-			table tr:last-child td:first-child {
+		}
+
+		table tr:last-child td:first-child {
 			border-bottom-left-radius: 10px;
-			}
-			table tr:last-child td:last-child {
+		}
+
+		table tr:last-child td:last-child {
 			border-bottom-right-radius: 10px;
-			}
-		</style>
-	</head>
-	<body>
-		<div class="container">
-			<div class="header">
-				<p class="headertxt" style="font-size: 3em;">Patch Notes</p>
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div id="menu" class="menu" style="width: 0px;">
+			<div class="MainMenu">
+				<br>
+				<br>
+				<a href="#">Home</a>
+				<a href="/Links.html">Links</a>
+				<a href="/contact.html">Contact</a>
+				<a href="/shop.html">Shop</a>
+				<a href="/Albums.html">Albums</a>
+				<a href="/About.html">About Us</a>
+				<br>
 			</div>
-			<div class="content">
-				<h2>Patch Notes for this release</h2>
-				<table class="blueTable">
-					<thead>
-						<tr>
-							<th style="border-top-left-radius: 10px;">NUM</th>
-							<th style="border-top-right-radius: 10px;">UPDATED ITEM</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>1</td>
-							<td>No patch notes for this release</td>
-						</tr>
-						</tr>
-					</tbody>
-				</table>
+			<hr>
+			<div class="Other">
+				<br>
+				<a href="/misc/Help.html">Help</a>
+			</div>
+			<button class="menu-btn" onclick="toggleMenu()">
+				<img src="/images/OpenMenu.png" class="menu-img" id="menu-icon">
+				<img src="/images/CloseMenu.png" class="menu-img" id="close-icon">
+			</button>
+		</div>
+		<div class="header">
+			<p class="headertxt" style="font-size: 3em;">Patch Notes</p>
+		</div>
+		<div class="content">
+			<h2>Patch Notes for this release</h2>
+			<table class="blueTable">
+				<thead>
+					<tr>
+						<th style="border-top-left-radius: 10px;">#</th>
+						<th style="border-top-right-radius: 10px;">UPDATED ITEM</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td>No patch notes for this release</td>
+					</tr>
+					</tr>
+				</tbody>
+			</table>
+			<br>
+			<br>
+			<a href="/verkey" class="subheader">See the version key</a>
+			<div class="footer">
 				<br>
 				<br>
-				<a href="/verkey" style="color: white;">See the version key</a>
 				<div class="footer">
-					<br>
-					<br>
-					<div class="footer">
-						<a href="#" id="site-version" style="color: #777;">© 2024 Tenderhooks. All rights reserved. Site Version: Loading...</a>
-					</div>
+					<a id="site-version" href="/dev/patchnotes.html">© 2024 Tenderhooks. All rights reserved. Site Version: Loading...</a>
 				</div>
 			</div>
 		</div>
-		<script src="/scripts/offline.js"></script>
-		<script src="/scripts/offline.js"></script>  
-	</body>
+	</div>
+	<script src="/scripts/offline.js"></script>
+	<script src="/scripts/versionCheck.js"></script>
+	<script src="/scripts/menu.js"></script>
+</body>
 </html>

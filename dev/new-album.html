@@ -4,70 +4,18 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>New Album - Tenderhooks</title>
-		<style>
-			body {
-			background-color: #333;
-			color: #fff;
-			font-family: sans-serif;
-			margin: 0;
-			padding: 0;
-			}
-			.container {
-			width: 80%;
-			margin: 0 auto;
-			padding: 20px;
-			padding-top: 80px;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			}
-			.header .headertxt {
-			font-size: 5em;
-			font-weight: bold;
-			color: #fff;
-			width: 100%;
-			padding: 10px;
-			box-sizing: border-box;
-			}
-			.content {
-			margin-top: 10px;
-			text-align: center;
-			align-items: center;
-			width: 80%;
-			}
-			.content h2 {
-			font-size: 5em;
-			}
-			@media (max-width: 768px) {
-			.header .headertxt {
-			font-size: 7em;
-			padding: 8px;
-			}
-			}
-			@media (max-width: 480px) {
-			.header .headertxt {
-			font-size: 2.5em;
-			padding: 6px;
-			}
-			}
-		</style>
+		<link rel="stylesheet" href="/misc/styles/base.css">
 	</head>
 	<body>
 		<div class="container">
 			<div class="header">
-				<p class="headertxt">New Albums</p>
+				<p class="headertxt">New Album - Mr. Laughing</p>
 			</div>
 			<div class="content">
-				<p style="font-size: 2em;">This album is in preorder, It releases in november.</p>
-				<p style="font-size: 2em; color: white;">
-					The album is available for preorder
-					<a href="/shop" style="color: white;"> here!</a>
+				<p class="subheader"> The album is available for preorder <a href="/shop" style="color: white;"> here!</a>
 				</p>
-				<p style="font-size: 2em;">
-					This album releases in 
-					<a id="countdown">some time</a>
-					!
-				</p>
+				<p id="countdown" class="subheader"> This album releases in X!</p>
+				<a class="subheader" href="javascript:window.history.back()">Go Back</p>
 			</div>
 			<div class="footer">
 				<a href="/dev/patchnotes" id="site-version" style="color: #777;">© 2024 Tenderhooks. All rights reserved. Site Version: Loading...</a>

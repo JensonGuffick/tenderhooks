@@ -1,0 +1,60 @@
+<html lang="en">
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="/images/TH.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help - Tenderhooks</title>
+    <link rel="stylesheet" href="/misc/styles/base.css">
+    <link rel="stylesheet" href="/misc/styles/extra.css">
+    <script src="/scripts/Brevo.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div id="menu" class="menu" style="width: 0px;">
+            <div class="MainMenu">
+                <br>
+                <br>
+                <a href="#">Home</a>
+                <a href="/Links.html">Links</a>
+                <a href="/contact.html">Contact</a>
+                <a href="/shop.html">Shop</a>
+                <a href="/Albums.html">Albums</a>
+                <a href="/About.html">About Us</a>
+                <br>
+            </div>
+            <div style="border-style: solid; border-width: 1px;"></div>
+            <div class="Other">
+                <br>
+                <a href="/misc/Help.html">Help</a>
+            </div>
+            <button class="menu-btn" onclick="toggleMenu()">
+                <img src="/images/OpenMenu.png" class="menu-img" id="menu-icon">
+                <img src="/images/CloseMenu.png" class="menu-img" id="close-icon">
+            </button>
+        </div>
+        <div class="header">
+            <p class="headertxt">Help</p>
+        </div>
+        <div class="content">
+            <p class="subheader">Enter your details below for an email response, or use livechat in the corner.</p>
+
+            <hr>
+            <form class="helpForm" id="contactForm">
+                <p class="subheader">Name:</p><br>
+                <input class="helpInput" type="text" id="name" required><br><br>
+
+                <p class="subheader">Email:</p>
+                <input class="helpInput" type="email" id="email"><br><br>
+
+                <p class="subheader">Issue:</p>
+                <textarea  class="issueInput" id="issue" rows="5" required></textarea><br><br>
+
+                <button class="helpSubmit" class="subheader" type="submit">Submit</button>
+            </form>
+        </div>
+        <script src="/scripts/help.js"></script>
+        <script src="/scripts/menu.js"></script>
+        <script src="/scripts/versionCheck.js"></script>
+        <script src="/scripts/offline.js"></script>
+</body>
+</html>
