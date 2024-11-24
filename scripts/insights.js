@@ -1,8 +1,3 @@
-// NOTE
-// This code is not for collecting data, rather for insights as to tell where our audience comes from.
-
-
-
 function amazonWEBserviceInit() {
     if (document.cookie.split('; ').find(row => row.startsWith('insights='))) {
         console.log("Cookie found, no need to send location.");
@@ -13,14 +8,14 @@ function amazonWEBserviceInit() {
 }
 
 function fallbackToIP() {
-    fetch("http://ip-api.com/json/")
+    fetch("https://ipwho.is/")
         .then(res => res.json())
         .then(data => {
-            if (data.status === "success") {
-                const latitude = data.lat || 0;
-                const longitude = data.lon || 0;
+            if (data.success) {
+                const latitude = data.latitude || 0;
+                const longitude = data.longitude || 0;
                 const city = data.city || "Unknown City";
-                const region = data.regionName || "Unknown Region";
+                const region = data.region || "Unknown Region";
                 const country = data.country || "Unknown Country";
 
                 // Generate Google Maps link
