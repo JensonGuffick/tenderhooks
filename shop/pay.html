@@ -199,13 +199,17 @@
 			let price;
 			if (album) {
 				switch (album) {
+					case 'MrLaughingBundle':
+						message = 'Would you like to order the Mr. Laughing Bundle?';
+						price = 'This costs £20';
+						break;
 					case 'MrLaughing':
-						message = 'Would you like to pre-order the <b>Mr.Laughing</b> album?';
-						price = 'This album costs £10';
+						message = 'Would you like to purchase the <b>Mr.Laughing</b> album?';
+						price = 'This album costs £12';
 						break;
 					case 'TShirt':
-						message = 'Would you like to pre-order the <b>Mr.Laughing T-Shirt?</b>';
-						price = 'This album costs £15';
+						message = 'Would you like to purchase the <b>Mr.Laughing T-Shirt?</b>';
+						price = 'This item costs £15';
 						break;
 					case '5.4_Light_Years':
 						message = 'Would you like to purchase the <b>5.4 Light Years</b> album?';
