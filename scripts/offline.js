@@ -7,11 +7,12 @@ function offlinecheck() {
         return;
     }
     if (override ===! 'yes') {
-        fetch('https://raw.githubusercontent.com/JensonGuffick/tenderhooks/main/offline.txt')
+        fetch('/offline.txt')
             .then(response => response.text())
             .then(text => {
                 if (text.toLowerCase().includes('yes')) {
                     window.location.href = 'https://offline.tenderhooks.uk';
+                console.error('Error fetching the file:', error);
                 }
             })
             .catch(error => {

