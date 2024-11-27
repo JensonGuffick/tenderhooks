@@ -3,10 +3,11 @@ function offlinecheck() {
     const override = urlParams.get('override');
 
     if (override === 'yes') {
-        console.log("Offline redirect is temporarily disabled by query parameter.");
+        console.log("Offline redirect is temporarily disabled.");
         return;
     }
     if (override ===! 'yes') {
+        console.log('No Offline Peram');
         fetch('/offline.txt')
             .then(response => response.text())
             .then(text => {
