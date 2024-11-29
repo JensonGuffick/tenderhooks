@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+	<link rel="shortcut icon" type="image/x-icon" href="/images/TH.png">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Live Arena - Tenderhooks</title>
+	<link rel="stylesheet" href="/misc/styles/base.css">
+	<script src="/scripts/Brevo.js"></script>
+    <style>
+        .YoutubePlayer {
+            height: 70%;
+            width: 100%;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+	<div class="container">
+		<div id="menu" class="menu" style="width: 0px;">
+			<div class="MainMenu">
+				<br>
+				<br>
+				<a href="/">Home</a>
+				<a href="/Links.html">Links</a>
+				<a href="/contact.html">Contact</a>
+				<a href="/shop.html">Shop</a>
+				<a href="/Albums.html">Albums</a>
+				<a href="/About.html">About Us</a>
+				<br>
+			</div>
+			<hr>
+			<div class="Other">
+				<br>
+				<a href="/misc/help.html">Help</a>
+			</div>
+			<button class="menu-btn" onclick="toggleMenu()">
+				<img src="/images/OpenMenu.png" class="menu-img" id="menu-icon">
+				<img src="/images/CloseMenu.png" class="menu-img" id="close-icon">
+			</button>
+		</div>
+		<div class="content">
+			<b class="headertxt">Live Arena!</b><br>
+			<b class="subheader">Watch the gigs here!</b>
+			<br><br><hr><br>
+			<div class="container">
+                <b id="countdown" class="subheader">Fetching next live...</b><br>
+                <iframe src="https://www.youtube.com/embed/EgAHHOuVFkw?si=A1OtllxP1z3dSi5-" id="YoutubePlayer" class="YoutubePlayer"></iframe>
+            </div>
+		</div>
+		<script src="/scripts/menu.js"></script>
+        <script src="/scripts/LiveArena.js"></script>
+		<script src="/scripts/versionCheck.js"></script>
+		<script src="/scripts/offline.js"></script>
+		<script src="/scripts/insights.js"></script>
+	</div>
+</body>
+</html>
