@@ -11,6 +11,15 @@
             width: 100%;
             display: none;
         }
+		body {
+			margin-top: 70px;
+		}
+		.normalfont {
+			font-size: 30px;
+			color: #ececec;
+			font-weight: bold;
+			text-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+		}
     </style>
 </head>
 <body>
@@ -38,11 +47,12 @@
 			</button>
 		</div>
 		<div class="content">
-			<b class="headertxt">Live Arena!</b><br>
+			<b class="headertxt">Welcome to the Live Arena!</b><br><hr><br>
 			<b class="subheader">Watch the gigs here!</b>
 			<br><br><hr><br>
 			<div class="container">
-                <b id="countdown" class="subheader">Fetching next live...</b><br>
+				<b class="normalfont">This gig was in the neptune inn on the 23/11</b>
+                <b id="countdown" class="normalfont">Fetching next live...</b><br>
                 <iframe src="https://www.youtube.com/embed/EgAHHOuVFkw?si=A1OtllxP1z3dSi5-" id="YoutubePlayer" class="YoutubePlayer"></iframe>
             </div>
 		</div>
