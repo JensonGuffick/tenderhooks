@@ -50,12 +50,21 @@ body {
     margin: 20px;
 }
 
+.homelinksholder {
+    display: flex;
+    overflow-y: hidden;
+}
+
 .Homelinks {
     border: dashed 1px;
     border-color: #ffffff;
     border-radius: 50px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     padding: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     transition: ease box-shadow 0.5s;
 }
 
@@ -70,8 +79,9 @@ body {
 }
 
 .homelinkimg {
-    max-width: 100%
+    max-width: 200px;
 }
+
 
 iframe {
     border: dashed 1px;
@@ -95,14 +105,6 @@ iframe {
 }
 
 @media (max-width: 768px) {
-    .side-by-side .links {
-        flex-basis: 100%;
-    }
-
-    .side-by-side {
-        flex-direction: column;
-    }
-
     .headertxt {
         font-size: 3em;
     }
